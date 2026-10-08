@@ -23,6 +23,9 @@ The website is one file, `index.html`, plus the `photos` folder and the icon fil
   - the date tile: the big number (`<span class="d">13</span>`) and the month (`<span class="m">Oct</span>`).
   - the tag (`<span class="chip">Meeting</span>`): one word, such as Meeting, Seminar, Workshop, Kickoff, Social or Conference.
   - the date line, the title and the description.
+- **Sign-up link (Luma):** events are created on the chapter's Luma account (https://luma.com/user/informsnu, signs in with Google as informsnu@gmail.com). To add a sign-up button to an event, paste this line just after the event's description, inside its `<div>`, with the event's own Luma link:
+  `<a class="signup" href="https://luma.com/EVENT-LINK" target="_blank" rel="noopener">Sign up on Luma</a>`
+- **Luma line under the events:** the line "Sign up for events and get invites on Luma" is already in EVENTS but hidden. Once the first event is on Luma, delete the word `hidden` from `<p class="on-luma" hidden>`.
 - **After an event:** delete it from the upcoming list and update "From past years" with the title, date and a photo if you have one (upload it to `photos/`).
 - **New officer:** in BOARD, copy one `<div class="person"> ... </div>` block and change the role, name and program.
 - **Officer LinkedIn:** officers add their profile link to the LinkedIn column of the 2026-27 Board roster sheet in Drive. To put it on the site, copy Thavishka's block (it starts with `<a class="person"`), change the link, name, `aria-label`, role and program. The whole card then opens their LinkedIn in a new tab. Officers without a link keep a plain `<div class="person">` block.
