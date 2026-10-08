@@ -5,8 +5,8 @@ The website is one file, `index.html`, plus the `photos` folder. You don't need 
 ## Where things live
 
 - The site files: GitHub, https://github.com/informs-northeastern/website (the account signs in with informsnu@gmail.com).
-- Publishing: Cloudflare Pages, account informsnu@gmail.com. Every change saved on GitHub goes live in about a minute.
-- Logins for both: ask the President or VP. They pass with the informsnu@gmail.com handover each year.
+- Publishing: GitHub Pages (repository Settings > Pages). The live site is https://informs-northeastern.github.io/website/ and every change saved on GitHub goes live in about a minute.
+- Login: ask the President or VP. They pass with the informsnu@gmail.com handover each year.
 
 ## Making a change (in the browser, no installs)
 
