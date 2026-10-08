@@ -25,7 +25,16 @@
  "name": "INFORMS Student Chapter at Northeastern University", "alternateName": "INFORMS at Northeastern",
  "url": "https://informs-northeastern.github.io/website/", "logo": "https://informs-northeastern.github.io/website/apple-touch-icon.png", "email": "informsnu@gmail.com", "foundingDate": "2015",
  "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Northeastern University"},
- "sameAs": ["https://www.linkedin.com/company/informsneu/", "https://www.instagram.com/informs_nu/", "https://luma.com/user/informsnu"]}
+ "sameAs": ["https://www.linkedin.com/company/informsneu/", "https://www.instagram.com/informs_nu/", "https://luma.com/calendar/cal-WJAcRwOTXltKmsr"]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Event", "name": "INFORMS General Member Meeting",
+ "startDate": "2026-10-13T13:00:00-04:00", "endDate": "2026-10-13T14:00:00-04:00",
+ "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+ "location": {"@type": "Place", "name": "Northeastern University", "address": "360 Huntington Ave, Boston, MA 02115"},
+ "organizer": {"@type": "Organization", "name": "INFORMS Student Chapter at Northeastern University", "url": "https://informs-northeastern.github.io/website/"},
+ "isAccessibleForFree": true, "url": "https://luma.com/di4y903v",
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "https://luma.com/di4y903v", "availability": "https://schema.org/InStock"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,8 +224,14 @@
   .cal li:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 14px 30px -18px rgba(15,31,61,.45); }
   .signup { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 16px; font: 600 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; background: var(--navy); color: var(--on-navy); }
   .signup:hover { background: var(--gold-ink); }
-  .on-luma { margin-top: 18px; font-size: 16px; color: var(--ink-soft); }
-  .on-luma a { color: var(--ink); font-weight: 500; }
+  .luma-bar { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 18px 22px; background: var(--navy); color: var(--on-navy); }
+  .luma-bar b { font: 500 20px/1.3 var(--serif); }
+  .luma-bar span { display: block; margin-top: 2px; font-size: 14px; color: var(--on-navy-soft); }
+  .luma-bar a { display: inline-flex; padding: 13px 18px; background: var(--gold); color: var(--navy-deep); font: 600 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+  .luma-bar a:hover { background: var(--on-navy); }
+  .cal .meta { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 14.5px; color: var(--ink-soft); }
+  .cal .meta .signup { margin-top: 0; cursor: pointer; }
+  .stat { display: inline-block; margin-top: 14px; padding: 6px 10px; border: 1px solid var(--navy-line); font: 500 12.5px/1.4 var(--mono); color: var(--on-navy); }
   .chip { display: inline-block; margin-right: 10px; padding: 3px 8px; font: 700 11px/1.4 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; background: var(--navy); color: var(--gold); vertical-align: 1px; }
   .date { background: var(--navy); color: var(--on-navy); text-align: center; padding: 14px 8px 12px; }
   .date .d { display: block; font: 400 34px/1 var(--serif); font-variant-numeric: lining-nums; }
@@ -547,10 +562,11 @@
     <div class="label"><span class="n">03</span><span class="t">Events</span></div>
     <div>
       <h2>Free and open to every <em>Northeastern student</em></h2>
+      <div class="luma-bar"><div><b>Get every invite first</b><span>Subscribe to the chapter calendar on Luma: new events go straight to your inbox and calendar.</span></div><a href="https://luma.com/calendar/cal-WJAcRwOTXltKmsr" target="_blank" rel="noopener">Subscribe on Luma</a></div>
       <ol class="cal">
         <li data-date="2026-10-13">
           <div class="date" aria-hidden="true"><span class="d">13</span><span class="m">Oct</span></div>
-          <div><span class="chip">Meeting</span><span class="when">Tue 13 Oct 2026</span><h3>General Member Meeting</h3><p>Meet the board and help shape this year's seminars, workshops and gatherings. Time and room to be announced.</p></div>
+          <div><span class="chip">Meeting</span><span class="when">Tue 13 Oct 2026 &middot; 1:00&ndash;2:00 PM</span><h3>General Member Meeting</h3><p>Meet the board and help shape this year's seminars, workshops and gatherings. Northeastern University, Boston; room to be announced to everyone who registers.</p><div class="meta"><a class="signup" href="https://luma.com/di4y903v" target="_blank" rel="noopener" data-luma-action="checkout" data-luma-event-id="evt-VfssmKUtUBgoeeC">Register</a><span>Free &middot; open to every Northeastern student</span></div></div>
         </li>
         <li>
           <div class="date" aria-hidden="true"><span class="d">Late</span><span class="m">Oct</span></div>
@@ -561,8 +577,6 @@
           <div><span class="chip">Conference</span><span class="when">1 to 4 Nov 2026</span><h3>INFORMS Annual Meeting, San Francisco</h3><p>The field's largest conference, where the Student Chapter Annual Awards are presented. Members attending, let us know.</p></div>
         </li>
       </ol>
-      <!-- EDIT: delete the word hidden below once the first event is on Luma -->
-      <p class="on-luma" hidden>Sign up for events and get invites on <a href="https://luma.com/user/informsnu" target="_blank" rel="noopener">Luma</a>.</p>
 
       <div class="past">
         <div class="entry">
@@ -707,7 +721,7 @@
       </div>
       <div>
         <p class="fh">Connect</p>
-        <ul><li><a href="#join">Join</a></li><li><a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a></li><li><a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://luma.com/user/informsnu" target="_blank" rel="noopener">Events on Luma</a></li></ul>
+        <ul><li><a href="#join">Join</a></li><li><a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a></li><li><a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://luma.com/calendar/cal-WJAcRwOTXltKmsr" target="_blank" rel="noopener">Events on Luma</a></li></ul>
       </div>
     </div>
     <div class="legal">
@@ -717,6 +731,9 @@
   </div>
 </footer>
 
+
+<!-- Luma registration pop-up for every link with data-luma-action="checkout". -->
+<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 
 <!-- Next-event countdown: reads data-date on the event list; hides itself when no dated event is ahead. -->
 <script>
