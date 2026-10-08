@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INFORMS at Northeastern</title>
+<meta name="description" content="The INFORMS Student Chapter at Northeastern University: seminars, workshops and events in operations research and analytics. Free and open to every Northeastern student.">
+<meta property="og:title" content="INFORMS at Northeastern">
+<meta property="og:description" content="The INFORMS Student Chapter at Northeastern University. Operations research and analytics, studied and practiced together.">
+<meta property="og:image" content="photos/group.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap">
+<!-- ===== DESIGN (colours, fonts, spacing). Content editors can skip this block; scroll down to the EDIT markers. ===== -->
+<style>
+  /* Layout: a printed academic programme, one centred column with ruled sections; navy, vellum and a single gold accent. */
+  :root {
+    --paper: #FFFFFF;
+    --vellum: #F6F4EF;
+    --ink: #0F1F3D;
+    --ink-soft: #4A5670;
+    --ink-faint: #6E778A;
+    --rule: #D8D4CA;
+    --navy: #0F1F3D;
+    --on-navy: #F3F1EA;
+    --on-navy-soft: #B3B9C7;
+    --gold: #9C7A3C;
+    --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+    --sans: "Libre Franklin", "Franklin Gothic Book", "Segoe UI", sans-serif;
+    --wrap: 1080px;
+    color-scheme: only light;
+  }
+  :root, :root[data-theme] { color-scheme: only light; }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 19px/1.6 var(--serif); font-variant-numeric: oldstyle-nums; }
+  .gutter { padding-inline: 16px; }
+  .wrap { max-width: var(--wrap); margin-inline: auto; }
+  a { color: var(--ink); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  .sc { font: 500 12px/1.4 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* Masthead */
+  .masthead .wrap { text-align: center; padding-block: 38px 0; }
+  .masthead .est { display: flex; justify-content: center; gap: 14px; }
+  .masthead .est span + span::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); vertical-align: middle; margin-right: 14px; }
+  .masthead h1 { margin-top: 14px; font-size: clamp(34px, 5vw, 54px); font-weight: 500; letter-spacing: 0.01em; }
+  .masthead .sub { margin-top: 6px; font-style: italic; color: var(--ink-soft); font-size: 18px; }
+  .rules { margin-top: 26px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); height: 5px; }
+  nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 30px; list-style: none; margin: 0; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  nav a { display: inline-block; padding-block: 4px; font: 500 12px/1.4 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; }
+  nav a:hover { text-decoration: underline; text-decoration-color: var(--gold); }
+
+  /* Opening */
+  .opening .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding-block: 64px 60px; }
+  .opening h2 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 400; line-height: 1.18; }
+  .opening h2 em { font-style: italic; }
+  .opening .lede { margin-top: 22px; color: var(--ink-soft); max-width: 32em; }
+  .actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { display: inline-block; padding: 12px 26px; font: 500 12px/1.4 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+  .btn.solid { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  figure.plate { margin: 0; padding: 18px; border: 1px solid var(--rule); background: var(--vellum); }
+  figure.plate canvas { display: block; width: 100%; max-width: 100%; aspect-ratio: 5 / 4; }
+  figure.plate figcaption { margin-top: 10px; text-align: center; font-style: italic; font-size: 15px; color: var(--ink-soft); }
+
+  .mission { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--vellum); }
+  .mission .wrap { padding-block: 44px; text-align: center; }
+  .mission p { margin-inline: auto; max-width: 36em; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.45; font-style: italic; }
+  .mission .ornament { display: block; margin: 0 auto 16px; width: 40px; border-top: 1px solid var(--gold); }
+
+  section .wrap { padding-block: 60px; }
+  section + section .wrap { border-top: 1px solid var(--rule); }
+  .shead { text-align: center; margin-bottom: 36px; }
+  .shead h2 { font-size: clamp(30px, 3.6vw, 40px); }
+  .shead p { margin-top: 8px; color: var(--ink-soft); font-style: italic; }
+
+  .figures { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .figures div { padding: 24px 16px; text-align: center; }
+  .figures div + div { border-left: 1px solid var(--rule); }
+  .figures b { display: block; font: 400 44px/1 var(--serif); font-variant-numeric: lining-nums; }
+  .figures span { display: block; margin-top: 10px; font: 400 13px/1.45 var(--sans); color: var(--ink-soft); }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+  .about p + p { margin-top: 16px; }
+  .about .body { color: var(--ink-soft); max-width: 32em; }
+  .about .body strong { color: var(--ink); font-weight: 500; }
+  figure.photo { margin: 0; }
+  figure.photo img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+  figure.photo figcaption { margin-top: 10px; font-style: italic; font-size: 15px; color: var(--ink-soft); }
+
+  .feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+  .feature h3 { font-size: clamp(26px, 3vw, 32px); margin-top: 8px; }
+  .feature p { margin-top: 14px; color: var(--ink-soft); max-width: 32em; }
+  .facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .facts li { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 17px; }
+  .facts li span:first-child { font: 500 11px/2 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+  .also { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .also h3 { font-size: 23px; padding-bottom: 8px; border-bottom: 1px solid var(--gold); }
+  .also p { margin-top: 10px; font-size: 17px; color: var(--ink-soft); }
+  .note { margin-top: 30px; text-align: center; font-style: italic; font-size: 15px; color: var(--ink-faint); }
+
+  /* Events */
+  .cal { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .cal li { display: grid; grid-template-columns: 170px 1fr; gap: 6px 28px; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+  .cal .when { font: 500 12px/1.9 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); font-variant-numeric: lining-nums; }
+  .cal h3 { font-size: 22px; }
+  .cal p { margin-top: 4px; color: var(--ink-soft); font-size: 17px; }
+  .cal .tag { display: inline-block; margin-left: 8px; font: 500 10px/1.6 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); vertical-align: 3px; }
+  .sub-h { margin: 48px 0 18px; text-align: center; }
+  .sub-h h3 { font-size: 24px; }
+  .past { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .past .entry { border-top: 1px solid var(--ink); padding-top: 14px; }
+  .past .when { font: 500 12px/1.9 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .past h3 { font-size: 22px; margin-top: 4px; }
+  .past p { margin-top: 6px; color: var(--ink-soft); font-size: 17px; }
+
+  .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 24px; }
+  .person { text-align: center; }
+  .portrait { width: 100%; max-width: 168px; margin-inline: auto; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: var(--vellum); border: 1px solid var(--rule); display: grid; place-items: center; font: italic 30px/1 var(--serif); color: var(--ink-faint); margin-bottom: 14px; }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .portrait.has-photo { overflow: hidden; }
+  .person b { display: block; font: 500 21px/1.25 var(--serif); }
+  .person span { display: block; margin-top: 4px; font: 400 13px/1.5 var(--sans); color: var(--ink-soft); }
+  .person .role { font: 500 11px/1.5 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .roles { margin-top: 48px; text-align: center; }
+  .roles h3 { font-size: 24px; }
+  .roles p { margin-top: 6px; font-style: italic; color: var(--ink-soft); }
+  .roles ul { list-style: none; margin: 18px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; max-width: 46rem; }
+  .roles li { font: 400 13px/1.8 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); padding-inline: 14px; }
+  .roles li + li { border-left: 1px solid var(--rule); }
+
+  .honors-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; }
+  .honors { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .honors li { display: grid; grid-template-columns: 80px 1fr; gap: 20px; padding-block: 12px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .honors .yr { font: 500 13px/1 var(--sans); letter-spacing: 0.12em; color: var(--ink-soft); font-variant-numeric: lining-nums; }
+  .honors .tier { font-size: 21px; font-style: italic; }
+  .honors .top .tier { color: var(--gold); }
+  .honors-note { margin-top: 16px; font-style: italic; font-size: 15px; color: var(--ink-faint); }
+
+  .bylaws { max-width: 46rem; margin-inline: auto; }
+  .bylaws > p { color: var(--ink-soft); text-align: center; }
+  .bylaws dl { margin: 28px 0 0; border-top: 1px solid var(--ink); }
+  .bylaws dl div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+  .bylaws dt { font: 500 11px/2 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+  .bylaws dd { margin: 0; font-size: 17px; }
+
+  .join { background: var(--navy); color: var(--on-navy); }
+  .join .wrap { padding-block: 64px; text-align: center; }
+  .join h2 { font-size: clamp(30px, 3.6vw, 40px); }
+  .join p { margin: 12px auto 0; max-width: 34em; color: var(--on-navy-soft); font-style: italic; }
+  .join .cta { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .join .btn { border-color: var(--on-navy); color: var(--on-navy); }
+  .join .btn.solid { background: var(--on-navy); color: var(--navy); }
+  .join .btn:hover { background: var(--on-navy); color: var(--navy); }
+  .join .ways { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 30px; font: 500 12px/1.6 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; }
+  .join a { color: var(--on-navy); text-decoration-color: var(--gold); }
+  .join .email { font: 400 20px/1 var(--serif); letter-spacing: 0; text-transform: none; user-select: all; }
+
+  footer .wrap { padding-block: 34px 44px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px 48px; font: 400 13px/1.7 var(--sans); color: var(--ink-soft); border-top: 1px solid var(--rule); }
+  footer b { font: 500 18px/1.3 var(--serif); color: var(--ink); display: block; margin-bottom: 6px; }
+  footer .right { text-align: right; }
+
+  @supports not (aspect-ratio: 1) {
+    figure.plate canvas { height: 320px; }
+    .portrait { height: 168px; }
+  }
+  @media (max-width: 860px) {
+    .opening .wrap, .feature, .about, .honors-grid, .past, footer .wrap { grid-template-columns: 1fr; }
+    .figures { grid-template-columns: repeat(2, 1fr); }
+    .figures div:nth-child(3) { border-left: 0; }
+    .figures div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .also { grid-template-columns: 1fr; }
+    .cal li { grid-template-columns: 1fr; }
+    .people { grid-template-columns: repeat(3, 1fr); }
+    footer .right { text-align: left; }
+    nav ul { gap: 0 20px; padding: 6px 0; }
+    nav a { padding-block: 12px; }
+    .opening .wrap { padding-block: 44px 48px; gap: 40px; }
+    figure.plate { max-width: 520px; width: 100%; margin-inline: auto; }
+    section .wrap { padding-block: 48px; }
+  }
+  @media (max-width: 600px) {
+    .people { grid-template-columns: repeat(2, 1fr); }
+    .bylaws dl div { grid-template-columns: 1fr; gap: 2px; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 18px; }
+    .masthead .wrap { padding-top: 26px; }
+    .masthead .sub { font-size: 16px; }
+    .masthead .est { flex-wrap: wrap; gap: 4px 14px; }
+    .actions .btn, .join .cta .btn { flex: 1 1 100%; text-align: center; padding-block: 14px; }
+    figure.plate { padding: 10px; }
+    .figures b { font-size: 36px; }
+    .figures div { padding: 20px 10px; }
+    .roles ul { flex-direction: column; gap: 0; }
+    .roles li { padding-block: 8px; }
+    .roles li + li { border-left: 0; border-top: 1px solid var(--rule); }
+    .people { gap: 28px 16px; }
+    .person b { font-size: 19px; }
+    .honors .tier { font-size: 19px; }
+    .facts li { grid-template-columns: 96px 1fr; }
+    .join .ways { flex-direction: column; align-items: center; gap: 14px; }
+    .join .ways a { padding-block: 6px; }
+  }
+  @media (max-width: 360px) {
+    .masthead h1 { font-size: 30px; }
+    .figures { grid-template-columns: 1fr; }
+    .figures div + div { border-left: 0; border-top: 1px solid var(--rule); }
+  }
+</style>
+</head>
+<body>
+<!-- ===== EDIT: TOP OF PAGE (chapter name and menu) ===== -->
+<header class="masthead gutter" id="top">
+  <div class="wrap">
+    <p class="sc est"><span>Est. 2015</span><span>Boston, Massachusetts</span></p>
+    <h1>INFORMS at Northeastern</h1>
+    <p class="sub">The INFORMS Student Chapter at Northeastern University, a Northeastern University Student Group</p>
+    <div class="rules" aria-hidden="true"></div>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#bylaws">Bylaws</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<!-- ===== EDIT: OPENING (headline, intro, buttons; the animated drawing needs no changes) ===== -->
+<div class="opening gutter">
+  <div class="wrap">
+    <div>
+      <p class="sc">Operations research and analytics</p>
+      <h2 style="margin-top:16px">The science of better decisions, <em>studied and practiced together.</em></h2>
+      <p class="lede">Scheduling, supply chains, healthcare, energy and artificial intelligence all rest on operations research. The chapter brings together undergraduates, master's students, doctoral students and faculty to learn it, apply it, and meet those who practice it.</p>
+      <div class="actions">
+        <a class="btn solid" href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform">Become a member</a>
+        <a class="btn" href="#events">Upcoming events</a>
+      </div>
+    </div>
+    <figure class="plate">
+      <canvas id="lp" role="img" aria-label="A linear program drawn as an engraving: a feasible region with a point moving along its corners toward the optimum."></canvas>
+      <figcaption>Fig. 1. The simplex method, one vertex at a time.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- ===== EDIT: MISSION LINE ===== -->
+<div class="mission gutter">
+  <div class="wrap">
+    <span class="ornament" aria-hidden="true"></span>
+    <p>A venue for learning, a catalyst for professional advancement, and an opportunity for camaraderie.</p>
+  </div>
+</div>
+
+<!-- ===== EDIT: NUMBERS (update the LinkedIn follower count now and then) ===== -->
+<section class="gutter" aria-label="The chapter in figures">
+  <div class="wrap">
+    <div class="figures">
+      <div><b>2015</b><span>Year of founding</span></div>
+      <div><b>7</b><span>National chapter awards, 2017 to 2023</span></div>
+      <div><b>2022</b><span>Summa Cum Laude, the highest honor</span></div>
+      <div><b>1,000+</b><span>Followers on LinkedIn</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: ABOUT ===== -->
+<section class="gutter" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <p class="sc">About the chapter</p>
+        <h2 style="margin-top:12px;font-size:clamp(28px,3.4vw,38px)">A community of students who care about decisions</h2>
+        <div class="body" style="margin-top:18px">
+          <p>INFORMS at Northeastern is a community of graduate and undergraduate students passionate about <strong>operations research, data analytics and industrial engineering</strong>. Founded in the summer of 2015, the chapter bridges academic theory and practical application through seminars, workshops, research talks and networking.</p>
+          <p>We are the Northeastern chapter of INFORMS, the Institute for Operations Research and the Management Sciences, the largest professional society in the field. Membership is free and open to every Northeastern student, in any program.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="photos/group.jpg" width="1600" height="899" alt="About forty chapter members standing together for a group photo in a formal room with portraits on the wall.">
+        <figcaption>Chapter members at a chapter gathering.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: PROGRAMS ===== -->
+<section class="gutter" id="programs">
+  <div class="wrap">
+    <div class="shead"><h2>Programs</h2><p>Open to every program and every year of study.</p></div>
+    <div class="feature">
+      <div>
+        <p class="sc">The principal program</p>
+        <h3>The Speaker Seminar Series</h3>
+        <p>Each month, a member of the faculty, an alumnus or alumna, or a Boston practitioner presents how optimization, simulation and analytics are used on real problems, followed by open discussion.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Format</span><span>Lecture and discussion</span></li>
+        <li><span>Frequency</span><span>Monthly</span></li>
+        <li><span>Audience</span><span>Undergraduate, master's, doctoral, faculty</span></li>
+        <li><span>Location</span><span>Boston campus</span></li>
+        <li><span>First date</span><span>To be announced</span></li>
+      </ul>
+    </div>
+    <div class="also">
+      <div><h3>Skills Workshops</h3><p>Solvers, Python for optimization, simulation and data visualization.</p></div>
+      <div><h3>Doctoral Lightning Talks</h3><p>Short research talks by doctoral students, open to all.</p></div>
+      <div><h3>Gatherings</h3><p>Coffee hours and outings across programs.</p></div>
+    </div>
+    <p class="note">Programs planned for 2026-27. Members shape the final calendar at the general meeting.</p>
+  </div>
+</section>
+
+<!-- ===== EDIT: EVENTS. Upcoming: copy one <li>...</li> block and change it. After an event, move it to "From past years". ===== -->
+<section class="gutter" id="events">
+  <div class="wrap">
+    <div class="shead"><h2>Events</h2><p>Free and open to every Northeastern student.</p></div>
+    <ol class="cal">
+      <li>
+        <span class="when">Tue 13 Oct 2026</span>
+        <div><h3>General Member Meeting</h3><p>Meet the board and help shape this year's seminars, workshops and gatherings. Time and room to be announced.</p></div>
+      </li>
+      <li>
+        <span class="when">Late Oct 2026</span>
+        <div><h3>Kickoff and Welcome <span class="tag">With MIE</span></h3><p>The opening event of the year, for members and the faculty and students of Mechanical and Industrial Engineering. Coffee and refreshments courtesy of the MIE department. Date and room to be announced.</p></div>
+      </li>
+      <li>
+        <span class="when">1 to 4 Nov 2026</span>
+        <div><h3>INFORMS Annual Meeting, San Francisco</h3><p>The field's largest conference, where the Student Chapter Annual Awards are presented. Members attending, let us know.</p></div>
+      </li>
+    </ol>
+
+    <div class="sub-h"><p class="sc">From past years</p></div>
+    <div class="past">
+      <div class="entry">
+        <span class="when">17 February 2026</span>
+        <h3>AI, Optimization and Machine Learning in OM Applications</h3>
+        <p>A joint seminar with Georgia Perakis, William F. Pounds Professor, MIT Sloan School of Management.</p>
+      </div>
+      <figure class="photo">
+        <img src="photos/award.jpg" width="1600" height="899" alt="Four people on stage at the INFORMS Annual Meeting, two holding an INFORMS Student Chapter Annual Award certificate for the Northeastern University Student Chapter.">
+        <figcaption>Chapter members accept an INFORMS Student Chapter Annual Award at the INFORMS Annual Meeting.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: BOARD. One <div class="person"> per officer. Photo: put photos/board/firstname_lastname.jpg (square) in place of the initials. ===== -->
+<section class="gutter" id="people">
+  <div class="wrap">
+    <div class="shead"><h2>Officers and Advisor</h2><p>The board for the 2026-27 academic year.</p></div>
+    <div class="people">
+      <div class="person"><div class="portrait" aria-hidden="true">SP</div><span class="role">President</span><b>Shokuh Puladi</b><span>PhD, Industrial Engineering</span></div>
+      <div class="person"><div class="portrait has-photo"><img src="photos/board/thavishka_gamage.jpg" width="564" height="564" alt="Thavishka Gamage" loading="lazy"></div><span class="role">Vice President</span><b>Thavishka Gamage</b><span>PhD, Industrial Engineering</span></div>
+      <div class="person"><div class="portrait" aria-hidden="true">BK</div><span class="role">Treasurer</span><b>Berke Kemahli</b></div>
+      <div class="person"><div class="portrait" aria-hidden="true">SS</div><span class="role">Secretary</span><b>Sena Sivrikaya</b><span>MS, Industrial Engineering</span></div>
+      <div class="person"><div class="portrait" aria-hidden="true">CD</div><span class="role">Webmaster</span><b>Chirag Daas</b><span>Industrial Engineering and Business</span></div>
+      <div class="person"><div class="portrait" aria-hidden="true">AK</div><span class="role">Membership Outreach</span><b>Aditya Kadlabal Sripad</b><span>MS, Engineering Management</span></div>
+      <div class="person"><div class="portrait" aria-hidden="true">KW</div><span class="role">Community Service</span><b>Kira Woodhouse</b><span>PhD, Industrial Engineering</span></div>
+      <div class="person"><div class="portrait" aria-hidden="true">AA</div><span class="role">Faculty Advisor</span><b>Alp Akcay</b><span>Mechanical and Industrial Engineering</span></div>
+    </div>
+    <div class="roles">
+      <h3>Open Positions</h3>
+      <p>Interested in leading one of these? Write to informsnu@gmail.com.</p>
+      <ul>
+        <li>Communications</li><li>Events</li><li>Industry and Alumni Relations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: HONORS. Add a new <li> at the top of the list when the chapter wins an award. ===== -->
+<section class="gutter" id="honors">
+  <div class="wrap">
+    <div class="shead"><h2>Honors</h2><p>INFORMS Student Chapter Annual Awards, conferred at the INFORMS Annual Meeting.</p></div>
+    <div class="honors-grid">
+      <div>
+        <ol class="honors">
+          <li><span class="yr">2023</span><span class="tier">Magna Cum Laude</span></li>
+          <li class="top"><span class="yr">2022</span><span class="tier">Summa Cum Laude</span></li>
+          <li><span class="yr">2021</span><span class="tier">Magna Cum Laude</span></li>
+          <li><span class="yr">2020</span><span class="tier">Magna Cum Laude</span></li>
+          <li><span class="yr">2019</span><span class="tier">Magna Cum Laude</span></li>
+          <li><span class="yr">2018</span><span class="tier">Cum Laude</span></li>
+          <li><span class="yr">2017</span><span class="tier">Cum Laude</span></li>
+        </ol>
+        <p class="honors-note">In 2017, Rozhin Doroudi received the Judith Liebman Award for student volunteer leadership.</p>
+      </div>
+      <div class="feature" style="display:block">
+        <p class="sc">The goal for 2026-27</p>
+        <h3>Summa Cum Laude, again</h3>
+        <p>INFORMS recognizes chapters for communications, special events and initiatives, community service and operations. This year's board is rebuilding all four, and every member who comes to an event, gives a talk or volunteers is part of the record.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: BYLAWS. Replace the list with the adopted text once approved. ===== -->
+<section class="gutter" id="bylaws">
+  <div class="wrap">
+    <div class="shead"><h2>Bylaws</h2><p>In preparation by the 2026-27 board.</p></div>
+    <div class="bylaws">
+      <p>The chapter's bylaws are being written on the INFORMS model for student chapters. Once adopted by the membership and approved by INFORMS, the full text will appear here. These are the principles under discussion.</p>
+      <dl>
+        <div><dt>Membership</dt><dd>Open to every Northeastern student with an interest in operations research, the management sciences or analytics. INFORMS membership is not required to join.</dd></div>
+        <div><dt>Officers</dt><dd>A board of elected officers, each a member of INFORMS, serving one-year terms.</dd></div>
+        <div><dt>Elections</dt><dd>Open nominations and an electronic ballot of the membership, decided by majority vote.</dd></div>
+        <div><dt>Meetings</dt><dd>General meetings open to all members, announced in advance.</dd></div>
+        <div><dt>Conduct</dt><dd>Everyone taking part in chapter activities agrees to the <a href="https://www.informs.org/About-INFORMS/Governance/INFORMS-Code-of-Conduct">INFORMS Code of Conduct</a>.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDIT: JOIN (membership form link, email, social links) ===== -->
+<div class="join gutter" id="join">
+  <div class="wrap">
+    <h2>Join the chapter</h2>
+    <p>Membership is free and open to every Northeastern student: undergraduate, master's or doctoral, in any program. Members receive event announcements and invitations, and can help run the chapter.</p>
+    <div class="cta">
+      <a class="btn solid" href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform">Membership form</a>
+      <a class="btn" href="https://www.informs.org/Membership/Join-Informs">INFORMS student membership</a>
+    </div>
+    <div class="ways">
+      <span class="email">informsnu@gmail.com</span>
+      <a href="https://www.linkedin.com/company/informsneu/">LinkedIn</a>
+      <a href="https://www.instagram.com/informs_nu/">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EDIT: FOOTER ===== -->
+<footer class="gutter">
+  <div class="wrap">
+    <div>
+      <b>INFORMS at Northeastern</b>
+      Department of Mechanical and Industrial Engineering<br>
+      Northeastern University, 360 Huntington Avenue, Boston, Massachusetts 02115
+    </div>
+    <div class="right">
+      INFORMS Student Chapter at Northeastern University,<br>
+      a Northeastern University Student Group.<br>
+      Not an official Northeastern University website.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== DO NOT EDIT BELOW: draws the animated figure ===== -->
+<script>
+(function () {
+  var canvas = document.getElementById('lp');
+  var ctx = canvas.getContext('2d');
+  var V = [[0, 0], [7.5, 0], [9, 3], [7, 7], [3, 8.6], [0, 6.2]];
+  var path = [0, 1, 2, 3];
+  var c = [1, 1.1];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  var dims;
+  function size() {
+    var dpr = window.devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dims = { w: w, h: h };
+  }
+  size();
+  function P(pt) {
+    var pad = 30, s = Math.min((dims.w - pad * 2) / 10, (dims.h - pad * 2) / 10);
+    var ox = (dims.w - s * 10) / 2;
+    return [ox + pt[0] * s, dims.h - pad - pt[1] * s];
+  }
+  function draw(t) {
+    var ink = css('--ink'), soft = css('--ink-soft'), rule = css('--rule'), gold = css('--gold');
+    ctx.clearRect(0, 0, dims.w, dims.h);
+    var o = P([0, 0]), xe = P([10, 0]), ye = P([0, 10]);
+    ctx.strokeStyle = ink; ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.moveTo(o[0], o[1]); ctx.lineTo(xe[0], xe[1]); ctx.moveTo(o[0], o[1]); ctx.lineTo(ye[0], ye[1]); ctx.stroke();
+    ctx.fillStyle = soft; ctx.font = 'italic 15px "EB Garamond", Garamond, serif';
+    ctx.fillText('x₁', xe[0] - 8, xe[1] + 20); ctx.fillText('x₂', ye[0] - 22, ye[1] + 8);
+    ctx.save();
+    ctx.beginPath();
+    V.forEach(function (v, i) { var p = P(v); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); });
+    ctx.closePath(); ctx.clip();
+    ctx.strokeStyle = rule; ctx.lineWidth = 0.7;
+    for (var k = -dims.h; k < dims.w + dims.h; k += 7) { ctx.beginPath(); ctx.moveTo(k, dims.h); ctx.lineTo(k + dims.h, 0); ctx.stroke(); }
+    ctx.restore();
+    ctx.save();
+    ctx.beginPath(); ctx.rect(ye[0], ye[1], xe[0] - ye[0], xe[1] - ye[1]); ctx.clip();
+    ctx.setLineDash([2, 6]); ctx.strokeStyle = soft; ctx.lineWidth = 0.6;
+    for (var j = 3; j <= 15; j += 3) { var a = P([0, j / c[1]]), b = P([j / c[0], 0]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+    ctx.restore(); ctx.setLineDash([]);
+    ctx.beginPath();
+    V.forEach(function (v, i) { var p = P(v); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); });
+    ctx.closePath(); ctx.strokeStyle = ink; ctx.lineWidth = 1.2; ctx.stroke();
+    V.forEach(function (v) { var p = P(v); ctx.beginPath(); ctx.arc(p[0], p[1], 2.2, 0, Math.PI * 2); ctx.fillStyle = ink; ctx.fill(); });
+    ctx.strokeStyle = gold; ctx.lineWidth = 2; ctx.beginPath();
+    var start = P(V[path[0]]); ctx.moveTo(start[0], start[1]);
+    var seg = Math.floor(t), frac = t - seg, head = start;
+    for (var i = 1; i < path.length; i++) {
+      var p0 = P(V[path[i - 1]]), p1 = P(V[path[i]]);
+      if (i <= seg) { ctx.lineTo(p1[0], p1[1]); head = p1; }
+      else if (i === seg + 1) { head = [p0[0] + (p1[0] - p0[0]) * frac, p0[1] + (p1[1] - p0[1]) * frac]; ctx.lineTo(head[0], head[1]); }
+    }
+    ctx.stroke();
+    ctx.beginPath(); ctx.arc(head[0], head[1], 4.5, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
+    var opt = P(V[3]);
+    ctx.fillStyle = t >= path.length - 1 ? gold : soft;
+    ctx.font = 'italic 16px "EB Garamond", Garamond, serif';
+    ctx.fillText('optimum', opt[0] + 10, opt[1] - 8);
+  }
+  var last = path.length - 1;
+  draw(last);
+  if (!reduce) {
+    var t0 = null, walk = 5200, hold = 3000;
+    (function frame(ts) {
+      if (ts !== undefined) {
+        if (t0 === null) t0 = ts + hold;
+        var cycle = walk + hold, m = (((ts - t0) % cycle) + cycle) % cycle;
+        draw(m < walk ? (m / walk) * last : last);
+      }
+      requestAnimationFrame(frame);
+    })();
+  }
+  window.addEventListener('resize', function () { size(); draw(last); });
+})();
+</script>
+</body>
+</html>
