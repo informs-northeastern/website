@@ -23,9 +23,10 @@ The website is one file, `index.html`, plus the `photos` folder and the icon fil
   - the date tile: the big number (`<span class="d">13</span>`) and the month (`<span class="m">Oct</span>`).
   - the tag (`<span class="chip">Meeting</span>`): one word, such as Meeting, Seminar, Workshop, Kickoff, Social or Conference.
   - the date line, the title and the description.
-- **Sign-up link (Luma):** events are created on the chapter's Luma account (https://luma.com/user/informsnu, signs in with Google as informsnu@gmail.com). To add a sign-up button to an event, paste this line just after the event's description, inside its `<div>`, with the event's own Luma link:
-  `<a class="signup" href="https://luma.com/EVENT-LINK" target="_blank" rel="noopener">Sign up on Luma</a>`
-- **Luma line under the events:** the line "Sign up for events and get invites on Luma" is already in EVENTS but hidden. Once the first event is on Luma, delete the word `hidden` from `<p class="on-luma" hidden>`.
+- **Sign-up button (Luma):** events are created on the chapter's Luma calendar (https://luma.com/calendar/cal-WJAcRwOTXltKmsr; the account signs in with Google as informsnu@gmail.com). On the event's Manage page, open More and copy the event ID (starts with evt-) and the event link. Then copy the Register line from the 13 Oct event and change the link and `data-luma-event-id`:
+  `<div class="meta"><a class="signup" href="EVENT-LINK" target="_blank" rel="noopener" data-luma-action="checkout" data-luma-event-id="evt-...">Register</a><span>Free &middot; open to every Northeastern student</span></div>`
+  The button opens Luma's registration pop-up on our page; Luma's script for it is already loaded at the bottom of index.html.
+- **Attendance:** after an event, download the guest CSV from Luma (Manage, Guests) and run `luma_attendance.py` (in the chapter's sheets folder) to get the attendance counts by program level for the Event tracker and the line for the past-event card.
 - **After an event:** delete it from the upcoming list and update "From past years" with the title, date and a photo if you have one (upload it to `photos/`).
 - **New officer:** in BOARD, copy one `<div class="person"> ... </div>` block and change the role, name and program.
 - **Officer LinkedIn:** officers add their profile link to the LinkedIn column of the 2026-27 Board roster sheet in Drive. To put it on the site, copy Thavishka's block (it starts with `<a class="person"`), change the link, name, `aria-label`, role and program. The whole card then opens their LinkedIn in a new tab. Officers without a link keep a plain `<div class="person">` block.
