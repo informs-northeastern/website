@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://informs-northeastern.github.io/website/sitemap.xml
