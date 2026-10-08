@@ -128,6 +128,13 @@
   .person b { display: block; font: 500 21px/1.25 var(--serif); }
   .person span { display: block; margin-top: 4px; font: 400 13px/1.5 var(--sans); color: var(--ink-soft); }
   .person .role { font: 500 11px/1.5 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  a.person { display: block; color: inherit; text-decoration: none; border-radius: 8px; }
+  a.person .portrait { transition: border-color .2s, box-shadow .2s; }
+  a.person:hover .portrait, a.person:focus-visible .portrait { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(156, 122, 60, .25); }
+  a.person:hover b, a.person:focus-visible b { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  a.person:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+  .person .in { display: inline-block; width: 14px; height: 14px; margin-left: 6px; vertical-align: 1px; fill: var(--ink-faint); }
+  a.person:hover .in { fill: #0A66C2; }
   .roles { margin-top: 48px; text-align: center; }
   .roles h3 { font-size: 24px; }
   .roles p { margin-top: 6px; font-style: italic; color: var(--ink-soft); }
@@ -355,13 +362,16 @@
   </div>
 </section>
 
-<!-- ===== EDIT: BOARD. One <div class="person"> per officer. Photo: put photos/board/firstname_lastname.jpg (square) in place of the initials. ===== -->
+<!-- ===== EDIT: BOARD. One block per officer. Source: the "LinkedIn" column of the 2026-27 Board roster sheet in Drive.
+     With a LinkedIn link: <a class="person" href="LINK" target="_blank" rel="noopener" aria-label="NAME on LinkedIn"> ... </a> and the small LinkedIn icon after the name (copy from Thavishka's block).
+     Without one: <div class="person"> ... </div>.
+     Photo: put photos/board/firstname_lastname.jpg (square) in place of the initials. ===== -->
 <section class="gutter" id="people">
   <div class="wrap">
     <div class="shead"><h2>Officers and Advisor</h2><p>The board for the 2026-27 academic year.</p></div>
     <div class="people">
       <div class="person"><div class="portrait" aria-hidden="true">SP</div><span class="role">President</span><b>Shokuh Puladi</b><span>PhD, Industrial Engineering</span></div>
-      <div class="person"><div class="portrait has-photo"><img src="photos/board/thavishka_gamage.jpg" width="564" height="564" alt="Thavishka Gamage" loading="lazy"></div><span class="role">Vice President</span><b>Thavishka Gamage</b><span>PhD, Industrial Engineering</span></div>
+      <a class="person" href="https://www.linkedin.com/in/thavishkagamage" target="_blank" rel="noopener" aria-label="Thavishka Gamage on LinkedIn"><div class="portrait has-photo"><img src="photos/board/thavishka_gamage.jpg" width="564" height="564" alt="Thavishka Gamage" loading="lazy"></div><span class="role">Vice President</span><b>Thavishka Gamage<svg class="in" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></b><span>PhD, Industrial Engineering</span></a>
       <div class="person"><div class="portrait" aria-hidden="true">BK</div><span class="role">Treasurer</span><b>Berke Kemahli</b></div>
       <div class="person"><div class="portrait" aria-hidden="true">SS</div><span class="role">Secretary</span><b>Sena Sivrikaya</b><span>MS, Industrial Engineering</span></div>
       <div class="person"><div class="portrait" aria-hidden="true">CD</div><span class="role">Webmaster</span><b>Chirag Daas</b><span>Industrial Engineering and Business</span></div>
