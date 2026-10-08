@@ -21,6 +21,7 @@ The website is one file, `index.html`, plus the `photos` folder. You don't need 
 - **New event:** in EVENTS, copy one `<li> ... </li>` block, paste it above or below, and change the date, title and description.
 - **After an event:** move it to "From past years", and add a photo to `photos/` if you have one.
 - **New officer:** in BOARD, copy one `<div class="person"> ... </div>` block and change the role, name and program.
+- **Officer LinkedIn:** officers add their profile link to the LinkedIn column of the 2026-27 Board roster sheet in Drive. To put it on the site, copy Thavishka's block (it starts with `<a class="person"`), change the link, name, `aria-label`, role and program, and keep the small LinkedIn icon. The whole card then opens their LinkedIn in a new tab. Officers without a link keep a plain `<div class="person">` block.
 - **Officer photo:** upload a square photo to `photos/board/` named `firstname_lastname.jpg` (Add file > Upload files). In their block, replace the initials line with the line used on an officer who has a photo, changing the file name and alt text.
 - **New award:** in HONORS, add a line at the top of the list.
 
