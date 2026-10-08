@@ -25,7 +25,7 @@
  "name": "INFORMS Student Chapter at Northeastern University", "alternateName": "INFORMS at Northeastern",
  "url": "https://informs-northeastern.github.io/website/", "logo": "https://informs-northeastern.github.io/website/apple-touch-icon.png", "email": "informsnu@gmail.com", "foundingDate": "2015",
  "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Northeastern University"},
- "sameAs": ["https://www.linkedin.com/company/informsneu/", "https://www.instagram.com/informs_nu/"]}
+ "sameAs": ["https://www.linkedin.com/company/informsneu/", "https://www.instagram.com/informs_nu/", "https://luma.com/user/informsnu"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,6 +213,10 @@
   .cal { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
   .cal li { display: grid; grid-template-columns: 112px 1fr; gap: 28px; padding: 22px; background: var(--white); border: 1px solid var(--rule); align-items: start; transition: transform .25s, box-shadow .25s, border-color .25s; }
   .cal li:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 14px 30px -18px rgba(15,31,61,.45); }
+  .signup { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 16px; font: 600 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; background: var(--navy); color: var(--on-navy); }
+  .signup:hover { background: var(--gold-ink); }
+  .on-luma { margin-top: 18px; font-size: 16px; color: var(--ink-soft); }
+  .on-luma a { color: var(--ink); font-weight: 500; }
   .chip { display: inline-block; margin-right: 10px; padding: 3px 8px; font: 700 11px/1.4 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; background: var(--navy); color: var(--gold); vertical-align: 1px; }
   .date { background: var(--navy); color: var(--on-navy); text-align: center; padding: 14px 8px 12px; }
   .date .d { display: block; font: 400 34px/1 var(--serif); font-variant-numeric: lining-nums; }
@@ -557,6 +561,8 @@
           <div><span class="chip">Conference</span><span class="when">1 to 4 Nov 2026</span><h3>INFORMS Annual Meeting, San Francisco</h3><p>The field's largest conference, where the Student Chapter Annual Awards are presented. Members attending, let us know.</p></div>
         </li>
       </ol>
+      <!-- EDIT: delete the word hidden below once the first event is on Luma -->
+      <p class="on-luma" hidden>Sign up for events and get invites on <a href="https://luma.com/user/informsnu" target="_blank" rel="noopener">Luma</a>.</p>
 
       <div class="past">
         <div class="entry">
@@ -701,7 +707,7 @@
       </div>
       <div>
         <p class="fh">Connect</p>
-        <ul><li><a href="#join">Join</a></li><li><a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a></li><li><a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a></li></ul>
+        <ul><li><a href="#join">Join</a></li><li><a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a></li><li><a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://luma.com/user/informsnu" target="_blank" rel="noopener">Events on Luma</a></li></ul>
       </div>
     </div>
     <div class="legal">
