@@ -7,7 +7,26 @@
 <meta name="description" content="The INFORMS Student Chapter at Northeastern University: seminars, workshops and events in operations research and analytics. Free and open to every Northeastern student.">
 <meta property="og:title" content="INFORMS at Northeastern">
 <meta property="og:description" content="The INFORMS Student Chapter at Northeastern University. Operations research and analytics, studied and practiced together.">
-<meta property="og:image" content="photos/group.jpg">
+<link rel="canonical" href="https://informs-northeastern.github.io/website/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="INFORMS at Northeastern">
+<meta property="og:url" content="https://informs-northeastern.github.io/website/">
+<meta property="og:image" content="https://informs-northeastern.github.io/website/photos/group.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="899">
+<meta property="og:image:alt" content="Chapter members standing together for a group photo.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F1F3D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization",
+ "name": "INFORMS Student Chapter at Northeastern University", "alternateName": "INFORMS at Northeastern",
+ "url": "https://informs-northeastern.github.io/website/", "logo": "https://informs-northeastern.github.io/website/apple-touch-icon.png", "email": "informsnu@gmail.com", "foundingDate": "2015",
+ "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Northeastern University"},
+ "sameAs": ["https://www.linkedin.com/company/informsneu/", "https://www.instagram.com/informs_nu/"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap">
@@ -148,6 +167,11 @@
   .honors .top .tier { color: var(--gold); }
   .honors-note { margin-top: 16px; font-style: italic; font-size: 15px; color: var(--ink-faint); }
 
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 10; padding: 10px 16px; background: var(--navy); color: var(--on-navy); font: 500 14px/1 var(--sans); border-radius: 4px; }
+  .skip:focus { top: 16px; }
+  .faq dl div { grid-template-columns: 1fr; gap: 6px; }
+  .faq dt { font: 500 19px/1.35 var(--serif); letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .faq dd { color: var(--ink-soft); }
   .bylaws { max-width: 46rem; margin-inline: auto; }
   .bylaws > p { color: var(--ink-soft); text-align: center; }
   .bylaws dl { margin: 28px 0 0; border-top: 1px solid var(--ink); }
@@ -221,6 +245,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#about">Skip to content</a>
 <!-- ===== EDIT: TOP OF PAGE (chapter name and menu) ===== -->
 <header class="masthead gutter" id="top">
   <div class="wrap">
@@ -235,6 +260,7 @@
       <li><a href="#people">People</a></li>
       <li><a href="#honors">Honors</a></li>
       <li><a href="#bylaws">Bylaws</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#join">Join</a></li>
     </ul></nav>
   </div>
@@ -430,6 +456,22 @@
   </div>
 </section>
 
+<!-- ===== EDIT: FAQ. One <div><dt>question</dt><dd>answer</dd></div> per question. ===== -->
+<section class="gutter" id="faq">
+  <div class="wrap">
+    <div class="shead"><h2>Questions</h2><p>For anyone new to the chapter.</p></div>
+    <div class="bylaws faq">
+      <dl>
+        <div><dt>Do I need to study operations research to join?</dt><dd>No. The chapter is open to every Northeastern student, undergraduate, master's or doctoral, in any program, with an interest in operations research, the management sciences or analytics.</dd></div>
+        <div><dt>Does it cost anything?</dt><dd>No. Chapter membership is free, and you don't need to be an INFORMS member to join.</dd></div>
+        <div><dt>How do I join?</dt><dd>Fill in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform" target="_blank" rel="noopener">membership form</a>. You'll get event announcements and invitations.</dd></div>
+        <div><dt>Can I help run the chapter?</dt><dd>Yes. Several board roles are open this year; see Open Positions above, or write to <a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>.</dd></div>
+        <div><dt>Where do I hear about events?</dt><dd>On this page under Events, and on the chapter's <a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a>.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 <!-- ===== EDIT: JOIN (membership form link, email, social links) ===== -->
 <div class="join gutter" id="join">
   <div class="wrap">
@@ -440,7 +482,7 @@
       <a class="btn" href="https://www.informs.org/Membership/Join-Informs" target="_blank" rel="noopener">INFORMS student membership</a>
     </div>
     <div class="ways">
-      <span class="email">informsnu@gmail.com</span>
+      <a class="email" href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>
       <a href="https://www.linkedin.com/company/informsneu/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/informs_nu/" target="_blank" rel="noopener">Instagram</a>
     </div>

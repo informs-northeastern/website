@@ -12,7 +12,7 @@ The website is one file, `index.html`, plus the `photos` folder. You don't need 
 
 1. Go to github.com, sign in as informs-northeastern (or your own account if you've been added as a collaborator), open the `website` repository, click `index.html`.
 2. Click the pencil icon (Edit).
-3. Press Ctrl+F and search for `EDIT:` to jump between sections: Opening, About, Programs, Events, Board, Honors, Bylaws, Join, Footer.
+3. Press Ctrl+F and search for `EDIT:` to jump between sections: Opening, About, Programs, Events, Board, Honors, Bylaws, FAQ, Join, Footer.
 4. Change the text. Keep every `<` `>` tag as it is.
 5. Click "Commit changes". Check the live site a minute later.
 
@@ -24,6 +24,8 @@ The website is one file, `index.html`, plus the `photos` folder. You don't need 
 - **Officer LinkedIn:** officers add their profile link to the LinkedIn column of the 2026-27 Board roster sheet in Drive. To put it on the site, copy Thavishka's block (it starts with `<a class="person"`), change the link, name, `aria-label`, role and program. The whole card then opens their LinkedIn in a new tab. Officers without a link keep a plain `<div class="person">` block.
 - **Officer photo:** upload a square photo to `photos/board/` named `firstname_lastname.jpg` (Add file > Upload files). In their block, replace the initials line with the line used on an officer who has a photo, changing the file name and alt text.
 - **New award:** in HONORS, add a line at the top of the list.
+- **New question:** in FAQ, copy one `<div><dt>...</dt><dd>...</dd></div>` line and change the question and answer.
+- **After a big change:** update the date in `sitemap.xml` so search engines re-read the page.
 
 ## Rules
 
