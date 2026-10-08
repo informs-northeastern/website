@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INFORMS at Northeastern · Links</title>
+<meta name="description" content="Join the INFORMS Student Chapter at Northeastern, register for events and follow the chapter. Free and open to every Northeastern student.">
+<link rel="canonical" href="https://informs-northeastern.github.io/website/links/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="INFORMS at Northeastern">
+<meta property="og:title" content="INFORMS at Northeastern · Links">
+<meta property="og:description" content="Join the chapter, register for events and follow along.">
+<meta property="og:url" content="https://informs-northeastern.github.io/website/links/">
+<meta property="og:image" content="https://informs-northeastern.github.io/website/photos/group.jpg">
+<meta property="og:image:alt" content="Chapter members standing together for a group photo.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#08132A">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<!-- ===== DESIGN: same colours and fonts as the main page. Content editors can skip to the EDIT markers below. ===== -->
+<style>
+  :root {
+    --navy: #0F1F3D;
+    --navy-deep: #08132A;
+    --navy-line: #24375C;
+    --on-navy: #F3F1EA;
+    --on-navy-soft: #AFB7C8;
+    --gold: #C9A35A;
+    --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+    --sans: "Jost", "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+    color-scheme: only light;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--navy-deep); color: var(--on-navy); font: 400 18px/1.55 var(--serif); position: relative; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background:
+      radial-gradient(520px 420px at 50% 4%, rgba(201,163,90,.18), transparent 64%),
+      radial-gradient(800px 560px at 0% 110%, rgba(36,55,92,.6), transparent 60%); }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .45;
+      background-image: radial-gradient(circle, rgba(175,183,200,.22) 1px, transparent 1.4px); background-size: 28px 28px;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 55%); mask-image: linear-gradient(180deg, #000 0%, transparent 55%); }
+  main { position: relative; z-index: 1; max-width: 520px; margin-inline: auto; padding: 48px 16px 40px; padding-top: max(48px, env(safe-area-inset-top)); }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* Identity */
+  .id { text-align: center; }
+  .mark { display: block; width: 92px; height: 92px; margin: 0 auto 22px; border-radius: 22px; box-shadow: 0 0 0 1px var(--navy-line), 0 18px 40px -18px rgba(0,0,0,.8); }
+  .word { margin: 0; font: 400 26px/1 var(--sans); letter-spacing: 0.34em; margin-right: -0.34em; }
+  .sub { display: block; margin-top: 10px; font: 400 11.5px/1 var(--sans); letter-spacing: 0.5em; margin-right: -0.5em; text-transform: uppercase; color: var(--gold); }
+  .tag { margin: 22px auto 0; max-width: 24em; color: var(--on-navy-soft); font-size: 18px; }
+  .tag em { color: var(--on-navy); }
+
+  /* Featured event */
+  .event { margin-top: 32px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 18px; border: 1px solid var(--gold); background: rgba(201,163,90,.07); text-decoration: none; transition: background .2s; }
+  .event[hidden] { display: none; }
+  .event:hover { background: rgba(201,163,90,.14); }
+  .event .date { width: 62px; padding: 9px 0 8px; text-align: center; background: var(--gold); color: var(--navy-deep); }
+  .event .d { display: block; font: 500 30px/1 var(--serif); }
+  .event .m { display: block; margin-top: 4px; font: 600 10.5px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; }
+  .event .k { display: flex; align-items: center; gap: 8px; font: 500 11.5px/1.3 var(--mono); color: var(--gold); }
+  .event .k .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex: none; }
+  @media (prefers-reduced-motion: no-preference) { .event .k .dot { animation: live 2s ease-out infinite; } }
+  @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(201,163,90,.6); } 100% { box-shadow: 0 0 0 9px rgba(201,163,90,0); } }
+  .event b { display: block; margin-top: 4px; font: 500 21px/1.15 var(--serif); }
+  .event .w { display: block; margin-top: 4px; font: 400 15px/1.35 var(--serif); color: var(--on-navy-soft); }
+  .event .go { display: inline-block; margin-top: 8px; font: 600 11.5px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+
+  /* Link list */
+  ul.links { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; }
+  .event + ul.links, .event[hidden] + ul.links { margin-top: 18px; }
+  .links a { display: flex; align-items: center; gap: 14px; min-height: 60px; padding: 14px 18px; border: 1px solid var(--navy-line); background: rgba(255,255,255,.035); text-decoration: none; transition: border-color .2s, background .2s; }
+  .links a:hover { border-color: var(--gold); background: rgba(255,255,255,.06); }
+  .links svg { width: 22px; height: 22px; flex: none; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .links span { flex: 1; min-width: 0; }
+  .links b { display: block; font: 500 13.5px/1.25 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; }
+  .links small { display: block; margin-top: 3px; font: 400 15.5px/1.3 var(--serif); color: var(--on-navy-soft); }
+  .links .arr { flex: none; color: var(--on-navy-soft); font: 400 18px/1 var(--sans); transition: transform .2s, color .2s; }
+  .links a:hover .arr { transform: translateX(4px); color: var(--gold); }
+  .links a.primary { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+  .links a.primary svg { stroke: var(--navy-deep); }
+  .links a.primary small, .links a.primary .arr { color: var(--navy); }
+  .links a.primary:hover { background: var(--on-navy); border-color: var(--on-navy); }
+
+  footer { margin-top: 36px; text-align: center; font: 400 14px/1.6 var(--serif); color: var(--on-navy-soft); }
+  footer .mono { display: block; margin-top: 6px; font: 500 11px/1.4 var(--mono); letter-spacing: 0.04em; opacity: .8; }
+  @media (max-width: 360px) { .word { font-size: 22px; letter-spacing: 0.28em; margin-right: -0.28em; } .event { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <!-- ===== EDIT: Top (name and one line about the chapter) ===== -->
+  <header class="id">
+    <img class="mark" src="../avatar-512.png" width="92" height="92" alt="">
+    <h1 class="word">INFORMS<span class="sub">at Northeastern</span></h1>
+    <p class="tag">Operations research and analytics, <em>studied and practiced together.</em> Free and open to every Northeastern student.</p>
+  </header>
+
+  <!-- ===== EDIT: Next event. Change data-date (year-month-day), the date tile, title, time and the Luma link.
+       The card hides itself the day after data-date, so an old event never shows. ===== -->
+  <a class="event" href="https://luma.com/di4y903v" data-date="2026-10-13">
+    <span class="date" aria-hidden="true"><span class="d">13</span><span class="m">Oct</span></span>
+    <span>
+      <span class="k"><span class="dot" aria-hidden="true"></span>Next event</span>
+      <b>General Member Meeting</b>
+      <span class="w">Tue 13 Oct 2026 &middot; 1:00&ndash;2:00 PM &middot; Boston campus</span>
+      <span class="go">Register free &rarr;</span>
+    </span>
+  </a>
+
+  <!-- ===== EDIT: Links. Copy one <li> ... </li> to add a link; keep the most important first. ===== -->
+  <ul class="links">
+    <li><a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 21c0-3.9 3.1-7 7-7 1.3 0 2.5.3 3.5.9M18 14v7M14.5 17.5h7"/></svg>
+      <span><b>Become a member</b><small>One short form. Free.</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://luma.com/calendar/cal-WJAcRwOTXltKmsr">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      <span><b>All events</b><small>Subscribe on Luma and get every invite first</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://informs-northeastern.github.io/website/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19V6l12 13V5"/><circle cx="18" cy="5" r="1.6" fill="#C9A35A" stroke="none"/></svg>
+      <span><b>Chapter website</b><small>Programs, the board, honors and FAQ</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://www.linkedin.com/company/informsneu/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13c0-1.7 1.3-3 3-3s2 1.3 2 3v4"/></svg>
+      <span><b>LinkedIn</b><small>News, speakers and opportunities</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="https://www.informs.org/Membership/Join-Informs">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M6 9.5V15c0 1.7 2.7 3 6 3s6-1.3 6-3V9.5"/></svg>
+      <span><b>INFORMS student membership</b><small>Join the national society</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    <li><a href="mailto:informsnu@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+      <span><b>Email the board</b><small>informsnu@gmail.com</small></span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+
+  <footer>
+    INFORMS Student Chapter at Northeastern University
+    <span class="mono">Est. 2015 &middot; Boston</span>
+  </footer>
+</main>
+<script>
+  // Hide the featured event once its day has passed (local time).
+  (function () {
+    var ev = document.querySelector('.event[data-date]');
+    if (!ev) return;
+    var p = ev.getAttribute('data-date').split('-');
+    var end = new Date(+p[0], +p[1] - 1, +p[2] + 1);
+    if (new Date() >= end) ev.hidden = true;
+  })();
+</script>
+</body>
+</html>
