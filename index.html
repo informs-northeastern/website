@@ -253,7 +253,9 @@
   .past figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 14px; font: italic 15px/1.4 var(--serif); color: var(--on-navy); background: linear-gradient(180deg, transparent, rgba(11,24,48,.85)); }
 
   /* People */
-  .people { margin-top: 36px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+  .people { --max: 4; --gx: 24px; margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--gx); }
+  .people > .person { flex: 0 0 calc((100% - (var(--max) - 1) * var(--gx)) / var(--max)); min-width: 0; margin-bottom: 32px; }
+  .people > .row-break { flex-basis: 100%; height: 0; }
   .person { display: block; color: inherit; text-decoration: none; }
   .portrait { aspect-ratio: 1 / 1; border-radius: 50%; background: var(--navy); display: grid; place-items: center; overflow: hidden; position: relative; box-shadow: 0 0 0 1px var(--rule), 0 0 0 7px var(--vellum), 0 0 0 8px var(--gold); margin: 8px; }
   .portrait::after { content: ""; position: absolute; inset: 10px; border-radius: 50%; border: 1px solid rgba(201,163,90,.35); pointer-events: none; }
@@ -266,7 +268,7 @@
   a.person:hover .portrait img, a.person:focus-visible .portrait img { transform: scale(1.04); }
   a.person:hover b, a.person:focus-visible b { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
   a.person:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
-  .roles { margin-top: 44px; display: grid; grid-template-columns: auto 1fr; gap: 12px 32px; align-items: center; padding: 22px 28px; border: 1px solid var(--rule); border-left: 4px solid var(--gold); background: var(--vellum); }
+  .roles { margin-top: 12px; display: grid; grid-template-columns: auto 1fr; gap: 12px 32px; align-items: center; padding: 22px 28px; border: 1px solid var(--rule); border-left: 4px solid var(--gold); background: var(--vellum); }
   .roles h3 { font-size: 22px; }
   .roles p { color: var(--ink-soft); font-size: 16px; }
   .roles ul { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -368,7 +370,7 @@
     .figures { grid-template-columns: repeat(2, 1fr); }
     .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
     .figures div:nth-child(n+3) { border-top: 1px solid var(--navy-line); }
-    .people { grid-template-columns: repeat(3, 1fr); }
+    .people { --max: 3; }
     .tiles { grid-template-columns: repeat(2, 1fr); }
     .tiles > div:last-child { grid-column: 1 / -1; }
     .years { grid-template-columns: repeat(4, 1fr); row-gap: 28px; border-top: 0; }
@@ -383,7 +385,8 @@
     footer li a { padding-block: 7px; }
     .join .ways { gap: 4px 24px; }
     .join .ways a { padding-block: 10px 2px; }
-    .people { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
+    .people { --max: 2; --gx: 14px; }
+    .people > .person { margin-bottom: 24px; }
     .tiles { grid-template-columns: 1fr; }
     .person b { font-size: 19px; }
     .portrait .ini { font-size: 34px; }
@@ -752,6 +755,28 @@
       break;
     }
   }
+})();
+</script>
+
+<!-- Board layout: splits the cards into even, centred rows (9 cards = 3+3+3, 10 = 4+3+3) at the column limit set by --max in the CSS. Add or remove cards freely; nothing to change here. -->
+<script>
+(function () {
+  function balance() {
+    document.querySelectorAll('.people').forEach(function (grid) {
+      grid.querySelectorAll('.row-break').forEach(function (b) { b.remove(); });
+      var cards = grid.querySelectorAll(':scope > .person'), n = cards.length;
+      var max = parseInt(getComputedStyle(grid).getPropertyValue('--max'), 10) || 4;
+      if (n <= max) return;
+      var rows = Math.ceil(n / max), base = Math.floor(n / rows), extra = n % rows, at = 0;
+      for (var r = 0; r < rows - 1; r++) {
+        at += base + (r < extra ? 1 : 0);
+        var br = document.createElement('span'); br.className = 'row-break'; br.setAttribute('aria-hidden', 'true');
+        cards[at - 1].after(br);
+      }
+    });
+  }
+  balance();
+  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(balance, 120); });
 })();
 </script>
 
