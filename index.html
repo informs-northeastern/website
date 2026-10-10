@@ -164,9 +164,14 @@
   .intro { margin-top: 14px; max-width: 40em; color: var(--ink-soft); font-size: 19px; }
 
   /* About */
-  .about { margin-top: 24px; max-width: 42em; font-size: 18px; }
+  .about { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+  .about .text { max-width: 42em; font-size: 18px; }
   .about p { color: var(--ink-soft); }
   .about p + p { margin-top: 16px; }
+  .about h3 { font-size: 20px; margin-bottom: 12px; }
+  .timeline { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .timeline li { display: grid; grid-template-columns: 76px 1fr; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+  .timeline b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
 
   /* Programs */
   .programs { margin-top: 36px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
@@ -320,7 +325,7 @@
     nav.main::-webkit-scrollbar { display: none; }
     nav.main a { padding-block: 14px; white-space: nowrap; }
     html { scroll-padding-top: 110px; }
-    .hero .wrap, .programs, .past, .gov, .join .wrap, .goal { grid-template-columns: 1fr; }
+    .hero .wrap, .about, .programs, .past, .gov, .join .wrap, .goal { grid-template-columns: 1fr; }
     .goal svg.seal { width: 120px; height: 120px; }
     .hero .wrap { padding-block: 56px 64px; gap: 44px; }
     .people { --max: 3; }
@@ -434,9 +439,21 @@
     <div>
       <h2>About the chapter</h2>
       <div class="about">
+        <div class="text">
         <p>INFORMS is the main professional society for operations research and analytics. We're its student chapter at Northeastern, started in the summer of 2015.</p>
         <p>Operations research is the math behind a lot of everyday decisions: hospital staffing, delivery routes, power grid planning, airline schedules, even how AI models get trained. You don't need to study it to join. Most of what we do is invite people who use it to come and talk about their work, teach practical skills, and give students across programs a reason to meet.</p>
         <p>Joining is free, and you don't need to be an INFORMS member.</p>
+        </div>
+        <div>
+          <h3>The chapter so far</h3>
+          <ol class="timeline">
+            <li><b>2015</b><span>Started in the summer by Northeastern students.</span></li>
+            <li><b>2017</b><span>First INFORMS chapter award. Rozhin Doroudi wins the Judith Liebman Award.</span></li>
+            <li><b>2019</b><span>Sessions with American Airlines; members land internships at Fidelity.</span></li>
+            <li><b>2022</b><span>Summa Cum Laude, the top INFORMS chapter award.</span></li>
+            <li><b>2026</b><span>Joint seminar with Georgia Perakis of MIT Sloan. A new board takes over in the fall.</span></li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
