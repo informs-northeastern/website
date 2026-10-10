@@ -40,8 +40,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <!-- ===== DESIGN (colours, fonts, spacing). Content editors can skip this block; scroll down to the EDIT markers. ===== -->
 <style>
-  /* Layout: an institutional site. Full-width bands alternate deep navy, white and warm vellum;
-     a left-hand section index (01 About, 02 Programs ...) carries the eye down the page; one gold accent. */
+  /* Layout: full-width bands alternate deep navy, white and warm vellum; one gold accent, used sparingly. */
   :root {
     --white: #FFFFFF;
     --vellum: #F4F1EA;
@@ -70,7 +69,7 @@
   a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 3px; }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   em, i { font-style: normal; }
-  h1, h2, h3 { font-family: var(--sans); font-weight: 600; line-height: 1.1; letter-spacing: -0.022em; text-wrap: balance; margin: 0; }
+  h1, h2, h3 { font-family: var(--sans); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
   p { margin: 0; }
   .kicker { font: 600 12px/1.4 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-ink); }
   .skip { position: absolute; left: 16px; top: -60px; z-index: 30; padding: 10px 16px; background: var(--navy); color: var(--on-navy); font: 500 14px/1 var(--sans); }
@@ -108,25 +107,15 @@
   .hero { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden;
           --lp-ink: #F3F1EA; --lp-soft: #AFB7C8; --lp-rule: #2F4570; --lp-gold: #C9A35A; }
   .hero { background: #08132A; }
-  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background:
-      radial-gradient(620px 460px at 76% 46%, rgba(201,163,90,.20), transparent 62%),
-      radial-gradient(900px 600px at 10% 110%, rgba(36,55,92,.55), transparent 60%); }
-  .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
-      background-image: radial-gradient(circle, rgba(175,183,200,.22) 1px, transparent 1.4px); background-size: 28px 28px;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 55%, #000 100%); }
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(900px 600px at 10% 110%, rgba(36,55,92,.45), transparent 60%); }
   .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; padding-block: 88px 96px; }
-  .hero .kicker { color: var(--gold); display: flex; gap: 14px; flex-wrap: wrap; }
-  .hero .kicker span + span::before { content: ""; display: inline-block; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); vertical-align: 2px; margin-right: 14px; }
-  .hero h1 { margin-top: 22px; font-size: clamp(42px, 6.2vw, 80px); font-weight: 600; line-height: 1.04; letter-spacing: -0.026em; }
+  .hero h1 { font-size: clamp(40px, 5.6vw, 72px); font-weight: 600; line-height: 1.08; letter-spacing: -0.015em; }
   .hero h1 em { display: block; color: var(--gold); font-style: normal; }
   .hero .lede { margin-top: 26px; max-width: 33em; color: var(--on-navy-soft); font-size: 20px; line-height: 1.55; }
   .hero .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; }
   .next { margin-top: 26px; display: inline-flex; align-items: center; gap: 12px; padding: 9px 16px 9px 12px; border: 1px solid var(--navy-line); background: rgba(255,255,255,.03); font: 500 12.5px/1.3 var(--sans); font-variant-numeric: tabular-nums; color: var(--on-navy-soft); text-decoration: none; }
   .next[hidden] { display: none; }
   .next b { color: var(--on-navy); font-weight: 500; }
-  .next .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(201,163,90,.6); flex: none; }
-  @media (prefers-reduced-motion: no-preference) { .next .dot { animation: live 2s ease-out infinite; } }
-  @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(201,163,90,.6); } 100% { box-shadow: 0 0 0 10px rgba(201,163,90,0); } }
   .next:hover { border-color: var(--gold); color: var(--on-navy); }
   figure.route { margin: 0; position: relative; }
   figure.route svg { display: block; width: 100%; max-width: 520px; margin-inline: auto; overflow: visible; }
@@ -147,64 +136,28 @@
   @keyframes rt-visit2 { 0%, 30% { transform: scale(1); } 34% { transform: scale(1.45); } 40%, 100% { transform: scale(1); } }
   @keyframes rt-visit3 { 0%, 45% { transform: scale(1); } 49% { transform: scale(1.45); } 55%, 100% { transform: scale(1); } }
 
-  /* Figures strip, sitting on the seam between hero and photo */
-  .figures-band { background: var(--navy-deep); color: var(--on-navy); border-top: 1px solid var(--navy-line); }
-  .figures { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .figures div { padding: 30px 24px 30px 0; }
-  .figures div + div { padding-left: 28px; border-left: 1px solid var(--navy-line); }
-  .figures b { display: block; font: 600 clamp(38px, 4.4vw, 56px)/1 var(--sans); color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
-  .figures span { display: block; margin-top: 10px; font: 500 13px/1.45 var(--sans); color: var(--on-navy-soft); letter-spacing: 0.02em; }
-
   /* Full-bleed photograph with the mission line */
-  .photo-band { position: relative; min-height: min(72vh, 640px); display: grid; align-items: end; color: var(--on-navy); background: var(--navy-deep); }
+  .photo-band { position: relative; min-height: min(64vh, 560px); display: grid; align-items: end; color: var(--on-navy); background: var(--navy-deep); }
   .photo-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
   .photo-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,24,48,0) 30%, rgba(11,24,48,.88) 100%); }
   .photo-band .wrap { position: relative; z-index: 1; padding-block: 56px; width: 100%; }
-  .photo-band blockquote { margin: 0; max-width: 30em; letter-spacing: -0.015em; font: 500 clamp(24px, 3vw, 36px)/1.3 var(--sans); }
-  .photo-band blockquote::before { content: ""; display: block; width: 56px; border-top: 2px solid var(--gold); margin-bottom: 18px; }
-  .photo-band .cap { margin-top: 16px; font: 500 12px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-navy-soft); }
+  .photo-band .cap { font: 400 15px/1.4 var(--sans); color: var(--on-navy); }
 
-  /* Applications band */
-  .apps { background: #08132A; color: var(--on-navy); position: relative; overflow: hidden; }
-  .apps::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(700px 380px at 50% 0%, rgba(201,163,90,.10), transparent 70%); }
-  .apps .wrap { position: relative; padding-block: 76px 84px; }
-  .apps .kicker { color: var(--gold); }
-  .apps h2 { margin-top: 12px; font-size: clamp(30px, 3.6vw, 46px); font-weight: 600; max-width: 22em; }
-  .apps h2 em { color: var(--gold); font-style: normal; }
-  .tiles { margin-top: 36px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--navy-line); border: 1px solid var(--navy-line); }
-  .tiles > div { background: #0B1A36; padding: 26px 22px 28px; transition: background .25s, box-shadow .25s; }
-  .tiles > div:hover { background: #0F2244; box-shadow: inset 0 2px 0 var(--gold); }
-  .tiles svg { width: 44px; height: 44px; display: block; }
-  .tiles h3 { margin-top: 18px; font-size: 22px; }
-  .tiles p { margin-top: 8px; font: 400 14px/1.55 var(--sans); color: var(--on-navy-soft); }
-
-  /* Indexed sections: a left-hand label column and the content */
-  .sec { padding-block: 88px; }
+  /* Sections */
+  .sec { padding-block: 80px; }
   .sec.vellum { background: var(--vellum); }
-  .sec .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 48px; }
-  .label { position: relative; }
-  .label .n { display: block; font: 600 14px/1 var(--sans); font-variant-numeric: tabular-nums; color: var(--gold-ink); }
-  .label .t { display: block; margin-top: 10px; padding-top: 12px; border-top: 2px solid var(--ink); font: 700 12px/1.3 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; }
-  .sec h2 { font-size: clamp(32px, 3.8vw, 48px); font-weight: 600; }
-  .sec h2 em { font-style: normal; color: var(--gold-ink); }
+  .sec h2 { font-size: clamp(30px, 3.4vw, 42px); font-weight: 600; }
   .intro { margin-top: 14px; max-width: 40em; color: var(--ink-soft); font-size: 19px; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px; }
+  .about { margin-top: 24px; max-width: 42em; font-size: 18px; }
   .about p { color: var(--ink-soft); }
   .about p + p { margin-top: 16px; }
-  .about strong { color: var(--ink); font-weight: 500; }
-  .pillars { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-  .pillars li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
-  .pillars i { font: 600 18px/1.4 var(--sans); font-style: normal; color: var(--gold-ink); }
-  .pillars b { display: block; font: 600 21px/1.25 var(--sans); }
-  .pillars span { display: block; margin-top: 2px; font: 400 14px/1.5 var(--sans); color: var(--ink-soft); }
 
   /* Programs */
   .programs { margin-top: 36px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
   .flagship { background: var(--navy); color: var(--on-navy); padding: 40px; display: flex; flex-direction: column; }
-  .flagship .kicker { color: var(--gold); }
-  .flagship h3 { margin-top: 14px; font-size: clamp(30px, 3.2vw, 40px); font-weight: 600; }
+  .flagship h3 { font-size: clamp(30px, 3.2vw, 40px); font-weight: 600; }
   .flagship p { margin-top: 16px; color: var(--on-navy-soft); }
   .facts { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--navy-line); }
   .facts li { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--navy-line); font-size: 17px; }
@@ -243,7 +196,7 @@
   .past { margin-top: 48px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 0; background: var(--navy); color: var(--on-navy); }
   .past .entry { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
   .past .kicker { color: var(--gold); }
-  .past .when { margin-top: 18px; font: 500 12.5px/1.6 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-navy-soft); }
+  .past .when { font: 500 12.5px/1.6 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-navy-soft); }
   .past h3 { margin-top: 6px; font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; }
   .past p { margin-top: 12px; color: var(--on-navy-soft); }
   .past figure { margin: 0; position: relative; min-height: 320px; }
@@ -251,7 +204,7 @@
   .past figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 14px; font: 400 15px/1.4 var(--sans); color: var(--on-navy); background: linear-gradient(180deg, transparent, rgba(11,24,48,.85)); }
 
   /* People */
-  .people { --max: 4; --gx: 24px; margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--gx); }
+  .people { --max: 4; --gx: 24px; max-width: 920px; margin: 36px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--gx); }
   .people > .person { flex: 0 0 calc((100% - (var(--max) - 1) * var(--gx)) / var(--max)); min-width: 0; margin-bottom: 32px; }
   .people > .row-break { flex-basis: 100%; height: 0; }
   .person { display: block; color: inherit; text-decoration: none; }
@@ -274,10 +227,7 @@
 
   /* Honors: a dark band with a year line */
   .sec.dark { background: var(--navy); color: var(--on-navy); }
-  .sec.dark .label .n { color: var(--gold); }
-  .sec.dark .label .t { border-top-color: var(--gold); }
   .sec.dark .intro { color: var(--on-navy-soft); }
-  .sec.dark h2 em { color: var(--gold); }
   .years { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); border-top: 1px solid var(--navy-line); }
   .years li { padding: 22px 12px 0 0; position: relative; }
   .years li::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; background: var(--navy); border: 1px solid var(--on-navy-soft); transform: rotate(45deg); }
@@ -287,7 +237,6 @@
   .years .top .yr, .years .top .tier { color: var(--gold); }
   .goal { margin-top: 44px; display: grid; grid-template-columns: 150px 1fr 1.4fr; gap: 40px; align-items: center; padding-top: 32px; border-top: 1px solid var(--navy-line); }
   .goal h3 { font-size: clamp(28px, 3vw, 38px); font-weight: 600; }
-  .goal h3 em { color: var(--gold); }
   .goal p { color: var(--on-navy-soft); }
   .honors-note { margin-top: 16px; font-style: normal; font-size: 15px; color: var(--on-navy-soft); }
 
@@ -312,10 +261,7 @@
   .join img { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .35; filter: grayscale(.4); }
   .join::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(11,24,48,.96) 35%, rgba(11,24,48,.6)); }
   .join .wrap { position: relative; z-index: 2; padding-block: 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
-  .join .kicker { color: var(--gold); }
-  .join h2 { margin-top: 14px; font-size: clamp(38px, 5vw, 64px); font-weight: 600; }
-  .join h2 em { color: var(--gold); font-style: normal; }
-  .join .kicker { margin: 0; font-size: 12px; max-width: none; }
+  .join h2 { font-size: clamp(38px, 5vw, 64px); font-weight: 600; }
   .join h2 + p { margin-top: 18px; max-width: 32em; color: var(--on-navy-soft); font-size: 19px; }
   .join .cta { display: flex; flex-direction: column; gap: 14px; align-items: stretch; }
   .join .cta .btn { justify-content: space-between; }
@@ -348,10 +294,6 @@
   /* Responsive */
   @media (max-width: 1080px) {
     nav.main ul { gap: 18px; }
-    .sec .wrap { grid-template-columns: 1fr; gap: 28px; }
-    .label { display: flex; align-items: baseline; gap: 14px; border-top: 2px solid var(--ink); padding-top: 12px; }
-    .sec.dark .label { border-top-color: var(--gold); }
-    .label .t { margin: 0; padding: 0; border: 0; }
   }
   @media (max-width: 900px) {
     .wrap { padding-inline: 20px; }
@@ -362,15 +304,10 @@
     nav.main::-webkit-scrollbar { display: none; }
     nav.main a { padding-block: 14px; white-space: nowrap; }
     html { scroll-padding-top: 110px; }
-    .hero .wrap, .about, .programs, .past, .gov, .join .wrap, .goal { grid-template-columns: 1fr; }
+    .hero .wrap, .programs, .past, .gov, .join .wrap, .goal { grid-template-columns: 1fr; }
     .goal svg.seal { width: 120px; height: 120px; }
     .hero .wrap { padding-block: 56px 64px; gap: 44px; }
-    .figures { grid-template-columns: repeat(2, 1fr); }
-    .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
-    .figures div:nth-child(n+3) { border-top: 1px solid var(--navy-line); }
     .people { --max: 3; }
-    .tiles { grid-template-columns: repeat(2, 1fr); }
-    .tiles > div:last-child { grid-column: 1 / -1; }
     .years { grid-template-columns: repeat(4, 1fr); row-gap: 28px; border-top: 0; }
     .years li { border-top: 1px solid var(--navy-line); }
     .sec { padding-block: 64px; }
@@ -385,7 +322,6 @@
     .join .ways a { padding-block: 10px 2px; }
     .people { --max: 2; --gx: 14px; }
     .people > .person { margin-bottom: 24px; }
-    .tiles { grid-template-columns: 1fr; }
     .person b { font-size: 19px; }
     .portrait .ini { font-size: 34px; }
     .cal li { grid-template-columns: 76px 1fr; gap: 16px; padding: 16px; }
@@ -403,8 +339,6 @@
     .date { padding: 10px 4px 8px; }
     .date .d { font-size: 22px; }
     .cal h3 { font-size: 22px; }
-    .figures { grid-template-columns: 1fr; }
-    .figures div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--navy-line); }
   }
 </style>
 </head>
@@ -429,7 +363,7 @@
       <li><a href="#programs">Programs</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#people">People</a></li>
-      <li><a href="#honors">Honors</a></li>
+      <li><a href="#honors">Awards</a></li>
       <li><a href="#governance">Bylaws &amp; FAQ</a></li>
       <li><a class="join-link" href="#join">Join</a></li>
     </ul></nav>
@@ -440,14 +374,13 @@
 <div class="hero" id="top">
   <div class="wrap">
     <div>
-      <p class="kicker"><span>Est. 2015</span><span>Northeastern University, Boston</span></p>
       <h1>The science of better decisions, <em>studied and practiced together.</em></h1>
-      <p class="lede">Scheduling, supply chains, healthcare, energy and artificial intelligence all rest on operations research. The chapter brings together undergraduates, master's students, doctoral students and faculty to learn it, apply it, and meet those who practice it.</p>
+      <p class="lede">We're Northeastern's student chapter of INFORMS, running since 2015. We host talks, workshops and get-togethers for anyone into optimization, analytics or the math of making decisions, from first-year undergrads to PhD students and faculty.</p>
       <div class="actions">
         <a class="btn gold" href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform" target="_blank" rel="noopener">Become a member <span class="arr" aria-hidden="true">&rarr;</span></a>
         <a class="btn light" href="#events">Upcoming events</a>
       </div>
-      <a class="next" id="next-event" href="#events" hidden><span class="dot" aria-hidden="true"></span><span>Next: <b id="next-name"></b> &middot; <span id="next-when"></span></span></a>
+      <a class="next" id="next-event" href="#events" hidden><span>Next: <b id="next-name"></b> &middot; <span id="next-when"></span></span></a>
     </div>
     <figure class="route">
       <svg viewBox="-6 -10 112 112" role="img" aria-label="The chapter's mark drawn as a linear program: a shaded feasible region under dashed objective lines, with a gold route from the start vertex along its edges and through its interior to the optimum. The route traces the letter N.">
@@ -464,63 +397,28 @@
         <text class="rt-label" x="70" y="5" text-anchor="end" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="6" fill="#C9A35A">optimum</text>
         <text x="11" y="93" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="5" fill="#AFB7C8">start</text>
       </svg>
-      <figcaption>Fig. 1. From start to optimum, one vertex at a time.</figcaption>
+      <figcaption>Our logo is a path through a linear program.</figcaption>
     </figure>
   </div>
 </div>
 
-<!-- ===== EDIT: NUMBERS (update the LinkedIn follower count now and then) ===== -->
-<section class="figures-band" aria-label="The chapter in figures">
-  <div class="wrap">
-    <div class="figures">
-      <div><b>2015</b><span>Year of founding</span></div>
-      <div><b>7</b><span>National chapter awards, 2017 to 2023</span></div>
-      <div><b>2022</b><span>Summa Cum Laude, the highest honor</span></div>
-      <div><b>1,000+</b><span>Followers on LinkedIn</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== EDIT: MISSION LINE (over the group photograph) ===== -->
+<!-- ===== EDIT: GROUP PHOTOGRAPH ===== -->
 <div class="photo-band">
   <img src="photos/group.jpg" width="1600" height="899" alt="About forty chapter members standing together for a group photo in a formal room with portraits on the wall.">
   <div class="wrap">
-    <blockquote>A venue for learning, a catalyst for professional advancement, and an opportunity for camaraderie.</blockquote>
-    <p class="cap">Chapter members at a chapter gathering</p>
+    <p class="cap">Members at a chapter gathering.</p>
   </div>
 </div>
-
-<!-- ===== EDIT: APPLICATIONS (where operations research is used) ===== -->
-<section class="apps" aria-labelledby="apps-h">
-  <div class="wrap">
-    <p class="kicker">Where operations research shows up</p>
-    <h2 id="apps-h">The mathematics behind decisions <em>you meet every day</em></h2>
-    <div class="tiles">
-      <div><svg viewBox="0 0 44 44" fill="none" stroke="#C9A35A" stroke-width="1.6" aria-hidden="true"><rect x="5" y="8" width="34" height="30" rx="2"/><path d="M5 16H39M14 4V11M30 4V11"/><path d="M11 23H19M23 23H33M11 30H27" stroke="#F3F1EA"/></svg><h3>Scheduling</h3><p>Timetables, shifts and operating rooms that fit every constraint.</p></div>
-      <div><svg viewBox="0 0 44 44" fill="none" stroke="#C9A35A" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="32" r="3.5"/><circle cx="22" cy="14" r="3.5"/><circle cx="36" cy="30" r="3.5"/><path d="M10.5 29.5L19.5 17M25 16.5L33.5 27.5" stroke="#F3F1EA"/><path d="M11.5 32H32.5" stroke-dasharray="2 3"/></svg><h3>Supply chains</h3><p>Where to stock, how much to order, which route to take.</p></div>
-      <div><svg viewBox="0 0 44 44" fill="none" stroke="#C9A35A" stroke-width="1.6" aria-hidden="true"><path d="M17 6H27V17H38V27H27V38H17V27H6V17H17Z"/><path d="M4 30H12L15 25L19 34L22 30H40" stroke="#F3F1EA"/></svg><h3>Healthcare</h3><p>Beds, staffing and patient flow, planned before they run short.</p></div>
-      <div><svg viewBox="0 0 44 44" fill="none" stroke="#C9A35A" stroke-width="1.6" aria-hidden="true"><path d="M24 4L10 25H21L18 40L34 18H23Z"/><path d="M4 40H40" stroke="#F3F1EA"/></svg><h3>Energy</h3><p>Generation and grid planning that meet demand at the lowest cost.</p></div>
-      <div><svg viewBox="0 0 44 44" fill="none" stroke="#C9A35A" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="12" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="22" cy="8" r="3"/><circle cx="22" cy="22" r="3"/><circle cx="22" cy="36" r="3"/><circle cx="36" cy="22" r="3.5" fill="#C9A35A"/><path d="M11 12L19 8.5M11 12L19 21M11 32L19 23M11 32L19 35M25 8.5L33 20M25 22H32.5M25 35.5L33 24" stroke="#F3F1EA" stroke-width="1.1"/></svg><h3>Artificial intelligence</h3><p>The optimization that trains models, and the decisions they inform.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== EDIT: ABOUT ===== -->
 <section class="sec" id="about">
   <div class="wrap">
-    <div class="label"><span class="n">01</span><span class="t">About</span></div>
     <div>
-      <h2>A community of students who care about <em>decisions</em></h2>
+      <h2>About the chapter</h2>
       <div class="about">
-        <div>
-          <p>INFORMS at Northeastern is a community of graduate and undergraduate students passionate about <strong>operations research, data analytics and industrial engineering</strong>. Founded in the summer of 2015, the chapter bridges academic theory and practical application through seminars, workshops, research talks and networking.</p>
-          <p>We are the Northeastern chapter of INFORMS, the Institute for Operations Research and the Management Sciences, the largest professional society in the field. Membership is free and open to every Northeastern student, in any program.</p>
-        </div>
-        <ul class="pillars">
-          <li><i>i.</i><div><b>A venue for learning</b><span>Seminars, workshops and research talks</span></div></li>
-          <li><i>ii.</i><div><b>A catalyst for advancement</b><span>Practitioners, faculty and alumni, met in person</span></div></li>
-          <li><i>iii.</i><div><b>An opportunity for camaraderie</b><span>Undergraduate, master's and doctoral students together</span></div></li>
-        </ul>
+        <p>INFORMS is the main professional society for operations research and analytics. We're its student chapter at Northeastern, started in the summer of 2015.</p>
+        <p>Operations research is the math behind a lot of everyday decisions: hospital staffing, delivery routes, power grid planning, airline schedules, even how AI models get trained. You don't need to study it to join. Most of what we do is invite people who use it to come and talk about their work, teach practical skills, and give students across programs a reason to meet.</p>
+        <p>Joining is free, and you don't need to be an INFORMS member.</p>
       </div>
     </div>
   </div>
@@ -529,14 +427,12 @@
 <!-- ===== EDIT: PROGRAMS ===== -->
 <section class="sec vellum" id="programs">
   <div class="wrap">
-    <div class="label"><span class="n">02</span><span class="t">Programs</span></div>
     <div>
-      <h2>Open to every program and <em>every year of study</em></h2>
+      <h2>What we run</h2>
       <div class="programs">
         <div class="flagship">
-          <p class="kicker">The principal program</p>
           <h3>The Speaker Seminar Series</h3>
-          <p>Each month, a member of the faculty, an alumnus or alumna, or a Boston practitioner presents how optimization, simulation and analytics are used on real problems, followed by open discussion.</p>
+          <p>Once a month, a faculty member, an alum or someone working in Boston talks about how they use optimization, simulation or analytics on real problems. Questions and discussion afterwards.</p>
           <ul class="facts">
             <li><span>Format</span><span>Lecture and discussion</span></li>
             <li><span>Frequency</span><span>Monthly</span></li>
@@ -548,10 +444,10 @@
         <div class="also">
           <div class="card"><h3>Skills Workshops</h3><p>Solvers, Python for optimization, simulation and data visualization.</p></div>
           <div class="card"><h3>Doctoral Lightning Talks</h3><p>Short research talks by doctoral students, open to all.</p></div>
-          <div class="card"><h3>Gatherings</h3><p>Coffee hours and outings across programs.</p></div>
+          <div class="card"><h3>Gatherings</h3><p>Coffee hours and the occasional outing.</p></div>
         </div>
       </div>
-      <p class="note">Programs planned for 2026-27. Members shape the final calendar at the general meeting.</p>
+      <p class="note">This is the plan for 2026-27. We'll settle the calendar with members at the general meeting.</p>
     </div>
   </div>
 </section>
@@ -560,29 +456,27 @@
      After an event, move it to "From past years". ===== -->
 <section class="sec" id="events">
   <div class="wrap">
-    <div class="label"><span class="n">03</span><span class="t">Events</span></div>
     <div>
-      <h2>Free and open to every <em>Northeastern student</em></h2>
-      <div class="luma-bar"><div><b>Get every invite first</b><span>Subscribe to the chapter calendar on Luma: new events go straight to your inbox and calendar.</span></div><a href="https://luma.com/calendar/cal-WJAcRwOTXltKmsr" target="_blank" rel="noopener">Subscribe on Luma</a></div>
+      <h2>Events</h2>
+      <div class="luma-bar"><div><b>Get invites by email</b><span>Follow the chapter calendar on Luma and new events show up in your inbox.</span></div><a href="https://luma.com/calendar/cal-WJAcRwOTXltKmsr" target="_blank" rel="noopener">Subscribe on Luma</a></div>
       <ol class="cal">
         <li data-date="2026-10-13">
           <div class="date" aria-hidden="true"><span class="d">13</span><span class="m">Oct</span></div>
-          <div><span class="chip">Meeting</span><span class="when">Tue 13 Oct 2026 &middot; 1:00&ndash;2:00 PM</span><h3>General Member Meeting</h3><p>Meet the board and help shape this year's seminars, workshops and gatherings. Northeastern University, Boston; room to be announced to everyone who registers.</p><div class="meta"><a class="signup" href="https://luma.com/di4y903v" target="_blank" rel="noopener" data-luma-action="checkout" data-luma-event-id="evt-VfssmKUtUBgoeeC">Register</a><span>Free &middot; open to every Northeastern student</span></div></div>
+          <div><span class="chip">Meeting</span><span class="when">Tue 13 Oct 2026 &middot; 1:00&ndash;2:00 PM</span><h3>General Member Meeting</h3><p>Meet the board and tell us which talks and workshops you'd like this year. We'll send the room to everyone who registers.</p><div class="meta"><a class="signup" href="https://luma.com/di4y903v" target="_blank" rel="noopener" data-luma-action="checkout" data-luma-event-id="evt-VfssmKUtUBgoeeC">Register</a><span>Free</span></div></div>
         </li>
         <li>
           <div class="date" aria-hidden="true"><span class="d">Late</span><span class="m">Oct</span></div>
-          <div><span class="chip">Kickoff</span><span class="when">Late Oct 2026</span><h3>Kickoff and Welcome <span class="tag">With MIE</span></h3><p>The opening event of the year, for members and the faculty and students of Mechanical and Industrial Engineering. Coffee and refreshments courtesy of the MIE department. Date and room to be announced.</p></div>
+          <div><span class="chip">Kickoff</span><span class="when">Late Oct 2026</span><h3>Kickoff and Welcome <span class="tag">With MIE</span></h3><p>Our first event of the year, together with the Mechanical and Industrial Engineering department, who are providing coffee and snacks. Date and room coming soon.</p></div>
         </li>
         <li data-date="2026-11-01">
           <div class="date soft" aria-hidden="true"><span class="d">1&ndash;4</span><span class="m">Nov</span></div>
-          <div><span class="chip">Conference</span><span class="when">1 to 4 Nov 2026</span><h3>INFORMS Annual Meeting, San Francisco</h3><p>The field's largest conference, where the Student Chapter Annual Awards are presented. Members attending, let us know.</p></div>
+          <div><span class="chip">Conference</span><span class="when">1 to 4 Nov 2026</span><h3>INFORMS Annual Meeting, San Francisco</h3><p>The big INFORMS conference of the year, where the student chapter awards are given out. Going? Let us know.</p></div>
         </li>
       </ol>
 
       <div class="past">
         <div class="entry">
-          <p class="kicker"><span class="chip" style="background:var(--gold);color:var(--navy-deep)">Seminar</span>From past years</p>
-          <span class="when">17 February 2026</span>
+          <span class="when">Past seminar &middot; 17 February 2026</span>
           <h3>AI, Optimization and Machine Learning in OM Applications</h3>
           <p>A joint seminar with Georgia Perakis, William F. Pounds Professor, MIT Sloan School of Management.</p>
         </div>
@@ -601,9 +495,8 @@
      Photo: put photos/board/firstname_lastname.jpg in place of the initials (copy Thavishka's portrait line). ===== -->
 <section class="sec vellum" id="people">
   <div class="wrap">
-    <div class="label"><span class="n">04</span><span class="t">People</span></div>
     <div>
-      <h2>Officers and Advisor, <em>2026&ndash;27</em></h2>
+      <h2>Officers and advisor, 2026&ndash;27</h2>
       <div class="people">
         <div class="person"><div class="portrait" aria-hidden="true"><span class="ini">SP</span></div><span class="role">President</span><b>Shokuh Puladi</b><span class="prog">PhD, Industrial Engineering</span></div>
         <a class="person" href="https://www.linkedin.com/in/thavishkagamage" target="_blank" rel="noopener" aria-label="Thavishka Gamage on LinkedIn"><div class="portrait has-photo"><img src="photos/board/thavishka_gamage.jpg" width="564" height="564" alt="Thavishka Gamage" loading="lazy"></div><span class="role">Vice President</span><b>Thavishka Gamage</b><span class="prog">PhD, Industrial Engineering</span></a>
@@ -616,8 +509,8 @@
         <a class="person" href="https://sites.google.com/view/alp-akcay" target="_blank" rel="noopener" aria-label="Dr. Alp Akcay, faculty website"><div class="portrait has-photo"><img src="photos/board/alp_akcay.jpg?v=3" width="468" height="468" alt="Dr. Alp Akcay" loading="lazy"></div><span class="role">Faculty Advisor</span><b>Dr. Alp Akcay</b><span class="prog">Associate Professor, Mechanical and Industrial Engineering</span></a>
       </div>
       <div class="roles">
-        <h3>Open Positions</h3>
-        <p>Interested in leading one of these? Write to <a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>.</p>
+        <h3>Open positions</h3>
+        <p>Want one of these roles? Email <a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>.</p>
         <ul><li>Communications</li><li>Events</li><li>Industry and Alumni Relations</li></ul>
       </div>
     </div>
@@ -627,10 +520,9 @@
 <!-- ===== EDIT: HONORS. Add a new <li> at the start of the list when the chapter wins an award (class="top" for Summa). ===== -->
 <section class="sec dark" id="honors">
   <div class="wrap">
-    <div class="label"><span class="n">05</span><span class="t">Honors</span></div>
     <div>
-      <h2>Seven national awards in <em>seven years</em></h2>
-      <p class="intro">INFORMS Student Chapter Annual Awards, conferred at the INFORMS Annual Meeting.</p>
+      <h2>Awards</h2>
+      <p class="intro">The chapter won an INFORMS Student Chapter Annual Award every year from 2017 to 2023.</p>
       <ol class="years">
         <li><span class="yr">2023</span><span class="tier">Magna Cum Laude</span></li>
         <li class="top"><span class="yr">2022</span><span class="tier">Summa Cum Laude</span></li>
@@ -643,8 +535,8 @@
       <p class="honors-note">In 2017, Rozhin Doroudi received the Judith Liebman Award for student volunteer leadership.</p>
       <div class="goal">
         <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="The chapter seal: the N route across a feasible region, ringed by a linear program and the words INFORMS at Northeastern, established 2015" width="150" height="150"><defs><path id="hn-ring" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1 -160 0"/><pattern id="hn-hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#3A5282" stroke-width="0.9"/></pattern></defs><circle cx="100" cy="100" r="97" fill="#0B1830"/><circle cx="100" cy="100" r="92" fill="none" stroke="#C9A35A" stroke-width="1.4"/><circle cx="100" cy="100" r="68" fill="none" stroke="#C9A35A" stroke-width="1.4"/><text font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="13.5" fill="#C9A35A" letter-spacing="1.2"><textPath href="#hn-ring" xlink:href="#hn-ring"><tspan>min</tspan> cᵀx  ·  <tspan>s.t.</tspan> Ax ≤ b,  x ≥ 0  ·  INFORMS AT NORTHEASTERN  ·  EST. 2015  ·</textPath></text><g transform="translate(60 60) scale(.8)"><path d="M22 84V20L78 80V16" fill="none" stroke="#F3F1EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="84" r="5" fill="#F3F1EA"/><circle cx="78" cy="16" r="8" fill="#C9A35A"/></g></svg>
-        <div><p class="kicker" style="color:var(--gold)">The goal for 2026-27</p><h3 style="margin-top:10px">Summa Cum Laude, <em>again</em></h3></div>
-        <p>INFORMS recognizes chapters for communications, special events and initiatives, community service and operations. This year's board is rebuilding all four, and every member who comes to an event, gives a talk or volunteers is part of the record.</p>
+        <h3>This year we're going for Summa Cum Laude again</h3>
+        <p>INFORMS looks at four things: communications, special events and initiatives, community service, and how the chapter is run. Coming to events, giving a talk or volunteering all count.</p>
       </div>
     </div>
   </div>
@@ -654,13 +546,12 @@
      FAQ: one <details><summary>question</summary><p>answer</p></details> per question. ===== -->
 <section class="sec" id="governance">
   <div class="wrap">
-    <div class="label"><span class="n">06</span><span class="t">Governance</span></div>
     <div>
-      <h2>How the chapter <em>runs</em></h2>
+      <h2>Bylaws and questions</h2>
       <div class="gov">
         <div id="bylaws">
           <h3>Bylaws</h3>
-          <p>In preparation by the 2026-27 board, on the INFORMS model for student chapters. Once adopted by the membership and approved by INFORMS, the full text will appear here. These are the principles under discussion.</p>
+          <p>The 2026-27 board is writing these, based on the INFORMS template for student chapters. The full text goes here once members adopt it and INFORMS approves it. For now, the main points:</p>
           <dl class="bylaws">
             <div><dt>Membership</dt><dd>Open to every Northeastern student with an interest in operations research, the management sciences or analytics. INFORMS membership is not required to join.</dd></div>
             <div><dt>Officers</dt><dd>A board of elected officers, each a member of INFORMS, serving one-year terms.</dd></div>
@@ -673,7 +564,7 @@
           <h3>Questions</h3>
           <p>For anyone new to the chapter.</p>
           <div class="faq">
-            <details><summary>Do I need to study operations research to join?</summary><p>No. The chapter is open to every Northeastern student, undergraduate, master's or doctoral, in any program, with an interest in operations research, the management sciences or analytics.</p></details>
+            <details><summary>Do I need to study operations research to join?</summary><p>No. Anyone at Northeastern can join, in any program or year.</p></details>
             <details><summary>Does it cost anything?</summary><p>No. Chapter membership is free, and you don't need to be an INFORMS member to join.</p></details>
             <details><summary>How do I join?</summary><p>Fill in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform" target="_blank" rel="noopener">membership form</a>. You'll get event announcements and invitations.</p></details>
             <details><summary>Can I help run the chapter?</summary><p>Yes. Several board roles are open this year; see Open Positions above, or write to <a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>.</p></details>
@@ -690,9 +581,8 @@
   <img src="photos/award.jpg" width="1600" height="899" alt="" loading="lazy">
   <div class="wrap">
     <div>
-      <p class="kicker">Membership</p>
-      <h2>Join the <em>chapter</em></h2>
-      <p>Membership is free and open to every Northeastern student: undergraduate, master's or doctoral, in any program. Members receive event announcements and invitations, and can help run the chapter.</p>
+      <h2>Join the chapter</h2>
+      <p>It's free and takes a minute. Fill in the form and you'll hear about every event. If you'd like to help run things, say so on the form or email us.</p>
     </div>
     <div class="cta">
       <a class="btn gold" href="https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform" target="_blank" rel="noopener">Membership form <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -719,7 +609,7 @@
       </div>
       <div>
         <p class="fh">The chapter</p>
-        <ul><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#events">Events</a></li><li><a href="#people">People</a></li><li><a href="#honors">Honors</a></li></ul>
+        <ul><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#events">Events</a></li><li><a href="#people">People</a></li><li><a href="#honors">Awards</a></li></ul>
       </div>
       <div>
         <p class="fh">Connect</p>
@@ -783,7 +673,7 @@
 (function () {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.documentElement.classList.add('js');
-  var groups = ['.sec h2', '.about > *', '.pillars li', '.flagship', '.card', '.cal li', '.past', '.person', '.roles', '.years li', '.goal > *', '.gov > div', '.tiles > div', '.apps h2', '.figures > div', '.join .wrap > *'];
+  var groups = ['.sec h2', '.about > *', '.flagship', '.card', '.cal li', '.past', '.person', '.roles', '.years li', '.goal > *', '.gov > div', '.join .wrap > *'];
   var items = [];
   groups.forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (el, i) { el.classList.add('reveal'); el.style.setProperty('--d', (Math.min(i, 6) * 0.07) + 's'); items.push(el); });
