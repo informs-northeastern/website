@@ -40,7 +40,7 @@ The website is one file, `index.html`, plus the `photos` folder and the icon fil
 ## The logo
 
 - The chapter mark is the single-line N: a route from a start point to a gold optimum. Files: `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` (phone home screen) and `avatar-512.png` (LinkedIn, Instagram, Teams).
-- The opening drawing (the N crossing a shaded region) and the seal in Awards are drawn in the page itself; there are no separate files to update.
+- The opening drawing (the N crossing a shaded region) and the seal in Awards are drawn in the page itself; there are no separate files to update. The opening drawing plays once when the page loads (and again on hover or tap), and the awards line draws once when it scrolls into view; both are skipped for visitors whose device asks for reduced motion. Keep motion to these few, meaningful places: no fade-ins on every block, no looping effects.
 - The logo needs Northeastern CSI approval before official use on merchandise or printed material.
 
 ## Rules
