@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
 <!-- ===== DESIGN: same colours and fonts as the main page. Content editors can skip to the EDIT markers below. ===== -->
 <style>
   :root {
@@ -30,14 +30,12 @@
     --on-navy: #F3F1EA;
     --on-navy-soft: #AFB7C8;
     --gold: #C9A35A;
-    --serif: "EB Garamond", Garamond, "Times New Roman", serif;
-    --sans: "Jost", "Segoe UI", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color-scheme: only light;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--navy-deep); color: var(--on-navy); font: 400 18px/1.55 var(--serif); position: relative; overflow-x: hidden; }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--navy-deep); color: var(--on-navy); font: 400 17px/1.55 var(--sans); font-optical-sizing: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; overflow-x: hidden; }
   body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background:
       radial-gradient(520px 420px at 50% 4%, rgba(201,163,90,.18), transparent 64%),
       radial-gradient(800px 560px at 0% 110%, rgba(36,55,92,.6), transparent 60%); }
@@ -54,6 +52,7 @@
   .word { margin: 0; font: 400 26px/1 var(--sans); letter-spacing: 0.34em; margin-right: -0.34em; }
   .sub { display: block; margin-top: 10px; font: 400 11.5px/1 var(--sans); letter-spacing: 0.5em; margin-right: -0.5em; text-transform: uppercase; color: var(--gold); }
   .tag { margin: 22px auto 0; max-width: 24em; color: var(--on-navy-soft); font-size: 18px; }
+  em, i { font-style: normal; }
   .tag em { color: var(--on-navy); }
 
   /* Featured event */
@@ -61,14 +60,14 @@
   .event[hidden] { display: none; }
   .event:hover { background: rgba(201,163,90,.14); }
   .event .date { width: 62px; padding: 9px 0 8px; text-align: center; background: var(--gold); color: var(--navy-deep); }
-  .event .d { display: block; font: 500 30px/1 var(--serif); }
+  .event .d { display: block; font: 600 30px/1 var(--sans); }
   .event .m { display: block; margin-top: 4px; font: 600 10.5px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; }
-  .event .k { display: flex; align-items: center; gap: 8px; font: 500 11.5px/1.3 var(--mono); color: var(--gold); }
+  .event .k { display: flex; align-items: center; gap: 8px; font: 500 11.5px/1.3 var(--sans); font-variant-numeric: tabular-nums; color: var(--gold); }
   .event .k .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex: none; }
   @media (prefers-reduced-motion: no-preference) { .event .k .dot { animation: live 2s ease-out infinite; } }
   @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(201,163,90,.6); } 100% { box-shadow: 0 0 0 9px rgba(201,163,90,0); } }
-  .event b { display: block; margin-top: 4px; font: 500 21px/1.15 var(--serif); }
-  .event .w { display: block; margin-top: 4px; font: 400 15px/1.35 var(--serif); color: var(--on-navy-soft); }
+  .event b { display: block; margin-top: 4px; letter-spacing: -0.015em; font: 600 20px/1.2 var(--sans); }
+  .event .w { display: block; margin-top: 4px; font: 400 15px/1.35 var(--sans); color: var(--on-navy-soft); }
   .event .go { display: inline-block; margin-top: 8px; font: 600 11.5px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
 
   /* Link list */
@@ -79,7 +78,7 @@
   .links svg { width: 22px; height: 22px; flex: none; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .links span { flex: 1; min-width: 0; }
   .links b { display: block; font: 500 13.5px/1.25 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; }
-  .links small { display: block; margin-top: 3px; font: 400 15.5px/1.3 var(--serif); color: var(--on-navy-soft); }
+  .links small { display: block; margin-top: 3px; font: 400 15.5px/1.3 var(--sans); color: var(--on-navy-soft); }
   .links .arr { flex: none; color: var(--on-navy-soft); font: 400 18px/1 var(--sans); transition: transform .2s, color .2s; }
   .links a:hover .arr { transform: translateX(4px); color: var(--gold); }
   .links a.primary { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
@@ -87,8 +86,8 @@
   .links a.primary small, .links a.primary .arr { color: var(--navy); }
   .links a.primary:hover { background: var(--on-navy); border-color: var(--on-navy); }
 
-  footer { margin-top: 36px; text-align: center; font: 400 14px/1.6 var(--serif); color: var(--on-navy-soft); }
-  footer .mono { display: block; margin-top: 6px; font: 500 11px/1.4 var(--mono); letter-spacing: 0.04em; opacity: .8; }
+  footer { margin-top: 36px; text-align: center; font: 400 14px/1.6 var(--sans); color: var(--on-navy-soft); }
+  footer .mono { display: block; margin-top: 6px; font: 500 11px/1.4 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; opacity: .8; }
   @media (max-width: 360px) { .word { font-size: 22px; letter-spacing: 0.28em; margin-right: -0.28em; } .event { grid-template-columns: 1fr; } }
 </style>
 </head>
