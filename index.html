@@ -96,6 +96,14 @@
   header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
   .brand svg { width: 40px; height: 40px; flex: none; }
+  .brand svg path { stroke-dasharray: 100; stroke-dashoffset: 0; }
+  .brand svg circle:last-child { transform-box: fill-box; transform-origin: center; }
+  @media (prefers-reduced-motion: no-preference) and (hover: hover) {
+    .brand:hover svg path { animation: logo-draw .8s cubic-bezier(.6,0,.3,1) both; }
+    .brand:hover svg circle:last-child { animation: logo-dot .4s cubic-bezier(.3,1.6,.5,1) .7s both; }
+  }
+  @keyframes logo-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @keyframes logo-dot { from { transform: scale(0); } to { transform: scale(1); } }
   .brand b { display: block; font: 400 19px/1 var(--sans); letter-spacing: 0.34em; margin-right: -0.34em; }
   .brand > span > span { display: block; margin-top: 6px; font: 400 11px/1 var(--sans); letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold-ink); }
   nav.main ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
@@ -120,21 +128,27 @@
   figure.route { margin: 0; position: relative; }
   figure.route svg { display: block; width: 100%; max-width: 520px; margin-inline: auto; overflow: visible; }
   figure.route figcaption { margin-top: 6px; font-style: normal; font-size: 15px; color: var(--on-navy-soft); text-align: center; }
+  /* The drawing plays once on load (and again on hover or tap): the gold route draws through the corners,
+     then the dashed objective line slides from the start corner until it can go no further, at the optimum.
+     Without scripts, or with reduced motion, it simply shows the finished picture. */
   .rt-path { stroke-dasharray: 100; stroke-dashoffset: 0; }
+  .rt-obj { transform: translate(64px, -64px); }
   .rt-dest-halo { transform-origin: 80px 16px; }
   .rt-node { transform-box: fill-box; transform-origin: center; }
   @media (prefers-reduced-motion: no-preference) {
-    .rt-path { animation: rt-draw 8s cubic-bezier(.6,0,.3,1) infinite; }
-    .rt-dest, .rt-label { animation: rt-arrive 8s ease infinite; }
-    .rt-dest-halo { animation: rt-pulse 8s ease-out infinite; }
-    .rt-n1 { animation: rt-visit1 8s ease infinite; } .rt-n2 { animation: rt-visit2 8s ease infinite; } .rt-n3 { animation: rt-visit3 8s ease infinite; }
+    .route.play .rt-path { animation: rt-draw 1.8s linear .2s both; }
+    .route.play .rt-n1 { animation: rt-visit .5s ease .54s both; }
+    .route.play .rt-n2 { animation: rt-visit .5s ease .9s both; }
+    .route.play .rt-n3 { animation: rt-visit .5s ease 1.26s both; }
+    .route.play .rt-obj { animation: rt-sweep 1.4s cubic-bezier(.5,0,.2,1) 2.1s both; }
+    .route.play .rt-dest, .route.play .rt-label { animation: rt-arrive .5s ease 3.4s both; }
+    .route.play .rt-dest-halo { animation: rt-ring .7s cubic-bezier(.3,1.6,.5,1) 3.4s both; }
   }
-  @keyframes rt-draw { 0% { stroke-dashoffset: 100; opacity: 1; } 55% { stroke-dashoffset: 0; } 88% { stroke-dashoffset: 0; opacity: 1; } 96% { opacity: 0; } 100% { stroke-dashoffset: 100; opacity: 0; } }
-  @keyframes rt-arrive { 0%, 52% { opacity: .25; } 58%, 88% { opacity: 1; } 100% { opacity: .25; } }
-  @keyframes rt-pulse { 0%, 55% { transform: scale(.6); opacity: 0; } 62% { opacity: .7; } 85% { transform: scale(1.9); opacity: 0; } 100% { opacity: 0; } }
-  @keyframes rt-visit1 { 0%, 14% { transform: scale(1); } 18% { transform: scale(1.45); } 24%, 100% { transform: scale(1); } }
-  @keyframes rt-visit2 { 0%, 30% { transform: scale(1); } 34% { transform: scale(1.45); } 40%, 100% { transform: scale(1); } }
-  @keyframes rt-visit3 { 0%, 45% { transform: scale(1); } 49% { transform: scale(1.45); } 55%, 100% { transform: scale(1); } }
+  @keyframes rt-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  @keyframes rt-visit { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.45); } }
+  @keyframes rt-sweep { 0% { transform: translate(0, 0); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate(64px, -64px); opacity: 1; } }
+  @keyframes rt-arrive { from { opacity: .3; } to { opacity: 1; } }
+  @keyframes rt-ring { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
   /* Full-bleed photograph with the mission line */
   .photo-band { position: relative; min-height: min(64vh, 560px); display: grid; align-items: end; color: var(--on-navy); background: var(--navy-deep); }
@@ -171,8 +185,8 @@
 
   /* Events */
   .cal { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
-  .cal li { display: grid; grid-template-columns: 112px 1fr; gap: 28px; padding: 22px; background: var(--white); border: 1px solid var(--rule); align-items: start; transition: transform .25s, box-shadow .25s, border-color .25s; }
-  .cal li:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 14px 30px -18px rgba(15,31,61,.45); }
+  .cal li { display: grid; grid-template-columns: 112px 1fr; gap: 28px; padding: 22px; background: var(--white); border: 1px solid var(--rule); align-items: start; transition: border-color .25s; }
+  .cal li:hover { border-color: var(--gold); }
   .signup { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 16px; font: 600 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; background: var(--navy); color: var(--on-navy); }
   .signup:hover { background: var(--gold-ink); }
   .luma-bar { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 18px 22px; background: var(--navy); color: var(--on-navy); }
@@ -235,6 +249,14 @@
   .years .tier { display: block; margin-top: 8px; font: 500 12px/1.4 var(--sans); letter-spacing: 0.06em; color: var(--on-navy-soft); }
   .years .top::before { background: var(--gold); border-color: var(--gold); }
   .years .top .yr, .years .top .tier { color: var(--gold); }
+  /* Played once when the awards come into view: the line draws from 2017 to 2023 and each year's diamond fills in as it passes. */
+  @media (prefers-reduced-motion: no-preference) {
+    .anim .years { position: relative; }
+    .anim .years::after { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: var(--on-navy-soft); opacity: .6; transform: scaleX(0); transform-origin: right; transition: transform 1.4s cubic-bezier(.5,0,.2,1); }
+    .anim .years.in::after { transform: scaleX(1); }
+    .anim .years li::before { transform: rotate(45deg) scale(0); transition: transform .4s cubic-bezier(.3,1.6,.5,1) calc(var(--k, 0) * .2s); }
+    .anim .years.in li::before { transform: rotate(45deg) scale(1); }
+  }
   .goal { margin-top: 44px; display: grid; grid-template-columns: 150px 1fr 1.4fr; gap: 40px; align-items: center; padding-top: 32px; border-top: 1px solid var(--navy-line); }
   .goal h3 { font-size: clamp(28px, 3vw, 38px); font-weight: 600; }
   .goal p { color: var(--on-navy-soft); }
@@ -285,12 +307,6 @@
   footer li a:hover { color: var(--gold); }
   footer .legal { padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 12.5px; }
 
-  /* Scroll reveal: only when scripts run and motion is welcome */
-  @media (prefers-reduced-motion: no-preference) {
-    .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
-    .js .reveal.in { opacity: 1; transform: none; }
-  }
-
   /* Responsive */
   @media (max-width: 1080px) {
     nav.main ul { gap: 18px; }
@@ -310,6 +326,7 @@
     .people { --max: 3; }
     .years { grid-template-columns: repeat(4, 1fr); row-gap: 28px; border-top: 0; }
     .years li { border-top: 1px solid var(--navy-line); }
+    .anim .years::after { display: none; }
     .sec { padding-block: 64px; }
     footer .cols { grid-template-columns: 1fr 1fr; }
     footer .cols > div:first-child { grid-column: 1 / -1; }
@@ -355,7 +372,7 @@
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="INFORMS at Northeastern, back to top">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22 84V20L78 80V16" fill="none" stroke="#0F1F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="84" r="5" fill="#0F1F3D"/><circle cx="78" cy="16" r="8" fill="#C9A35A"/></svg>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path pathLength="100" d="M22 84V20L78 80V16" fill="none" stroke="#0F1F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="84" r="5" fill="#0F1F3D"/><circle cx="78" cy="16" r="8" fill="#C9A35A"/></svg>
       <span><b>INFORMS</b><span>at Northeastern</span></span>
     </a>
     <nav class="main" aria-label="Sections"><ul>
@@ -383,21 +400,22 @@
       <a class="next" id="next-event" href="#events" hidden><span>Next: <b id="next-name"></b> &middot; <span id="next-when"></span></span></a>
     </div>
     <figure class="route">
-      <svg viewBox="-6 -10 112 112" role="img" aria-label="The chapter's mark drawn as a linear program: a shaded feasible region under dashed objective lines, with a gold route from the start vertex along its edges and through its interior to the optimum. The route traces the letter N.">
+      <svg viewBox="-6 -10 112 112" role="img" aria-label="The chapter's mark drawn as a linear program: a shaded feasible region with a gold route from the start corner to the optimum, tracing the letter N, and a dashed objective line pushed as far as it can go, touching the region only at the optimum.">
         <defs><pattern id="rt-hatch" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3.2" stroke="#3A5282" stroke-width=".7"/></pattern></defs>
-        <g stroke="#46587E" stroke-width=".55" stroke-dasharray="1.2 2.6"><path d="M-4 52L58 -10M-4 84L94 -14M14 104L108 10M46 104L108 42"/></g>
+        <g stroke="#46587E" stroke-width=".55" stroke-dasharray="1.2 2.6"><path d="M-4 28L72 104M-4 -4L104 104M24 -8L108 76"/></g>
         <path d="M20 84V22L44 10L80 16V78L56 90Z" fill="url(#rt-hatch)" stroke="#F3F1EA" stroke-width="1.4" stroke-linejoin="round"/>
         <path d="M20 84V22L80 78V16" fill="none" stroke="#C9A35A" stroke-opacity=".18" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path class="rt-path" pathLength="100" d="M20 84V22L80 78V16" fill="none" stroke="#C9A35A" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
         <g fill="#08132A" stroke="#F3F1EA" stroke-width="2.2"><circle class="rt-node rt-n1" cx="20" cy="22" r="3.4"/><circle class="rt-node rt-n2" cx="50" cy="50" r="3.4"/><circle class="rt-node rt-n3" cx="80" cy="78" r="3.4"/></g>
         <g fill="#F3F1EA"><circle cx="44" cy="10" r="1.8"/><circle cx="56" cy="90" r="1.8"/></g>
         <circle cx="20" cy="84" r="4.6" fill="#F3F1EA"/>
+        <line class="rt-obj" x1="-2" y1="62" x2="42" y2="106" stroke="#C9A35A" stroke-width="1.1" stroke-dasharray="3 2"/>
         <circle class="rt-dest-halo" cx="80" cy="16" r="9" fill="none" stroke="#C9A35A" stroke-width="1.2"/>
         <circle class="rt-dest" cx="80" cy="16" r="5" fill="#C9A35A"/>
-        <text class="rt-label" x="70" y="5" text-anchor="end" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="6" fill="#C9A35A">optimum</text>
+        <text class="rt-label" x="60" y="4" text-anchor="end" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="6" fill="#C9A35A">optimum</text>
         <text x="11" y="93" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="5" fill="#AFB7C8">start</text>
       </svg>
-      <figcaption>Our logo is a path through a linear program.</figcaption>
+      <figcaption>Our logo is a linear program. The dashed objective line slides as far as it can and stops at the optimum.</figcaption>
     </figure>
   </div>
 </div>
@@ -602,7 +620,7 @@
     <div class="cols">
       <div>
         <a class="brand" href="#top" aria-label="INFORMS at Northeastern, back to top">
-          <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22 84V20L78 80V16" fill="none" stroke="#F3F1EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="84" r="5" fill="#F3F1EA"/><circle cx="78" cy="16" r="8" fill="#C9A35A"/></svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><path pathLength="100" d="M22 84V20L78 80V16" fill="none" stroke="#F3F1EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="84" r="5" fill="#F3F1EA"/><circle cx="78" cy="16" r="8" fill="#C9A35A"/></svg>
           <span><b>INFORMS</b><span>at Northeastern</span></span>
         </a>
         <p class="addr"><a href="https://mie.northeastern.edu/" target="_blank" rel="noopener">Department of Mechanical and Industrial Engineering</a><br>Northeastern University, 360 Huntington Avenue, Boston, Massachusetts 02115</p>
@@ -668,20 +686,26 @@
 })();
 </script>
 
-<!-- Scroll reveal: adds a gentle slide-in as each block enters the screen. Safe to remove. -->
+<!-- Motion: plays the opening drawing once (again on hover or tap) and the awards line once it scrolls into view. Skipped for visitors who ask for reduced motion. Safe to remove. -->
 <script>
 (function () {
-  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.documentElement.classList.add('js');
-  var groups = ['.sec h2', '.about > *', '.flagship', '.card', '.cal li', '.past', '.person', '.roles', '.years li', '.goal > *', '.gov > div', '.join .wrap > *'];
-  var items = [];
-  groups.forEach(function (sel) {
-    document.querySelectorAll(sel).forEach(function (el, i) { el.classList.add('reveal'); el.style.setProperty('--d', (Math.min(i, 6) * 0.07) + 's'); items.push(el); });
-  });
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-  items.forEach(function (el) { io.observe(el); });
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var fig = document.querySelector('.route'), busy = false;
+  function play() {
+    if (busy) return; busy = true;
+    fig.classList.remove('play'); void fig.offsetWidth; fig.classList.add('play');
+    setTimeout(function () { busy = false; }, 4200);
+  }
+  if (fig) { play(); fig.addEventListener('mouseenter', play); fig.addEventListener('click', play); }
+  var years = document.querySelector('.years');
+  if (!years || !('IntersectionObserver' in window)) return;
+  var lis = years.querySelectorAll('li');
+  for (var k = 0; k < lis.length; k++) lis[k].style.setProperty('--k', lis.length - 1 - k);
+  document.documentElement.classList.add('anim');
+  var io = new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting) { years.classList.add('in'); io.disconnect(); }
+  }, { threshold: 0.4 });
+  io.observe(years);
 })();
 </script>
 </body>
