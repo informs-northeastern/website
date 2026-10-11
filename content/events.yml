@@ -9,7 +9,8 @@
 #   type           one word on the little tag: Meeting, Seminar, Workshop, Kickoff, Social, Conference
 #   date           year-month-day, e.g. 2026-10-13. This runs the countdown and the date square.
 #                  Exact date not fixed yet? Leave it empty and fill in when_text, square_day and square_month.
-#   time           e.g. 1:00–2:00 PM
+#   end_date       only for events over several days: the last day, e.g. 2026-11-04
+#   time           e.g. 1:00–2:00 PM (write AM or PM)
 #   place          building and room (shown on the Instagram links page). Not known yet? Boston campus.
 #   description    two or three plain sentences
 #   register_link  the Luma event link. Gives the event a Register button.
@@ -20,7 +21,8 @@
 #   when_text      replaces the automatic date line, e.g. Late Oct 2026 or 1 to 4 Nov 2026
 #   square_day / square_month   replace the automatic date square, e.g. Late / Oct, or 1–4 / Nov
 #
-# AFTER AN EVENT: delete its block. (The countdown already skips past dates, but the event stays listed until deleted.)
+# AFTER AN EVENT: nothing is urgent. A dated event hides itself from the site the day after it ends.
+# Delete its block when convenient to keep this file tidy.
 
 heading: Events
 
@@ -53,6 +55,7 @@ upcoming:
   - title: INFORMS Annual Meeting, San Francisco
     type: Conference
     date: 2026-11-01
+    end_date: 2026-11-04
     not_ours: yes
     when_text: 1 to 4 Nov 2026
     square_day: 1–4

@@ -59,6 +59,9 @@
  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ e.register_link }}", "availability": "https://schema.org/InStock"}{% endif %}}
 </script>
 {%- endif %}{% endfor %}
+{%- if site.google_site_verification and site.google_site_verification != "" %}
+<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{%- endif %}
 <link rel="preload" href="fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="assets/site.css">
@@ -176,7 +179,7 @@
       <div class="luma-bar"><div><b>{{ ev.luma_title }}</b><span>{{ ev.luma_text }}</span></div><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Subscribe on Luma</a></div>
       <ol class="cal">
         {%- for e in ev.upcoming %}
-        <li{% if e.date and e.date != "" %} data-date="{{ e.date | date: '%Y-%m-%d' }}"{% endif %}>
+        <li{% if e.date and e.date != "" %} data-date="{{ e.date | date: '%Y-%m-%d' }}"{% endif %}{% if e.end_date and e.end_date != "" %} data-end="{{ e.end_date | date: '%Y-%m-%d' }}"{% endif %}>
           <div class="date{% if e.not_ours and e.not_ours != "" %} soft{% endif %}" aria-hidden="true"><span class="d">{% if e.square_day and e.square_day != "" %}{{ e.square_day }}{% elsif e.date and e.date != "" %}{{ e.date | date: "%-d" }}{% else %}TBA{% endif %}</span><span class="m">{% if e.square_month and e.square_month != "" %}{{ e.square_month }}{% elsif e.date and e.date != "" %}{{ e.date | date: "%b" }}{% endif %}</span></div>
           <div>{% if e.type and e.type != "" %}<span class="chip">{{ e.type }}</span>{% endif %}<span class="when">{% if e.when_text and e.when_text != "" %}{{ e.when_text }}{% elsif e.date and e.date != "" %}{{ e.date | date: "%a %-d %b %Y" }}{% if e.time and e.time != "" %} &middot; {{ e.time }}{% endif %}{% else %}Date to be announced{% endif %}</span><h3>{{ e.title }}{% if e.partner and e.partner != "" %} <span class="tag">{{ e.partner }}</span>{% endif %}</h3>{% if e.description and e.description != "" %}<p>{% include text.html text=e.description %}</p>{% endif %}
             {%- capture meta %}{% if e.register_link and e.register_link != "" %}<a class="signup" href="{{ e.register_link }}" target="_blank" rel="noopener"{% if e.luma_event_id and e.luma_event_id != "" %} data-luma-action="checkout" data-luma-event-id="{{ e.luma_event_id }}"{% endif %}>Register</a>{% endif %}{% if e.price and e.price != "" %}<span>{{ e.price }}</span>{% endif %}{% endcapture %}{% if meta != "" %}<div class="meta">{{ meta }}</div>{% endif %}</div>
@@ -345,7 +348,11 @@
 
 <!-- Luma registration pop-up for every link with data-luma-action="checkout". -->
 <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
-<!-- Next-event countdown, balanced board rows, the opening animation. -->
+<!-- Hides finished events, next-event countdown, balanced board rows, the opening animation. -->
 <script src="assets/site.js"></script>
+{%- if site.goatcounter and site.goatcounter != "" %}
+<!-- Visitor statistics (GoatCounter, no cookies). Turned on in _config.yml. -->
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}
 </body>
 </html>

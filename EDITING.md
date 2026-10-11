@@ -50,7 +50,7 @@ If a line starts with a special character (`:` `#` `-` `*` `@` `"`), put the who
 
 **Registration (Luma).** Create the event on the chapter's Luma calendar (https://luma.com/calendar/cal-WJAcRwOTXltKmsr; sign in with Google as informsnu@gmail.com). On the event's Manage page, open More and copy the event link and the event ID (starts with `evt-`). Put them in `register_link` and `luma_event_id`. The Register button then opens Luma's sign-up pop-up on our page, and the Instagram links page shows the event as "Next event" until its day has passed.
 
-**After an event.** Delete its block from `events.yml`. To feature it in the dark "From past years" panel, change `past:` and upload a photo to `photos/`. For attendance, download the guest CSV from Luma (Manage, Guests) and run `luma_attendance.py` from the chapter's sheets folder.
+**After an event.** Nothing urgent: an event with a date hides itself from the site the day after it ends (for events over several days, set `end_date` to the last day). Delete its block from `events.yml` when convenient. To feature it in the dark "From past years" panel, change `past:` and upload a photo to `photos/`. For attendance, download the guest CSV from Luma (Manage, Guests) and run `luma_attendance.py` from the chapter's sheets folder.
 
 **New officer / officer leaves.** In `board.yml`, copy or delete one whole person (from `- name:`). The cards arrange themselves into even rows. When someone takes an open role, delete that role from `open_positions`.
 

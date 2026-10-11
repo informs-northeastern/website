@@ -1,5 +1,16 @@
 // INFORMS at Northeastern: the page's three small behaviours. Content editors never need this file.
 
+// 0. Finished events hide themselves: an event disappears from the list the day after its date (or its
+//    data-end date, for events that run several days), so the page never shows an old event as upcoming.
+(function () {
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var items = document.querySelectorAll('.cal li[data-date]');
+  for (var i = 0; i < items.length; i++) {
+    var p = (items[i].getAttribute('data-end') || items[i].getAttribute('data-date')).split('-');
+    if (new Date(+p[0], +p[1] - 1, +p[2]) < today) items[i].hidden = true;
+  }
+})();
+
 // 1. Next-event line in the opening: reads data-date on the event list; hides itself when no dated event is ahead.
 (function () {
   var today = new Date(); today.setHours(0, 0, 0, 0);

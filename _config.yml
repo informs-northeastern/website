@@ -14,6 +14,14 @@ data_dir: content
 
 timezone: America/New_York
 
+# Visitor statistics (optional, free, no cookies). Create an account at https://www.goatcounter.com,
+# pick a code (for example informs-neu), and put the code here. Leave empty to turn statistics off.
+goatcounter: ""
+
+# Google Search Console (optional). Add the site at https://search.google.com/search-console as a
+# "URL prefix" property, choose the "HTML tag" method, and paste only the content="..." value here.
+google_site_verification: ""
+
 # Keep apostrophes and quotes exactly as typed (no curly-quote conversion).
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]

@@ -37,6 +37,11 @@ content:
             description: Runs the countdown and the date square. Leave empty if the date isn't fixed yet.
             default: ""
             options: { format: yyyy-MM-dd }
+          - name: end_date
+            label: Last day (events over several days only)
+            type: date
+            default: ""
+            options: { format: yyyy-MM-dd }
           - { name: time, label: Time, type: string, description: "e.g. 1:00–2:00 PM (write AM or PM)" }
           - { name: place, label: Building and room, type: string, description: Shown on the Instagram links page. }
           - { name: description, label: Description, type: text, description: "Two or three plain sentences. A link is written [words](address)." }

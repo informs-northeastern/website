@@ -41,10 +41,10 @@
   {%- comment %} Next event: every upcoming event with a date and a Register link is listed; the script below
       shows only the first one whose day hasn't passed. {% endcomment %}
   {%- for e in site.data.events.upcoming %}{% if e.date and e.date != "" and e.register_link and e.register_link != "" %}
-  <a class="event" href="{{ e.register_link }}" data-date="{{ e.date | date: '%Y-%m-%d' }}">
+  <a class="event" href="{{ e.register_link }}" data-date="{{ e.date | date: '%Y-%m-%d' }}"{% if e.end_date and e.end_date != "" %} data-end="{{ e.end_date | date: '%Y-%m-%d' }}"{% endif %}>
     <span class="date" aria-hidden="true"><span class="d">{% if e.square_day and e.square_day != "" %}{{ e.square_day }}{% else %}{{ e.date | date: "%-d" }}{% endif %}</span><span class="m">{% if e.square_month and e.square_month != "" %}{{ e.square_month }}{% else %}{{ e.date | date: "%b" }}{% endif %}</span></span>
     <span>
-      <span class="k"><span class="dot" aria-hidden="true"></span>Next event</span>
+      <span class="k">Next event</span>
       <b>{{ e.title }}</b>
       <span class="w">{% if e.when_text and e.when_text != "" %}{{ e.when_text }}{% else %}{{ e.date | date: "%a %-d %b %Y" }}{% if e.time and e.time != "" %} &middot; {{ e.time }}{% endif %}{% endif %}{% if e.place and e.place != "" %} &middot; {{ e.place }}{% endif %}</span>
       <span class="go">Register{% if e.price == "Free" %} free{% endif %} &rarr;</span>
@@ -66,15 +66,19 @@
   </footer>
 </main>
 <script>
-  // Show only the next event: hide events whose day has passed (local time), then all but the first one left.
+  // Show only the next event: hide events whose last day has passed (local time), then all but the first one left.
   (function () {
     var shown = false;
     document.querySelectorAll('.event[data-date]').forEach(function (ev) {
-      var p = ev.getAttribute('data-date').split('-');
+      var p = (ev.getAttribute('data-end') || ev.getAttribute('data-date')).split('-');
       var end = new Date(+p[0], +p[1] - 1, +p[2] + 1);
       if (shown || new Date() >= end) ev.hidden = true; else shown = true;
     });
   })();
 </script>
+{%- if site.goatcounter and site.goatcounter != "" %}
+<!-- Visitor statistics (GoatCounter, no cookies). Turned on in _config.yml. -->
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}
 </body>
 </html>

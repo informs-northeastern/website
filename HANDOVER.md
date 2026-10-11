@@ -45,6 +45,13 @@ docker run --rm -p 4000:4000 -v "%cd%:/src" -w /src ruby:3.3 sh -c "gem install 
 
 The first run takes a few minutes. Then open http://localhost:4000. (`%cd%` is for Windows cmd; use `$(pwd)` on Mac or Linux.)
 
+## Visitor statistics and Google Search
+
+Both are switched off until someone with the chapter login sets them up (each takes about five minutes):
+
+- **Statistics:** create a free account at https://www.goatcounter.com with informsnu@gmail.com and pick a code (for example `informs-neu`). Put the code after `goatcounter:` in `_config.yml`. Visits and clicks then show on the GoatCounter dashboard. It uses no cookies, so no cookie banner is needed.
+- **Google Search:** at https://search.google.com/search-console, add a "URL prefix" property for `https://informs-northeastern.github.io/website/`, choose the "HTML tag" method, and paste only the `content="..."` value after `google_site_verification:` in `_config.yml`. Commit, wait a minute, then click Verify. Then submit `sitemap.xml` under Sitemaps.
+
 ## Restore points
 
 Before every redesign, a tag (a named snapshot) was added to the repository, for example `good-2026-10-08-redesign` and `pre-editable-2026-10-11` (the last version before the words moved into `content`). On GitHub: the branch menu > Tags shows them all. Smaller slips are easier to undo from a file's **History**.
