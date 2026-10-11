@@ -1,0 +1,30 @@
+# THE CHAPTER'S DETAILS
+# Used across the whole site: the bar at the very top, the buttons, the footer and the Instagram links page.
+# Change a link here once and it changes everywhere.
+#
+# How to edit: change the text after the colon. Leave the word before the colon alone.
+# Lines that start with # are notes like this one; the website ignores them.
+
+name: INFORMS at Northeastern
+full_name: INFORMS Student Chapter at Northeastern University
+founded: 2015
+
+# One or two sentences that Google and link previews (iMessage, LinkedIn, Teams) show under the page title.
+description: >-
+  The INFORMS Student Chapter at Northeastern University: seminars, workshops and events in operations
+  research and analytics. Free and open to every Northeastern student.
+share_description: >-
+  The INFORMS Student Chapter at Northeastern University. Operations research and analytics, studied and
+  practiced together.
+
+email: informsnu@gmail.com
+membership_form: https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform
+informs_membership: https://www.informs.org/Membership/Join-Informs
+linkedin: https://www.linkedin.com/company/informsneu/
+instagram: https://www.instagram.com/informs_nu/
+luma_calendar: https://luma.com/calendar/cal-WJAcRwOTXltKmsr
+
+# Shown in the footer.
+department: Department of Mechanical and Industrial Engineering
+department_link: https://mie.northeastern.edu/
+address: Northeastern University, 360 Huntington Avenue, Boston, Massachusetts 02115

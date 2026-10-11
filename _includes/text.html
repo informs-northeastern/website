@@ -1,0 +1,5 @@
+{% comment %}
+  Turns an editor's text into HTML: [words](link) becomes a link, *words* becomes emphasis.
+  Use {% include text.html text=... %} inside a sentence, or add block=true for whole paragraphs.
+  Links to other websites open in a new tab.
+{% endcomment %}{% assign html = include.text | markdownify | replace: '<a href="http', '<a target="_blank" rel="noopener" href="http' | strip %}{% if include.block %}{{ html }}{% else %}{{ html | remove: '<p>' | remove: '</p>' }}{% endif %}

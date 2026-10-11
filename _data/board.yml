@@ -1,0 +1,79 @@
+# THE BOARD (officers and faculty advisor)
+#
+# TO ADD SOMEONE: copy a whole block, from "- name:" down to just before the next "- name:", and change it.
+# TO REMOVE SOMEONE: delete their block. The cards arrange themselves into even rows; nothing else to adjust.
+#
+#   name     full name
+#   role     e.g. Treasurer
+#   program  e.g. PhD, Industrial Engineering
+#   photo    a square photo uploaded to photos/board/, named firstname_lastname.jpg.
+#            Leave empty to show their initials instead.
+#   link     their LinkedIn (or website). The whole card opens it. Leave empty if they don't have one.
+#
+# Source for roles, programs and LinkedIn links: the Board roster sheet in the chapter's Google Drive.
+
+heading: Officers and advisor, 2026–27
+
+people:
+  - name: Shokuh Puladi
+    role: President
+    program: PhD, Industrial Engineering
+    photo:
+    link:
+
+  - name: Thavishka Gamage
+    role: Vice President
+    program: PhD, Industrial Engineering
+    photo: photos/board/thavishka_gamage.jpg
+    link: https://www.linkedin.com/in/thavishkagamage
+
+  - name: Berke Kemahli
+    role: Treasurer
+    program: MS, Industrial Engineering
+    photo:
+    link: https://www.linkedin.com/in/berke-kemahli/
+
+  - name: Sena Sivrikaya
+    role: Secretary
+    program: MS, Industrial Engineering
+    photo:
+    link:
+
+  - name: Chirag Daas
+    role: Undergraduate Director
+    program: Industrial Engineering and Business
+    photo: photos/board/chirag_daas.jpg
+    link: https://www.linkedin.com/in/chirag-daas/
+
+  - name: Lokesh Addagiri
+    role: Webmaster
+    program: Data Science and Business
+    photo:
+    link: https://www.linkedin.com/in/lokeshaddagiri/
+
+  - name: Aditya Kadlabal Sripad
+    role: Membership Outreach and Engagement
+    program: MS, Engineering Management
+    photo: photos/board/aditya_kadlabal_sripad.jpg
+    link: https://www.linkedin.com/in/adityakadlabalsripad/
+
+  - name: Kira Woodhouse
+    role: Community Service Lead
+    program: PhD, Industrial Engineering
+    photo:
+    link:
+
+  - name: Dr. Alp Akcay
+    role: Faculty Advisor
+    program: Associate Professor, Mechanical and Industrial Engineering
+    photo: photos/board/alp_akcay.jpg
+    link: https://sites.google.com/view/alp-akcay
+
+# Board roles nobody holds yet. Delete a line when someone takes the role.
+# Delete every line (leave "open_positions:" empty) to hide the box.
+open_positions_heading: Open positions
+open_positions_text: Want one of these roles? Email [informsnu@gmail.com](mailto:informsnu@gmail.com).
+open_positions:
+  - Communications
+  - Events
+  - Industry and Alumni Relations

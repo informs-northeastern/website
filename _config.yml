@@ -1,0 +1,22 @@
+# Technical settings for GitHub Pages. Content editors never need this file: the words are in the _data folder.
+
+title: INFORMS at Northeastern
+
+# Where the site lives. If the chapter moves to its own domain (e.g. https://informsnu.org), set
+#   url: https://informsnu.org
+#   baseurl: ""
+# and add the domain under Settings > Pages on GitHub.
+url: https://informs-northeastern.github.io
+baseurl: /website
+
+timezone: America/New_York
+
+# Keep apostrophes and quotes exactly as typed (no curly-quote conversion).
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+# Notes for people, not pages on the site.
+exclude:
+  - README.md
+  - EDITING.md
+  - HANDOVER.md

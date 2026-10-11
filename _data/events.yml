@@ -1,0 +1,74 @@
+# EVENTS
+# Shown in the Events section, in the "Next: ... in 5 days" line at the top of the page,
+# and on the Instagram links page (the next event with a Register link).
+#
+# TO ADD AN EVENT: copy a whole block, from its "- title:" line down to the line before the next "- title:",
+# paste it in date order, and change the details. Fill in what you know; leave the rest empty or delete the line.
+#
+#   title          the event's name
+#   type           one word on the little tag: Meeting, Seminar, Workshop, Kickoff, Social, Conference
+#   date           year-month-day, e.g. 2026-10-13. This runs the countdown and the date square.
+#                  Exact date not fixed yet? Leave it empty and fill in when_text, square_day and square_month.
+#   time           e.g. 1:00–2:00 PM
+#   place          building and room (shown on the Instagram links page). Not known yet? Boston campus.
+#   description    two or three plain sentences
+#   register_link  the Luma event link. Gives the event a Register button.
+#   luma_event_id  from Luma (Manage > More, starts with evt-). Makes Register open Luma's sign-up pop-up on our page.
+#   price          e.g. Free
+#   partner        a co-host, shown as a small label next to the title, e.g. With MIE
+#   not_ours       yes for events run by someone else (e.g. the INFORMS conference): the date square turns grey
+#   when_text      replaces the automatic date line, e.g. Late Oct 2026 or 1 to 4 Nov 2026
+#   square_day / square_month   replace the automatic date square, e.g. Late / Oct, or 1–4 / Nov
+#
+# AFTER AN EVENT: delete its block. (The countdown already skips past dates, but the event stays listed until deleted.)
+
+heading: Events
+
+luma_title: Get invites by email
+luma_text: Follow the chapter calendar on Luma and new events show up in your inbox.
+
+upcoming:
+  - title: General Member Meeting
+    type: Meeting
+    date: 2026-10-13
+    time: 1:00–2:00 PM
+    place: Boston campus
+    description: >-
+      Meet the board and tell us which talks and workshops you'd like this year. We'll send the room to
+      everyone who registers.
+    register_link: https://luma.com/di4y903v
+    luma_event_id: evt-VfssmKUtUBgoeeC
+    price: Free
+
+  - title: Kickoff and Welcome
+    type: Kickoff
+    partner: With MIE
+    when_text: Late Oct 2026
+    square_day: Late
+    square_month: Oct
+    description: >-
+      Our first event of the year, together with the Mechanical and Industrial Engineering department, who
+      are providing coffee and snacks. Date and room coming soon.
+
+  - title: INFORMS Annual Meeting, San Francisco
+    type: Conference
+    date: 2026-11-01
+    not_ours: yes
+    when_text: 1 to 4 Nov 2026
+    square_day: 1–4
+    description: >-
+      The big INFORMS conference of the year, where the student chapter awards are given out. Going? Let us
+      know.
+
+# The dark panel with a photo under the event list.
+past:
+  label: From past years
+  title: Seven INFORMS chapter awards in a row
+  text: >-
+    We won an INFORMS Student Chapter Annual Award each year from 2017 to 2023, including Summa Cum Laude
+    in 2022.
+  photo: photos/award.jpg
+  photo_description: >-
+    Four people on stage at the INFORMS Annual Meeting, two holding an INFORMS Student Chapter Annual Award
+    certificate for the Northeastern University Student Chapter.
+  caption: Chapter members accept an INFORMS Student Chapter Annual Award at the INFORMS Annual Meeting.

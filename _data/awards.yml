@@ -1,0 +1,33 @@
+# AWARDS (the dark section with the seal)
+#
+# NEW AWARD: add two lines at the TOP of the list (newest first), e.g.
+#   - year: 2027
+#     award: Summa Cum Laude
+# Summa Cum Laude years show in gold by themselves.
+
+heading: Awards
+intro: The chapter won an INFORMS Student Chapter Annual Award every year from 2017 to 2023.
+
+years:
+  - year: 2023
+    award: Magna Cum Laude
+  - year: 2022
+    award: Summa Cum Laude
+  - year: 2021
+    award: Magna Cum Laude
+  - year: 2020
+    award: Magna Cum Laude
+  - year: 2019
+    award: Magna Cum Laude
+  - year: 2018
+    award: Cum Laude
+  - year: 2017
+    award: Cum Laude
+
+note: In 2017, Rozhin Doroudi received the Judith Liebman Award for student volunteer leadership.
+
+# The box with the seal.
+goal_title: This year we're going for Summa Cum Laude again
+goal_text: >-
+  INFORMS looks at four things: communications, special events and initiatives, community service, and how
+  the chapter is run. Coming to events, giving a talk or volunteering all count.

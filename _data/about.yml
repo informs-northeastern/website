@@ -1,0 +1,26 @@
+# ABOUT THE CHAPTER
+#
+# text: leave an empty line between paragraphs.
+
+heading: About the chapter
+
+text: |
+  INFORMS is the main professional society for operations research and analytics. We're its student chapter at Northeastern, started in the summer of 2015.
+
+  Operations research is the math behind a lot of everyday decisions: hospital staffing, delivery routes, power grid planning, airline schedules, even how AI models get trained. You don't need to study it to join. Most of what we do is invite people who use it to come and talk about their work, teach practical skills, and give students across programs a reason to meet.
+
+  Joining is free, and you don't need to be an INFORMS member.
+
+# The short history on the right. Oldest first. To add a year, copy two lines (- year / text) and change them.
+timeline_heading: The chapter so far
+timeline:
+  - year: 2015
+    text: Started in the summer by Northeastern students.
+  - year: 2017
+    text: First INFORMS chapter award. Rozhin Doroudi wins the Judith Liebman Award.
+  - year: 2019
+    text: Sessions with American Airlines; members land internships at Fidelity.
+  - year: 2022
+    text: Summa Cum Laude, the top INFORMS chapter award.
+  - year: 2026
+    text: A new board takes over in the fall.

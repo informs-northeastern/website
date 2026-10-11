@@ -1,0 +1,33 @@
+# WHAT WE RUN (the programs section)
+
+heading: What we run
+
+# The big card on the left.
+main:
+  title: The Speaker Seminar Series
+  text: >-
+    Once a month, a faculty member, an alum or someone working in Boston talks about how they use
+    optimization, simulation or analytics on real problems. Questions and discussion afterwards.
+  facts:
+    - label: Format
+      value: Lecture and discussion
+    - label: Frequency
+      value: Monthly
+    - label: Audience
+      value: Undergraduate, master's, doctoral, faculty
+    - label: Location
+      value: Boston campus
+    - label: First date
+      value: To be announced
+
+# The smaller cards on the right. Copy one "- title / text" pair to add a program.
+others:
+  - title: Skills Workshops
+    text: Solvers, Python for optimization, simulation and data visualization.
+  - title: Doctoral Lightning Talks
+    text: Short research talks by doctoral students, open to all.
+  - title: Gatherings
+    text: Coffee hours and the occasional outing.
+
+# The line under the cards. A link is written [the words people see](the address).
+note: Questions about a program? Email [informsnu@gmail.com](mailto:informsnu@gmail.com).

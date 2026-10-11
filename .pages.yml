@@ -1,0 +1,247 @@
+# Settings for Pages CMS (https://app.pagescms.org), a free website editor with forms.
+# Sign in there with GitHub, open this repository, and every section below appears as a form.
+# It saves into the files in _data, exactly as editing them by hand would.
+
+media:
+  input: photos
+  output: photos
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: events
+    label: Events
+    type: file
+    path: _data/events.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - { name: luma_title, label: Luma box title, type: string }
+      - { name: luma_text, label: Luma box text, type: string }
+      - name: upcoming
+        label: Upcoming events (in date order; delete an event once it's over)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - name: type
+            label: Tag
+            type: select
+            options:
+              values: [Meeting, Seminar, Workshop, Kickoff, Social, Conference]
+          - name: date
+            label: Date
+            type: date
+            description: Runs the countdown and the date square. Leave empty if the date isn't fixed yet.
+            default: ""
+            options: { format: yyyy-MM-dd }
+          - { name: time, label: Time, type: string, description: "e.g. 1:00–2:00 PM (write AM or PM)" }
+          - { name: place, label: Building and room, type: string, description: Shown on the Instagram links page. }
+          - { name: description, label: Description, type: text, description: "Two or three plain sentences. A link is written [words](address)." }
+          - { name: register_link, label: Luma event link, type: string, description: Gives the event a Register button. }
+          - { name: luma_event_id, label: Luma event ID, type: string, description: "Starts with evt- (Luma: Manage > More). Opens the sign-up pop-up on our page." }
+          - { name: price, label: Price, type: string, description: e.g. Free }
+          - { name: partner, label: Co-host label, type: string, description: e.g. With MIE }
+          - { name: not_ours, label: Run by someone else (grey date square), type: boolean }
+          - { name: when_text, label: Date line override, type: string, description: "Only if the date isn't exact, e.g. Late Oct 2026" }
+          - { name: square_day, label: Date square, top line override, type: string, description: "e.g. Late, or 1–4" }
+          - { name: square_month, label: Date square, month override, type: string, description: e.g. Oct }
+      - name: past
+        label: From past years (dark panel)
+        type: object
+        fields:
+          - { name: label, label: Small label, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: photo, label: Photo, type: image }
+          - { name: photo_description, label: Photo description (for screen readers), type: text }
+          - { name: caption, label: Caption, type: string }
+
+  - name: board
+    label: Board
+    type: file
+    path: _data/board.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - name: people
+        label: Officers and advisor (the cards arrange themselves)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.role}: {fields.name}"
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Role, type: string }
+          - { name: program, label: Program, type: string, description: "e.g. PhD, Industrial Engineering" }
+          - { name: photo, label: Photo, type: image, description: "Square, named firstname_lastname.jpg, in photos/board. Empty shows initials." }
+          - { name: link, label: LinkedIn or website, type: string, description: Empty means the card isn't clickable. }
+      - { name: open_positions_heading, label: Open positions heading, type: string }
+      - { name: open_positions_text, label: Open positions text, type: string }
+      - { name: open_positions, label: Open positions (remove all to hide the box), type: string, list: true }
+
+  - name: awards
+    label: Awards
+    type: file
+    path: _data/awards.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - { name: intro, label: Intro line, type: text }
+      - name: years
+        label: Awards (newest first; Summa Cum Laude shows in gold)
+        type: object
+        list: true
+        fields:
+          - { name: year, label: Year, type: number }
+          - name: award
+            label: Award
+            type: select
+            options:
+              values: [Summa Cum Laude, Magna Cum Laude, Cum Laude]
+      - { name: note, label: Note under the list, type: text }
+      - { name: goal_title, label: Seal box title, type: string }
+      - { name: goal_text, label: Seal box text, type: text }
+
+  - name: bylaws_and_faq
+    label: Bylaws and FAQ
+    type: file
+    path: _data/bylaws_and_faq.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - { name: bylaws_heading, label: Bylaws heading, type: string }
+      - { name: bylaws_intro, label: Bylaws intro, type: text }
+      - name: bylaws
+        label: Bylaws points
+        type: object
+        list: true
+        fields:
+          - { name: topic, label: Topic, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: questions_heading, label: Questions heading, type: string }
+      - name: questions
+        label: Questions
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.question}"
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text, description: "A link is written [words](address)." }
+
+  - name: opening
+    label: Opening and group photo
+    type: file
+    path: _data/opening.yml
+    format: yaml
+    fields:
+      - { name: headline, label: Headline, type: string, description: "Put *stars* around the words that should be gold." }
+      - { name: intro, label: Intro paragraph, type: text }
+      - { name: group_photo, label: Group photo, type: image }
+      - { name: group_photo_description, label: Group photo description (for screen readers), type: text }
+
+  - name: about
+    label: About
+    type: file
+    path: _data/about.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - { name: text, label: Text, type: text, description: Leave an empty line between paragraphs. }
+      - { name: timeline_heading, label: Timeline heading, type: string }
+      - name: timeline
+        label: Timeline (oldest first)
+        type: object
+        list: true
+        fields:
+          - { name: year, label: Year, type: number }
+          - { name: text, label: Text, type: string }
+
+  - name: programs
+    label: Programs
+    type: file
+    path: _data/programs.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - name: main
+        label: Main program (big card)
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - name: facts
+            label: Facts
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: value, label: Value, type: string }
+      - name: others
+        label: Other programs (small cards)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: note, label: Line under the cards, type: string }
+
+  - name: join
+    label: Join section
+    type: file
+    path: _data/join.yml
+    format: yaml
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: text, label: Text, type: text }
+
+  - name: links_page
+    label: Instagram links page
+    type: file
+    path: _data/links_page.yml
+    format: yaml
+    fields:
+      - { name: tagline, label: Line under the name, type: text, description: "Put *stars* around words to make them brighter." }
+      - name: links
+        label: Buttons (most important first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Small line, type: string }
+          - { name: link, label: Link, type: string }
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              values: [member, calendar, website, linkedin, informs, email]
+          - { name: main, label: Gold button (one only), type: boolean }
+
+  - name: chapter
+    label: Chapter details and links
+    type: file
+    path: _data/chapter.yml
+    format: yaml
+    fields:
+      - { name: name, label: Short name, type: string }
+      - { name: full_name, label: Full name, type: string }
+      - { name: founded, label: Year founded, type: number }
+      - { name: description, label: Google description, type: text }
+      - { name: share_description, label: Link-preview description, type: text }
+      - { name: email, label: Email, type: string }
+      - { name: membership_form, label: Membership form link, type: string }
+      - { name: informs_membership, label: INFORMS membership link, type: string }
+      - { name: linkedin, label: LinkedIn, type: string }
+      - { name: instagram, label: Instagram, type: string }
+      - { name: luma_calendar, label: Luma calendar, type: string }
+      - { name: department, label: Department (footer), type: string }
+      - { name: department_link, label: Department link, type: string }
+      - { name: address, label: Address (footer), type: string }

@@ -1,0 +1,36 @@
+# THE INSTAGRAM LINKS PAGE (https://informs-northeastern.github.io/website/links/)
+# The "Next event" card on that page fills itself in from events.yml.
+#
+# Put *stars* around words to make them brighter.
+
+tagline: Operations research and analytics, *studied and practiced together.* Free and open to every Northeastern student.
+
+# The buttons, most important first. Copy one block (from "- title:") to add a button.
+#   icon: one of member, calendar, website, linkedin, informs, email
+#   main: yes makes it the gold button (use it for one button only)
+links:
+  - title: Become a member
+    subtitle: One short form. Free.
+    link: https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform
+    icon: member
+    main: yes
+  - title: All events
+    subtitle: Subscribe on Luma and get every invite first
+    link: https://luma.com/calendar/cal-WJAcRwOTXltKmsr
+    icon: calendar
+  - title: Chapter website
+    subtitle: Programs, the board, honors and FAQ
+    link: https://informs-northeastern.github.io/website/
+    icon: website
+  - title: LinkedIn
+    subtitle: News, speakers and opportunities
+    link: https://www.linkedin.com/company/informsneu/
+    icon: linkedin
+  - title: INFORMS student membership
+    subtitle: Join the national society
+    link: https://www.informs.org/Membership/Join-Informs
+    icon: informs
+  - title: Email the board
+    subtitle: informsnu@gmail.com
+    link: mailto:informsnu@gmail.com
+    icon: email

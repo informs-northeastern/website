@@ -1,0 +1,15 @@
+# THE OPENING (the dark band at the top of the page) AND THE BIG GROUP PHOTO UNDER IT
+#
+# Put *stars* around the words you want in gold. Keep gold to this one headline.
+
+headline: The science of better decisions, *studied and practiced together.*
+
+intro: >-
+  We're Northeastern's student chapter of INFORMS, running since 2015. We host talks, workshops and
+  get-togethers for anyone into optimization, analytics or the math of making decisions, from first-year
+  undergrads to PhD students and faculty.
+
+# The wide photo under the opening. Upload the new photo to the photos folder, then put its file name here.
+group_photo: photos/group.jpg
+# Describe the photo for people who can't see it (screen readers) in one sentence.
+group_photo_description: About forty chapter members standing together for a group photo in a formal room with portraits on the wall.

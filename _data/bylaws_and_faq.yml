@@ -1,0 +1,45 @@
+# BYLAWS AND QUESTIONS
+#
+# A link is written [the words people see](the address).
+
+heading: Bylaws and questions
+
+bylaws_heading: Bylaws
+bylaws_intro: >-
+  The 2026-27 board is writing these, based on the INFORMS template for student chapters. The full text goes
+  here once members adopt it and INFORMS approves it. For now, the main points:
+bylaws:
+  - topic: Membership
+    text: >-
+      Open to every Northeastern student with an interest in operations research, the management sciences or
+      analytics. INFORMS membership is not required to join.
+  - topic: Officers
+    text: A board of elected officers, each a member of INFORMS, serving one-year terms.
+  - topic: Elections
+    text: Open nominations and an electronic ballot of the membership, decided by majority vote.
+  - topic: Meetings
+    text: General meetings open to all members, announced in advance.
+  - topic: Conduct
+    text: >-
+      Everyone taking part in chapter activities agrees to the
+      [INFORMS Code of Conduct](https://www.informs.org/About-INFORMS/Governance/INFORMS-Code-of-Conduct).
+
+# Copy one "- question / answer" pair to add a question.
+questions_heading: Questions
+questions:
+  - question: Do I need to study operations research to join?
+    answer: No. Anyone at Northeastern can join, in any program or year.
+  - question: Does it cost anything?
+    answer: No. Chapter membership is free, and you don't need to be an INFORMS member to join.
+  - question: How do I join?
+    answer: >-
+      Fill in the [membership form](https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform).
+      You'll get event announcements and invitations.
+  - question: Can I help run the chapter?
+    answer: >-
+      Yes. Several board roles are open this year; see Open Positions above, or write to
+      [informsnu@gmail.com](mailto:informsnu@gmail.com).
+  - question: Where do I hear about events?
+    answer: >-
+      On this page under Events, and on the chapter's [LinkedIn](https://www.linkedin.com/company/informsneu/)
+      and [Instagram](https://www.instagram.com/informs_nu/).
