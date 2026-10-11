@@ -19,24 +19,25 @@ The chapter Gmail is the key to everything: hand over its password and recovery 
 
 ## How the files are organised
 
+The [README](README.md) lists every folder and file in plain words. For whoever looks after the code:
+
 ```
-_data/            ALL THE WORDS. One file per section. This is the only folder editors need.
-photos/           Group photo, award photo, photos/board/ for officer headshots
-index.html        The main page's layout. It pulls the words in from _data.
+content/          ALL THE WORDS, one YAML file per section. The only folder editors need.
+photos/           Group photo, award photo, board/ for officer headshots
+index.html        The main page's layout; fills in the words from content/
 links/index.html  The Instagram links page's layout
-_includes/        Pieces of layout reused across pages: the logo, the opening drawing, the seal, icons
-assets/site.css   The design: colours, fonts, spacing (assets/links.css for the links page)
-assets/site.js    Three small behaviours: event countdown, even board rows, the opening animation
+_includes/        Reused pieces: the logo, the opening drawing, the seal, link icons, text formatting
+assets/           site.css (the design; colours at the top), links.css, site.js (countdown, board rows, animation)
 fonts/            The Inter typeface, hosted with the site (licence in fonts/OFL.txt)
-_config.yml       The site's address. Change it when moving to a custom domain.
-.pages.yml        Sets up the forms in Pages CMS
+_config.yml       The site's address, and data_dir: content (tells Jekyll where the words are)
+.pages.yml        The forms in Pages CMS; one entry per file in content/
 favicon.svg, favicon-32.png, apple-touch-icon.png, avatar-512.png   Logo files
 404.html, sitemap.xml, robots.txt   "Page not found" page and search-engine files
 ```
 
 Colours live at the top of `assets/site.css` (`--navy`, `--gold` and so on). Change a colour there and it changes across the whole page.
 
-GitHub Pages builds the site with **Jekyll**, which comes with it: files in `_data` are filled into `index.html` where you see `{{ ... }}`. No install is needed to edit. To preview on a computer before publishing, install Docker and run this in the website folder:
+GitHub Pages builds the site with **Jekyll**, which comes with it: files in `content/` are filled into `index.html` where you see `{{ ... }}`. No install is needed to edit. To preview on a computer before publishing, install Docker and run this in the website folder:
 
 ```
 docker run --rm -p 4000:4000 -v "%cd%:/src" -w /src ruby:3.3 sh -c "gem install github-pages webrick --no-document && jekyll serve --host 0.0.0.0 --baseurl ''"
@@ -46,7 +47,7 @@ The first run takes a few minutes. Then open http://localhost:4000. (`%cd%` is f
 
 ## Restore points
 
-Before every redesign, a tag (a named snapshot) was added to the repository, for example `good-2026-10-08-redesign` and `pre-editable-2026-10-11` (the last version before the words moved into `_data`). On GitHub: the branch menu > Tags shows them all. Smaller slips are easier to undo from a file's **History**.
+Before every redesign, a tag (a named snapshot) was added to the repository, for example `good-2026-10-08-redesign` and `pre-editable-2026-10-11` (the last version before the words moved into `content`). On GitHub: the branch menu > Tags shows them all. Smaller slips are easier to undo from a file's **History**.
 
 ## Giving the site its own address
 
@@ -55,11 +56,11 @@ The board has asked for a proper address instead of `github.io`. Buy a domain (a
 1. In the repository: Settings > Pages > Custom domain, enter it, and tick Enforce HTTPS once offered.
 2. At the domain seller, add the DNS records GitHub shows on that page.
 3. In `_config.yml`, set `url: https://your-domain` and `baseurl: ""`.
-4. Update the address in `_data/links_page.yml` (the "Chapter website" button), the Instagram bio, LinkedIn, Luma and the COE page (Christina McNeil, c.mcneil@northeastern.edu).
+4. Update the address in `content/links_page.yml` (the "Chapter website" button), the Instagram bio, LinkedIn, Luma and the COE page (Christina McNeil, c.mcneil@northeastern.edu).
 
 ## Moving to Wix, Squarespace or Google Sites
 
-Possible, but it's a rebuild, not an import: these builders can't take in another site's files. What makes it straightforward is that every word is already in `_data`, so the new site can be filled in by copying from those files section by section.
+Possible, but it's a rebuild, not an import: these builders can't take in another site's files. What makes it straightforward is that every word is already in `content`, so the new site can be filled in by copying from those files section by section.
 
 **Before choosing, weigh what changes:**
 
@@ -73,7 +74,7 @@ Possible, but it's a rebuild, not an import: these builders can't take in anothe
 
 **If you move:**
 
-1. Build the pages in the new tool, section by section, using the words in `_data` and the photos in `photos/`.
+1. Build the pages in the new tool, section by section, using the words in `content/` and the photos in `photos/`.
 2. Brand: navy `#0F1F3D`, deep navy `#08132A`, gold `#C9A35A`, cream `#F3F1EA`, typeface **Inter** (free on Google Fonts). Upload `avatar-512.png` and `favicon-32.png` as the logo and site icon.
 3. The opening drawing and the seal can be added as images: open `_includes/route-drawing.html` or `_includes/seal.html`, save the `<svg>…</svg>` part as a `.svg` file, and upload it. Wix also has an "Embed HTML" element where they can be pasted directly.
 4. Events: link to the Luma calendar, or paste Luma's embed code for the calendar or an event into an HTML/embed block.

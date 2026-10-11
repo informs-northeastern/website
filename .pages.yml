@@ -1,6 +1,6 @@
 # Settings for Pages CMS (https://app.pagescms.org), a free website editor with forms.
 # Sign in there with GitHub, open this repository, and every section below appears as a form.
-# It saves into the files in _data, exactly as editing them by hand would.
+# It saves into the files in content, exactly as editing them by hand would.
 
 media:
   input: photos
@@ -11,7 +11,7 @@ content:
   - name: events
     label: Events
     type: file
-    path: _data/events.yml
+    path: content/events.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -62,7 +62,7 @@ content:
   - name: board
     label: Board
     type: file
-    path: _data/board.yml
+    path: content/board.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -86,7 +86,7 @@ content:
   - name: awards
     label: Awards
     type: file
-    path: _data/awards.yml
+    path: content/awards.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -109,7 +109,7 @@ content:
   - name: bylaws_and_faq
     label: Bylaws and FAQ
     type: file
-    path: _data/bylaws_and_faq.yml
+    path: content/bylaws_and_faq.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -137,7 +137,7 @@ content:
   - name: opening
     label: Opening and group photo
     type: file
-    path: _data/opening.yml
+    path: content/opening.yml
     format: yaml
     fields:
       - { name: headline, label: Headline, type: string, description: "Put *stars* around the words that should be gold." }
@@ -148,7 +148,7 @@ content:
   - name: about
     label: About
     type: file
-    path: _data/about.yml
+    path: content/about.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -165,7 +165,7 @@ content:
   - name: programs
     label: Programs
     type: file
-    path: _data/programs.yml
+    path: content/programs.yml
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
@@ -194,7 +194,7 @@ content:
   - name: join
     label: Join section
     type: file
-    path: _data/join.yml
+    path: content/join.yml
     format: yaml
     fields:
       - { name: heading, label: Heading, type: string }
@@ -203,7 +203,7 @@ content:
   - name: links_page
     label: Instagram links page
     type: file
-    path: _data/links_page.yml
+    path: content/links_page.yml
     format: yaml
     fields:
       - { name: tagline, label: Line under the name, type: text, description: "Put *stars* around words to make them brighter." }
@@ -228,7 +228,7 @@ content:
   - name: chapter
     label: Chapter details and links
     type: file
-    path: _data/chapter.yml
+    path: content/chapter.yml
     format: yaml
     fields:
       - { name: name, label: Short name, type: string }

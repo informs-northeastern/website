@@ -1,5 +1,7 @@
 ---
-# The Instagram links page. The words are in _data/links_page.yml; the next event comes from _data/events.yml.
+# The Instagram links page. The words are in content/links_page.yml; the next event comes from content/events.yml.
+# How to read this file: {{ x.title }} prints a word from the content folder; {% for ... %} repeats a block
+# for each event, officer, etc.; {% if ... %} shows a part only when that field is filled in.
 ---
 {%- assign c = site.data.chapter -%}
 {%- assign lp = site.data.links_page -%}

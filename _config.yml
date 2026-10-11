@@ -1,4 +1,4 @@
-# Technical settings for GitHub Pages. Content editors never need this file: the words are in the _data folder.
+# Technical settings for GitHub Pages. Content editors never need this file: the words are in the content folder.
 
 title: INFORMS at Northeastern
 
@@ -9,14 +9,19 @@ title: INFORMS at Northeastern
 url: https://informs-northeastern.github.io
 baseurl: /website
 
+# The folder with all the words (Jekyll calls it the data folder).
+data_dir: content
+
 timezone: America/New_York
 
 # Keep apostrophes and quotes exactly as typed (no curly-quote conversion).
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
 
-# Notes for people, not pages on the site.
+# Not published as pages: the words are read from content/ into the pages; the rest are notes for people.
 exclude:
+  - content
+  - photos/README.md
   - README.md
   - EDITING.md
   - HANDOVER.md

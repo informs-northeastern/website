@@ -1,19 +1,19 @@
 # Editing the chapter website
 
-You don't need to know any code. Every word on the site is in the **`_data`** folder, one plain text file per section of the page. Change the words there and the site updates itself about a minute later.
+You don't need to know any code. Every word on the site is in the **`content`** folder, one plain text file per section of the page. Change the words there and the site updates itself about a minute later.
 
 | To change… | Edit this file |
 |---|---|
-| Events, the countdown, the Instagram page's "Next event" | `_data/events.yml` |
-| Officers, photos, LinkedIn links, open positions | `_data/board.yml` |
-| Awards | `_data/awards.yml` |
-| Bylaws and FAQ | `_data/bylaws_and_faq.yml` |
-| Headline, intro and group photo at the top | `_data/opening.yml` |
-| About text and the timeline | `_data/about.yml` |
-| Programs | `_data/programs.yml` |
-| Join section | `_data/join.yml` |
-| Email, form link, LinkedIn, Instagram, Luma, footer address | `_data/chapter.yml` |
-| The Instagram links page (`/links/`) | `_data/links_page.yml` |
+| Events, the countdown, the Instagram page's "Next event" | `content/events.yml` |
+| Officers, photos, LinkedIn links, open positions | `content/board.yml` |
+| Awards | `content/awards.yml` |
+| Bylaws and FAQ | `content/bylaws_and_faq.yml` |
+| Headline, intro and group photo at the top | `content/opening.yml` |
+| About text and the timeline | `content/about.yml` |
+| Programs | `content/programs.yml` |
+| Join section | `content/join.yml` |
+| Email, form link, LinkedIn, Instagram, Luma, footer address | `content/chapter.yml` |
+| The Instagram links page (`/links/`) | `content/links_page.yml` |
 
 Each file starts with short notes (lines beginning with `#`) explaining what to do.
 
@@ -31,7 +31,7 @@ The first time, Pages CMS asks to be allowed into the repository; the account ow
 ### B. Directly on GitHub
 
 1. Sign in at github.com and open https://github.com/informs-northeastern/website.
-2. Open the `_data` folder and click the file you need (for example `events.yml`).
+2. Open the `content` folder and click the file you need (for example `events.yml`).
 3. Click the pencil icon (Edit), change the text, then click **Commit changes**.
 
 ## Three rules for the text files

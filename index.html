@@ -1,6 +1,8 @@
 ---
-# The chapter's one-page website. The WORDS are not in this file: they are in the _data folder,
+# The chapter's one-page website. The WORDS are not in this file: they are in the content folder,
 # one file per section (events.yml, board.yml, ...). This file only arranges them on the page.
+# How to read this file: {{ x.title }} prints a word from the content folder; {% for ... %} repeats a block
+# for each event, officer, etc.; {% if ... %} shows a part only when that field is filled in.
 ---
 {%- comment %} Photo paths may be written "photos/x.jpg" or "/photos/x.jpg"; the filter after each photo drops a leading "/" so both work. {% endcomment -%}
 {%- assign c = site.data.chapter -%}
@@ -90,7 +92,7 @@
 </header>
 
 <main id="main">
-<!-- ===== OPENING (words: _data/opening.yml) ===== -->
+<!-- ===== OPENING (words: content/opening.yml) ===== -->
 {%- assign o = site.data.opening %}
 <div class="hero" id="top">
   <div class="wrap">
@@ -113,7 +115,7 @@
   <img src="{{ o.group_photo | prepend: '^' | remove: '^/' | remove: '^' }}" width="1600" height="899" alt="{{ o.group_photo_description | escape }}">
 </div>
 
-<!-- ===== ABOUT (words: _data/about.yml) ===== -->
+<!-- ===== ABOUT (words: content/about.yml) ===== -->
 {%- assign a = site.data.about %}
 <section class="sec" id="about">
   <div class="wrap">
@@ -136,7 +138,7 @@
   </div>
 </section>
 
-<!-- ===== PROGRAMS (words: _data/programs.yml) ===== -->
+<!-- ===== PROGRAMS (words: content/programs.yml) ===== -->
 {%- assign p = site.data.programs %}
 <section class="sec vellum" id="programs">
   <div class="wrap">
@@ -165,7 +167,7 @@
   </div>
 </section>
 
-<!-- ===== EVENTS (words: _data/events.yml) ===== -->
+<!-- ===== EVENTS (words: content/events.yml) ===== -->
 {%- assign ev = site.data.events %}
 <section class="sec" id="events">
   <div class="wrap">
@@ -204,7 +206,7 @@
   </div>
 </section>
 
-<!-- ===== BOARD (words: _data/board.yml) ===== -->
+<!-- ===== BOARD (words: content/board.yml) ===== -->
 {%- assign b = site.data.board %}
 <section class="sec vellum" id="people">
   <div class="wrap">
@@ -239,7 +241,7 @@
   </div>
 </section>
 
-<!-- ===== AWARDS (words: _data/awards.yml) ===== -->
+<!-- ===== AWARDS (words: content/awards.yml) ===== -->
 {%- assign aw = site.data.awards %}
 <section class="sec dark" id="honors">
   <div class="wrap">
@@ -263,7 +265,7 @@
   </div>
 </section>
 
-<!-- ===== BYLAWS AND FAQ (words: _data/bylaws_and_faq.yml) ===== -->
+<!-- ===== BYLAWS AND FAQ (words: content/bylaws_and_faq.yml) ===== -->
 {%- assign g = site.data.bylaws_and_faq %}
 <section class="sec" id="governance">
   <div class="wrap">
@@ -292,7 +294,7 @@
   </div>
 </section>
 
-<!-- ===== JOIN (words: _data/join.yml; links: _data/chapter.yml) ===== -->
+<!-- ===== JOIN (words: content/join.yml; links: content/chapter.yml) ===== -->
 <div class="join" id="join">
   <img src="photos/award.jpg" width="1600" height="899" alt="" loading="lazy">
   <div class="wrap">
@@ -314,7 +316,7 @@
 
 </main>
 
-<!-- ===== FOOTER (links: _data/chapter.yml) ===== -->
+<!-- ===== FOOTER (links: content/chapter.yml) ===== -->
 <footer>
   <div class="wrap">
     <div class="cols">
