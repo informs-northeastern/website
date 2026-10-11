@@ -127,7 +127,6 @@
   .next:hover { border-color: var(--gold); color: var(--on-navy); }
   figure.route { margin: 0; position: relative; }
   figure.route svg { display: block; width: 100%; max-width: 520px; margin-inline: auto; overflow: visible; }
-  figure.route figcaption { margin-top: 6px; font-style: normal; font-size: 15px; color: var(--on-navy-soft); text-align: center; }
   /* The drawing plays once on load (and again on hover or tap): the gold route draws through the corners,
      then the dashed objective line slides from the start corner until it can go no further, at the optimum.
      Without scripts, or with reduced motion, it simply shows the finished picture. */
@@ -153,9 +152,6 @@
   /* Full-bleed photograph with the mission line */
   .photo-band { position: relative; min-height: min(64vh, 560px); display: grid; align-items: end; color: var(--on-navy); background: var(--navy-deep); }
   .photo-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
-  .photo-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,24,48,0) 30%, rgba(11,24,48,.88) 100%); }
-  .photo-band .wrap { position: relative; z-index: 1; padding-block: 56px; width: 100%; }
-  .photo-band .cap { font: 400 15px/1.4 var(--sans); color: var(--on-navy); }
 
   /* Sections */
   .sec { padding-block: 80px; }
@@ -422,7 +418,6 @@
         <text class="rt-label" x="60" y="4" text-anchor="end" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="6" fill="#C9A35A">optimum</text>
         <text x="11" y="93" font-family="Inter, -apple-system, Segoe UI, Arial, sans-serif" font-weight="500" font-size="5" fill="#AFB7C8">start</text>
       </svg>
-      <figcaption>Our logo is a linear program. The dashed objective line slides as far as it can and stops at the optimum.</figcaption>
     </figure>
   </div>
 </div>
@@ -430,9 +425,6 @@
 <!-- ===== EDIT: GROUP PHOTOGRAPH ===== -->
 <div class="photo-band">
   <img src="photos/group.jpg" width="1600" height="899" alt="About forty chapter members standing together for a group photo in a formal room with portraits on the wall.">
-  <div class="wrap">
-    <p class="cap">Members at a chapter gathering.</p>
-  </div>
 </div>
 
 <!-- ===== EDIT: ABOUT ===== -->
@@ -484,7 +476,7 @@
           <div class="card"><h3>Gatherings</h3><p>Coffee hours and the occasional outing.</p></div>
         </div>
       </div>
-      <p class="note">This is the plan for 2026-27. We'll settle the calendar with members at the general meeting.</p>
+      <p class="note">Questions about a program? Email <a href="mailto:informsnu@gmail.com">informsnu@gmail.com</a>.</p>
     </div>
   </div>
 </section>
@@ -599,7 +591,6 @@
         </div>
         <div id="faq">
           <h3>Questions</h3>
-          <p>For anyone new to the chapter.</p>
           <div class="faq">
             <details><summary>Do I need to study operations research to join?</summary><p>No. Anyone at Northeastern can join, in any program or year.</p></details>
             <details><summary>Does it cost anything?</summary><p>No. Chapter membership is free, and you don't need to be an INFORMS member to join.</p></details>
