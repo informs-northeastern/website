@@ -12,7 +12,7 @@ A free website hosted by **GitHub Pages**: https://informs-northeastern.github.i
 |---|---|---|
 | Website files | https://github.com/informs-northeastern (repository `website`) | GitHub account `informs-northeastern`, email informsnu@gmail.com |
 | Form editor | https://app.pagescms.org | Sign in with GitHub (above) |
-| Events and registration | https://luma.com/calendar/cal-WJAcRwOTXltKmsr | Google, informsnu@gmail.com |
+| Events and registration | https://luma.com/informs-neu | Google, informsnu@gmail.com |
 | Membership form | Google Forms, in the chapter Drive | informsnu@gmail.com |
 
 The chapter Gmail is the key to everything: hand over its password and recovery settings and the new board has every account. To let someone edit with their own GitHub account instead, add them in the repository under Settings > Collaborators. Only the account owner can change Settings > Pages.
