@@ -332,6 +332,11 @@ footer .legal { padding-top: 22px; display: flex; flex-wrap: wrap; justify-conte
   .photo-band { min-height: 440px; }
   .facts li { grid-template-columns: 96px 1fr; }
 }
+/* Phones held sideways: the menu scrolls away instead of covering half the short screen. */
+@media (max-height: 520px) {
+  header.site { position: static; }
+  html { scroll-padding-top: 0; }
+}
 @media (max-width: 380px) {
   .cal li { grid-template-columns: 58px 1fr; gap: 12px; padding: 14px; }
   .date { padding: 10px 4px 8px; }
