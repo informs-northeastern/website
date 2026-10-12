@@ -26,8 +26,11 @@
 
 heading: Events
 
+# How many upcoming events the home page shows (the ones furthest away wait their turn).
+home_limit: 3
+
 luma_title: Get invites by email
-luma_text: Follow the chapter calendar on Luma and new events show up in your inbox.
+luma_text: Follow our Luma calendar and new events land in your inbox.
 
 upcoming:
   - title: General Member Meeting
@@ -63,7 +66,7 @@ upcoming:
       The big INFORMS conference of the year, where the student chapter awards are given out. Going? Let us
       know.
 
-# The dark panel with a photo under the event list.
+# The award photo on the About page, in the Awards section. Only photo, photo_description and caption are shown.
 past:
   label: From past years
   title: Seven INFORMS chapter awards in a row
@@ -74,4 +77,4 @@ past:
   photo_description: >-
     Four people on stage at the INFORMS Annual Meeting, two holding an INFORMS Student Chapter Annual Award
     certificate for the Northeastern University Student Chapter.
-  caption: Chapter members accept an INFORMS Student Chapter Annual Award at the INFORMS Annual Meeting.
+  caption: ""

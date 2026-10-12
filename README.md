@@ -34,7 +34,8 @@ Made a mistake? Nothing breaks: the website keeps showing the last good version.
 | `content/` | **All the words on the site**, one file per section | **Yes, this is where you edit** |
 | `photos/` | The group photo, award photo and officer headshots | **Yes, to add or replace photos** |
 | `EDITING.md`, `HANDOVER.md` | Instructions | Read them |
-| `index.html` | Arranges the words on the main page | No |
+| `index.html`, `about/index.html`, `faq/index.html` | Arrange the words on the home, About and FAQ pages | No |
+| `_includes/` | Parts shared by every page (top bar, menu, footer) and the drawings | No |
 | `links/` | The page linked from the Instagram bio | No (its words are in `content/links_page.yml`) |
 | `assets/` | The design (colours, fonts, spacing) and three small scripts | No |
 | `_includes/` | The logo, the opening drawing and the seal, drawn in code | No |

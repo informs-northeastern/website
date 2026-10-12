@@ -1,8 +1,9 @@
-# BYLAWS AND QUESTIONS
+# BYLAWS AND QUESTIONS (the FAQ page, /faq/)
 #
 # A link is written [the words people see](the address).
 
-heading: Bylaws and questions
+heading: Bylaws and FAQ
+page_description: Common questions about joining the INFORMS Student Chapter at Northeastern, and the chapter's bylaws.
 
 bylaws_heading: Bylaws
 bylaws_intro: >-
@@ -30,16 +31,18 @@ questions:
   - question: Do I need to study operations research to join?
     answer: No. Anyone at Northeastern can join, in any program or year.
   - question: Does it cost anything?
-    answer: No. Chapter membership is free, and you don't need to be an INFORMS member to join.
+    answer: >-
+      No. Chapter membership is free, and you don't need to be an INFORMS member to join. Board officers do
+      need an [INFORMS student membership](https://www.informs.org/Membership/Join-Informs).
   - question: How do I join?
     answer: >-
       Fill in the [membership form](https://docs.google.com/forms/d/e/1FAIpQLSdtbeecxGKAyfSO-8rRveEBasaQsgrwUB7Ww06jwL1mY5ncHg/viewform).
       You'll get event announcements and invitations.
   - question: Can I help run the chapter?
     answer: >-
-      Yes. Several board roles are open this year; see Open Positions above, or write to
-      [informsnu@gmail.com](mailto:informsnu@gmail.com).
+      Yes. Some board roles are still open; they're listed under [the board](../#people) on the home page.
+      Write to [informsnu@gmail.com](mailto:informsnu@gmail.com).
   - question: Where do I hear about events?
     answer: >-
-      On this page under Events, and on the chapter's [LinkedIn](https://www.linkedin.com/company/informsneu/)
+      On the [home page](../#events), on our [Luma calendar](https://luma.com/informs-neu), and on the chapter's [LinkedIn](https://www.linkedin.com/company/informsneu/)
       and [Instagram](https://www.instagram.com/informs_nu/).

@@ -1,0 +1,113 @@
+---
+# The About page: the chapter's story, programs and awards. The words are in content/about.yml,
+# content/programs.yml, content/events.yml (the "past" panel) and content/awards.yml.
+---
+{%- assign root = site.baseurl | append: "/" -%}
+{%- assign a = site.data.about -%}
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html title=a.heading description=a.page_description path="about/" %}
+</head>
+<body>
+{% include header.html current="about" %}
+
+<main id="main">
+<div class="page-head">
+  <div class="wrap">
+    <h1>{{ a.heading }}</h1>
+  </div>
+</div>
+
+<!-- ===== ABOUT (words: content/about.yml) ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="about">
+      <div class="text">
+      {% include text.html text=a.text block=true %}
+      </div>
+      <div>
+        <h2 class="h3">{{ a.timeline_heading }}</h2>
+        <ol class="timeline">
+          {%- for t in a.timeline %}
+          <li><b>{{ t.year }}</b><span>{{ t.text }}</span></li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS (words: content/programs.yml) ===== -->
+{%- assign p = site.data.programs %}
+<section class="sec vellum" id="programs">
+  <div class="wrap">
+    <div>
+      <h2>{{ p.heading }}</h2>
+      <div class="programs">
+        <div class="flagship">
+          <h3>{{ p.main.title }}</h3>
+          <p>{{ p.main.text }}</p>
+          <ul class="facts">
+            {%- for f in p.main.facts %}
+            <li><span>{{ f.label }}</span><span>{{ f.value }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        <div class="also">
+          {%- for x in p.others %}
+          <div class="card"><h3>{{ x.title }}</h3><p>{{ x.text }}</p></div>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- if p.note and p.note != "" %}
+      <p class="note">{% include text.html text=p.note %}</p>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== AWARDS (words: content/awards.yml; the photo panel: "past" in content/events.yml) ===== -->
+{%- assign aw = site.data.awards %}
+<section class="sec dark" id="awards">
+  <div class="wrap">
+    <div>
+      <h2>{{ aw.heading }}</h2>
+      <p class="intro">{{ aw.intro }}</p>
+      <ol class="years">
+        {%- for y in aw.years %}
+        <li{% if y.award == "Summa Cum Laude" %} class="top"{% endif %}><span class="yr">{{ y.year }}</span><span class="tier">{{ y.award }}</span></li>
+        {%- endfor %}
+      </ol>
+      {%- if aw.note and aw.note != "" %}
+      <p class="honors-note">{% include text.html text=aw.note %}</p>
+      {%- endif %}
+      {%- assign past = site.data.events.past %}
+      {%- if past.photo and past.photo != "" %}
+      <figure class="award-photo">
+        <img src="{{ root }}{{ past.photo | prepend: '^' | remove: '^/' | remove: '^' }}" width="1600" height="899" alt="{{ past.photo_description | escape }}" loading="lazy">
+        {%- if past.caption and past.caption != "" %}
+        <figcaption>{{ past.caption }}</figcaption>
+        {%- endif %}
+      </figure>
+      {%- endif %}
+      <div class="goal">
+        {% include seal.html %}
+        <h3>{{ aw.goal_title }}</h3>
+        <p>{% include text.html text=aw.goal_text %}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-end">
+  <div class="wrap">
+    <p>{% include text.html text=site.data.join.page_end %}</p>
+    <a class="btn dark" href="{{ site.data.chapter.membership_form }}" target="_blank" rel="noopener">Join the chapter <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+</main>
+
+{% include footer.html %}
+</body>
+</html>

@@ -1,4 +1,4 @@
-// INFORMS at Northeastern: the page's three small behaviours. Content editors never need this file.
+// INFORMS at Northeastern: the pages' small behaviours. Content editors never need this file.
 
 // 0. Finished events hide themselves: an event disappears from the list the day after its date (or its
 //    data-end date, for events that run several days), so the page never shows an old event as upcoming.
@@ -9,10 +9,21 @@
     var p = (items[i].getAttribute('data-end') || items[i].getAttribute('data-date')).split('-');
     if (new Date(+p[0], +p[1] - 1, +p[2]) < today) items[i].hidden = true;
   }
+  // Then show only the first few (home_limit in content/events.yml).
+  var cal = document.querySelector('.cal[data-limit]');
+  if (!cal) return;
+  var limit = parseInt(cal.getAttribute('data-limit'), 10) || 3, shown = 0;
+  var all = cal.querySelectorAll('li');
+  for (var j = 0; j < all.length; j++) {
+    if (all[j].hidden) continue;
+    if (++shown > limit) all[j].hidden = true;
+  }
 })();
 
 // 1. Next-event line in the opening: reads data-date on the event list; hides itself when no dated event is ahead.
+//    If that event has a Register button, the line's button registers directly.
 (function () {
+  if (!document.getElementById('next-event')) return;
   var today = new Date(); today.setHours(0, 0, 0, 0);
   var items = document.querySelectorAll('.cal li[data-date]');
   for (var i = 0; i < items.length; i++) {
@@ -22,6 +33,15 @@
     if (days >= 0) {
       document.getElementById('next-name').textContent = items[i].querySelector('h3').firstChild.textContent.trim();
       document.getElementById('next-when').textContent = days === 0 ? 'today' : days === 1 ? 'tomorrow' : 'in ' + days + ' days';
+      var reg = items[i].querySelector('.signup'), go = document.getElementById('next-go');
+      if (reg) {
+        go.textContent = 'Register';
+        go.href = reg.href; go.target = '_blank'; go.rel = 'noopener';
+        if (reg.getAttribute('data-luma-event-id')) {
+          go.setAttribute('data-luma-action', 'checkout');
+          go.setAttribute('data-luma-event-id', reg.getAttribute('data-luma-event-id'));
+        }
+      }
       document.getElementById('next-event').hidden = false;
       break;
     }

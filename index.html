@@ -1,6 +1,7 @@
 ---
-# The chapter's one-page website. The WORDS are not in this file: they are in the content folder,
-# one file per section (events.yml, board.yml, ...). This file only arranges them on the page.
+# The chapter's home page: only what a first-time visitor needs (what we do, events, the board, how to join).
+# The longer pages are about/index.html and faq/index.html. The WORDS are not in these files: they are in the
+# content folder, one file per section (events.yml, board.yml, ...). These files only arrange them on the page.
 # How to read this file: {{ x.title }} prints a word from the content folder; {% for ... %} repeats a block
 # for each event, officer, etc.; {% if ... %} shows a part only when that field is filled in.
 ---
@@ -10,25 +11,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{ c.name }}</title>
-<meta name="description" content="{{ c.description | escape }}">
-<meta property="og:title" content="{{ c.name }}">
-<meta property="og:description" content="{{ c.share_description | escape }}">
-<link rel="canonical" href="{{ home }}">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="{{ c.name }}">
-<meta property="og:url" content="{{ home }}">
-<meta property="og:image" content="{{ home }}{{ site.data.opening.group_photo | prepend: '^' | remove: '^/' | remove: '^' }}">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="899">
-<meta property="og:image:alt" content="Chapter members standing together for a group photo.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B1830">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+{% include head.html %}
 {%- comment %} Search-engine details: the chapter, and each upcoming event that has a Register link. {% endcomment %}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Organization",
@@ -59,40 +42,9 @@
  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ e.register_link }}", "availability": "https://schema.org/InStock"}{% endif %}}
 </script>
 {%- endif %}{% endfor %}
-{%- if site.google_site_verification and site.google_site_verification != "" %}
-<meta name="google-site-verification" content="{{ site.google_site_verification }}">
-{%- endif %}
-<link rel="preload" href="fonts/InterVariable-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts/inter.css">
-<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<a class="skip" href="#about">Skip to content</a>
-
-<!-- ===== TOP OF PAGE ===== -->
-<nav class="utility" aria-label="Chapter contact">
-  <div class="wrap">
-    <span class="l">The {{ c.full_name }} &middot; a Northeastern University Student Group</span>
-    <span class="r"><a href="mailto:{{ c.email }}">{{ c.email }}</a><a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a><a href="{{ c.instagram }}" target="_blank" rel="noopener">Instagram</a></span>
-  </div>
-</nav>
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="{{ c.name }}, back to top">
-      {% include logo.html color="#0F1F3D" %}
-      <span><b>INFORMS</b><span>at Northeastern</span></span>
-    </a>
-    <nav class="main" aria-label="Sections"><ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#people">People</a></li>
-      <li><a href="#honors">Awards</a></li>
-      <li><a href="#governance">Bylaws &amp; FAQ</a></li>
-      <li><a class="join-link" href="#join">Join</a></li>
-    </ul></nav>
-  </div>
-</header>
+{% include header.html current="home" %}
 
 <main id="main">
 <!-- ===== OPENING (words: content/opening.yml) ===== -->
@@ -103,10 +55,10 @@
       <h1>{% include text.html text=o.headline %}</h1>
       <p class="lede">{{ o.intro }}</p>
       <div class="actions">
-        <a class="btn gold" href="{{ c.membership_form }}" target="_blank" rel="noopener">Become a member <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn gold" href="{{ c.membership_form }}" target="_blank" rel="noopener">Join the chapter <span class="arr" aria-hidden="true">&rarr;</span></a>
         <a class="btn light" href="#events">Upcoming events</a>
       </div>
-      <a class="next" id="next-event" href="#events" hidden><span>Next: <b id="next-name"></b> &middot; <span id="next-when"></span></span></a>
+      <p class="next" id="next-event" hidden><span>Next: <b id="next-name"></b> &middot; <span id="next-when"></span></span><a id="next-go" href="#events">See details</a></p>
     </div>
     <figure class="route">
       {% include route-drawing.html %}
@@ -118,66 +70,34 @@
   <img src="{{ o.group_photo | prepend: '^' | remove: '^/' | remove: '^' }}" width="1600" height="899" alt="{{ o.group_photo_description | escape }}">
 </div>
 
-<!-- ===== ABOUT (words: content/about.yml) ===== -->
+<!-- ===== WHAT WE DO (words: content/about.yml "home_" lines, and the program titles in content/programs.yml) ===== -->
 {%- assign a = site.data.about %}
+{%- assign p = site.data.programs %}
 <section class="sec" id="about">
   <div class="wrap">
-    <div>
-      <h2>{{ a.heading }}</h2>
-      <div class="about">
-        <div class="text">
-        {% include text.html text=a.text block=true %}
-        </div>
-        <div>
-          <h3>{{ a.timeline_heading }}</h3>
-          <ol class="timeline">
-            {%- for t in a.timeline %}
-            <li><b>{{ t.year }}</b><span>{{ t.text }}</span></li>
-            {%- endfor %}
-          </ol>
-        </div>
+    <div class="what">
+      <div>
+        <h2>{{ a.home_heading }}</h2>
+        <p class="intro">{% include text.html text=a.home_text %}</p>
+        <a class="more" href="about/">{{ a.home_link }} <span aria-hidden="true">&rarr;</span></a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROGRAMS (words: content/programs.yml) ===== -->
-{%- assign p = site.data.programs %}
-<section class="sec vellum" id="programs">
-  <div class="wrap">
-    <div>
-      <h2>{{ p.heading }}</h2>
-      <div class="programs">
-        <div class="flagship">
-          <h3>{{ p.main.title }}</h3>
-          <p>{{ p.main.text }}</p>
-          <ul class="facts">
-            {%- for f in p.main.facts %}
-            <li><span>{{ f.label }}</span><span>{{ f.value }}</span></li>
-            {%- endfor %}
-          </ul>
-        </div>
-        <div class="also">
-          {%- for x in p.others %}
-          <div class="card"><h3>{{ x.title }}</h3><p>{{ x.text }}</p></div>
-          {%- endfor %}
-        </div>
-      </div>
-      {%- if p.note and p.note != "" %}
-      <p class="note">{% include text.html text=p.note %}</p>
-      {%- endif %}
+      <ul class="prog-list">
+        <li><b>{{ p.main.title }}</b><span>{{ p.main.short }}</span></li>
+        {%- for x in p.others %}
+        <li><b>{{ x.title }}</b><span>{{ x.text }}</span></li>
+        {%- endfor %}
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- ===== EVENTS (words: content/events.yml) ===== -->
 {%- assign ev = site.data.events %}
-<section class="sec" id="events">
+<section class="sec vellum" id="events">
   <div class="wrap">
     <div>
       <h2>{{ ev.heading }}</h2>
-      <div class="luma-bar"><div><b>{{ ev.luma_title }}</b><span>{{ ev.luma_text }}</span></div><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Subscribe on Luma</a></div>
-      <ol class="cal">
+      <ol class="cal" data-limit="{{ ev.home_limit | default: 3 }}">
         {%- for e in ev.upcoming %}
         <li{% if e.date and e.date != "" %} data-date="{{ e.date | date: '%Y-%m-%d' }}"{% endif %}{% if e.end_date and e.end_date != "" %} data-end="{{ e.end_date | date: '%Y-%m-%d' }}"{% endif %}>
           <div class="date{% if e.not_ours and e.not_ours != "" %} soft{% endif %}" aria-hidden="true"><span class="d">{% if e.square_day and e.square_day != "" %}{{ e.square_day }}{% elsif e.date and e.date != "" %}{{ e.date | date: "%-d" }}{% else %}TBA{% endif %}</span><span class="m">{% if e.square_month and e.square_month != "" %}{{ e.square_month }}{% elsif e.date and e.date != "" %}{{ e.date | date: "%b" }}{% endif %}</span></div>
@@ -186,32 +106,14 @@
         </li>
         {%- endfor %}
       </ol>
-
-      {%- assign past = ev.past %}
-      {%- if past.title and past.title != "" %}
-      <div class="past">
-        <div class="entry">
-          <span class="when">{{ past.label }}</span>
-          <h3>{{ past.title }}</h3>
-          <p>{% include text.html text=past.text %}</p>
-        </div>
-        {%- if past.photo and past.photo != "" %}
-        <figure>
-          <img src="{{ past.photo | prepend: '^' | remove: '^/' | remove: '^' }}" width="1600" height="899" alt="{{ past.photo_description | escape }}" loading="lazy">
-          {%- if past.caption and past.caption != "" %}
-          <figcaption>{{ past.caption }}</figcaption>
-          {%- endif %}
-        </figure>
-        {%- endif %}
-      </div>
-      {%- endif %}
+      <div class="luma-bar"><div><b>{{ ev.luma_title }}</b><span>{{ ev.luma_text }}</span></div><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Subscribe on Luma</a></div>
     </div>
   </div>
 </section>
 
 <!-- ===== BOARD (words: content/board.yml) ===== -->
 {%- assign b = site.data.board %}
-<section class="sec vellum" id="people">
+<section class="sec" id="people">
   <div class="wrap">
     <div>
       <h2>{{ b.heading }}</h2>
@@ -244,59 +146,6 @@
   </div>
 </section>
 
-<!-- ===== AWARDS (words: content/awards.yml) ===== -->
-{%- assign aw = site.data.awards %}
-<section class="sec dark" id="honors">
-  <div class="wrap">
-    <div>
-      <h2>{{ aw.heading }}</h2>
-      <p class="intro">{{ aw.intro }}</p>
-      <ol class="years">
-        {%- for y in aw.years %}
-        <li{% if y.award == "Summa Cum Laude" %} class="top"{% endif %}><span class="yr">{{ y.year }}</span><span class="tier">{{ y.award }}</span></li>
-        {%- endfor %}
-      </ol>
-      {%- if aw.note and aw.note != "" %}
-      <p class="honors-note">{% include text.html text=aw.note %}</p>
-      {%- endif %}
-      <div class="goal">
-        {% include seal.html %}
-        <h3>{{ aw.goal_title }}</h3>
-        <p>{% include text.html text=aw.goal_text %}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BYLAWS AND FAQ (words: content/bylaws_and_faq.yml) ===== -->
-{%- assign g = site.data.bylaws_and_faq %}
-<section class="sec" id="governance">
-  <div class="wrap">
-    <div>
-      <h2>{{ g.heading }}</h2>
-      <div class="gov">
-        <div id="bylaws">
-          <h3>{{ g.bylaws_heading }}</h3>
-          <p>{% include text.html text=g.bylaws_intro %}</p>
-          <dl class="bylaws">
-            {%- for x in g.bylaws %}
-            <div><dt>{{ x.topic }}</dt><dd>{% include text.html text=x.text %}</dd></div>
-            {%- endfor %}
-          </dl>
-        </div>
-        <div id="faq">
-          <h3>{{ g.questions_heading }}</h3>
-          <div class="faq">
-            {%- for q in g.questions %}
-            <details><summary>{{ q.question }}</summary>{% include text.html text=q.answer block=true %}</details>
-            {%- endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== JOIN (words: content/join.yml; links: content/chapter.yml) ===== -->
 <div class="join" id="join">
   <img src="photos/award.jpg" width="1600" height="899" alt="" loading="lazy">
@@ -307,7 +156,7 @@
     </div>
     <div class="cta">
       <a class="btn gold" href="{{ c.membership_form }}" target="_blank" rel="noopener">Membership form <span class="arr" aria-hidden="true">&rarr;</span></a>
-      <a class="btn light" href="{{ c.informs_membership }}" target="_blank" rel="noopener">INFORMS student membership <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn light" href="faq/">Questions? Read the FAQ <span class="arr" aria-hidden="true">&rarr;</span></a>
       <div class="ways">
         <a href="mailto:{{ c.email }}">{{ c.email }}</a>
         <a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
@@ -319,40 +168,8 @@
 
 </main>
 
-<!-- ===== FOOTER (links: content/chapter.yml) ===== -->
-<footer>
-  <div class="wrap">
-    <div class="cols">
-      <div>
-        <a class="brand" href="#top" aria-label="{{ c.name }}, back to top">
-          {% include logo.html color="#F3F1EA" %}
-          <span><b>INFORMS</b><span>at Northeastern</span></span>
-        </a>
-        <p class="addr"><a href="{{ c.department_link }}" target="_blank" rel="noopener">{{ c.department }}</a><br>{{ c.address }}</p>
-      </div>
-      <div>
-        <p class="fh">The chapter</p>
-        <ul><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#events">Events</a></li><li><a href="#people">People</a></li><li><a href="#honors">Awards</a></li></ul>
-      </div>
-      <div>
-        <p class="fh">Connect</p>
-        <ul><li><a href="#join">Join</a></li><li><a href="mailto:{{ c.email }}">{{ c.email }}</a></li><li><a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="{{ c.instagram }}" target="_blank" rel="noopener">Instagram</a></li><li><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Events on Luma</a></li></ul>
-      </div>
-    </div>
-    <div class="legal">
-      <span>{{ c.full_name }}, a Northeastern University Student Group.</span>
-      <span>Not an official Northeastern University website.</span>
-    </div>
-  </div>
-</footer>
-
 <!-- Luma registration pop-up for every link with data-luma-action="checkout". -->
 <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
-<!-- Hides finished events, next-event countdown, balanced board rows, the opening animation. -->
-<script src="assets/site.js"></script>
-{%- if site.goatcounter and site.goatcounter != "" %}
-<!-- Visitor statistics (GoatCounter, no cookies). Turned on in _config.yml. -->
-<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-{%- endif %}
+{% include footer.html %}
 </body>
 </html>

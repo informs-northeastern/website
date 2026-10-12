@@ -1,16 +1,18 @@
 # Editing the chapter website
 
-You don't need to know any code. Every word on the site is in the **`content`** folder, one plain text file per section of the page. Change the words there and the site updates itself about a minute later.
+You don't need to know any code. Every word on the site is in the **`content`** folder, one plain text file per section.
+
+The site has three pages: the **home page** (what we do, events, board, join), **About** (`/about/`: the chapter's story, programs, awards) and **FAQ** (`/faq/`: questions and bylaws). The home page is kept short on purpose: put new detail on About or FAQ, not on the home page. Change the words there and the site updates itself about a minute later.
 
 | To change… | Edit this file |
 |---|---|
-| Events, the countdown, the Instagram page's "Next event" | `content/events.yml` |
-| Officers, photos, LinkedIn links, open positions | `content/board.yml` |
-| Awards | `content/awards.yml` |
-| Bylaws and FAQ | `content/bylaws_and_faq.yml` |
-| Headline, intro and group photo at the top | `content/opening.yml` |
-| About text and the timeline | `content/about.yml` |
-| Programs | `content/programs.yml` |
+| Events, how many the home page shows, the Instagram page's "Next event" | `content/events.yml` |
+| Officers, photos, LinkedIn links, open board roles | `content/board.yml` |
+| Awards (About page) | `content/awards.yml` |
+| FAQ page: questions and bylaws | `content/bylaws_and_faq.yml` |
+| Headline, intro and group photo at the top of the home page | `content/opening.yml` |
+| "What we do" on the home page; About page text and timeline | `content/about.yml` |
+| Programs (one line each on the home page, full on About) | `content/programs.yml` |
 | Join section | `content/join.yml` |
 | Email, form link, LinkedIn, Instagram, Luma, footer address | `content/chapter.yml` |
 | The Instagram links page (`/links/`) | `content/links_page.yml` |
@@ -50,9 +52,11 @@ If a line starts with a special character (`:` `#` `-` `*` `@` `"`), put the who
 
 **Registration (Luma).** Create the event on the chapter's Luma calendar (https://luma.com/informs-neu; sign in with Google as informsnu@gmail.com). On the event's Manage page, open More and copy the event link and the event ID (starts with `evt-`). Put them in `register_link` and `luma_event_id`. The Register button then opens Luma's sign-up pop-up on our page, and the Instagram links page shows the event as "Next event" until its day has passed.
 
-**After an event.** Nothing urgent: an event with a date hides itself from the site the day after it ends (for events over several days, set `end_date` to the last day). Delete its block from `events.yml` when convenient. To feature it in the dark "From past years" panel, change `past:` and upload a photo to `photos/`. For attendance, download the guest CSV from Luma (Manage, Guests) and run `luma_attendance.py` from the chapter's sheets folder.
+**After an event.** Nothing urgent: an event with a date hides itself from the site the day after it ends (for events over several days, set `end_date` to the last day). Delete its block from `events.yml` when convenient. To change the award photo on the About page, change `photo:` under `past:` and upload the photo to `photos/`. For attendance, download the guest CSV from Luma (Manage, Guests) and run `luma_attendance.py` from the chapter's sheets folder.
 
 **New officer / officer leaves.** In `board.yml`, copy or delete one whole person (from `- name:`). The cards arrange themselves into even rows. When someone takes an open role, delete that role from `open_positions`.
+
+**Missing officer photos.** A card without a photo shows initials, which visitors read as a gap. Ask the officer for a headshot (Drive: Website photos / Officer headshots) before the card goes up, if possible.
 
 **Officer photo.** Upload a square photo (about 600 × 600 pixels) to `photos/board/` named `firstname_lastname.jpg` (on GitHub: open the folder, Add file > Upload files). Then set `photo: photos/board/firstname_lastname.jpg` on their entry. Without a photo, the card shows their initials.
 

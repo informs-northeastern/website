@@ -1,7 +1,10 @@
 # JOIN THE CHAPTER (the last section before the footer)
 # The buttons use the links in chapter.yml.
 
-heading: Join the chapter
+heading: We'd love to have you
 text: >-
-  It's free and takes a minute. Fill in the form and you'll hear about every event. If you'd like to help run
-  things, say so on the form or email us.
+  Joining is free and takes a minute. Fill in the form and we'll send you every event invite. Want to help
+  run things? Say so on the form.
+
+# The line at the bottom of the About and FAQ pages, next to the Join button.
+page_end: Joining is free and takes a minute.

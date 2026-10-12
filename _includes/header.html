@@ -1,0 +1,25 @@
+{%- comment %} The bar and menu at the top of every page. Links come from content/chapter.yml. {% endcomment -%}
+{%- assign c = site.data.chapter -%}
+{%- assign root = site.baseurl | append: "/" -%}
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="utility" aria-label="Chapter contact">
+  <div class="wrap">
+    <a href="mailto:{{ c.email }}">{{ c.email }}</a><a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a><a href="{{ c.instagram }}" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</nav>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="{{ root }}" aria-label="{{ c.name }}, home">
+      {% include logo.html color="#0F1F3D" %}
+      <span><b>INFORMS</b><span>at Northeastern</span></span>
+    </a>
+    <nav class="main" aria-label="Pages"><ul>
+      <li><a href="{{ root }}#events">Events</a></li>
+      <li><a href="{{ root }}#people">People</a></li>
+      <li><a href="{{ root }}about/"{% if include.current == "about" %} aria-current="page"{% endif %}>About</a></li>
+      <li><a href="{{ root }}faq/"{% if include.current == "faq" %} aria-current="page"{% endif %}>FAQ</a></li>
+      <li><a class="join-link" href="{{ root }}#join">Join</a></li>
+    </ul></nav>
+  </div>
+</header>

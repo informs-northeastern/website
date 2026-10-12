@@ -24,9 +24,11 @@ The [README](README.md) lists every folder and file in plain words. For whoever 
 ```
 content/          ALL THE WORDS, one YAML file per section. The only folder editors need.
 photos/           Group photo, award photo, board/ for officer headshots
-index.html        The main page's layout; fills in the words from content/
+index.html        The home page's layout; fills in the words from content/
+about/index.html  The About page (story, programs, awards)
+faq/index.html    The FAQ page (questions, bylaws)
 links/index.html  The Instagram links page's layout
-_includes/        Reused pieces: the logo, the opening drawing, the seal, link icons, text formatting
+_includes/        Reused pieces: page head, top bar and menu, footer, the logo, the opening drawing, the seal, link icons, text formatting
 assets/           site.css (the design; colours at the top), links.css, site.js (countdown, board rows, animation)
 fonts/            The Inter typeface, hosted with the site (licence in fonts/OFL.txt)
 _config.yml       The site's address, and data_dir: content (tells Jekyll where the words are)
@@ -37,7 +39,7 @@ favicon.svg, favicon-32.png, apple-touch-icon.png, avatar-512.png   Logo files
 
 Colours live at the top of `assets/site.css` (`--navy`, `--gold` and so on). Change a colour there and it changes across the whole page.
 
-GitHub Pages builds the site with **Jekyll**, which comes with it: files in `content/` are filled into `index.html` where you see `{{ ... }}`. No install is needed to edit. To preview on a computer before publishing, install Docker and run this in the website folder:
+GitHub Pages builds the site with **Jekyll**, which comes with it: files in `content/` are filled into the pages (`index.html`, `about/`, `faq/`) where you see `{{ ... }}`. No install is needed to edit. To preview on a computer before publishing, install Docker and run this in the website folder:
 
 ```
 docker run --rm -p 4000:4000 -v "%cd%:/src" -w /src ruby:3.3 sh -c "gem install github-pages webrick --no-document && jekyll serve --host 0.0.0.0 --baseurl ''"

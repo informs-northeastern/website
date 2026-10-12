@@ -1,13 +1,26 @@
 # ABOUT THE CHAPTER
 #
+# The home page shows only the three "home_" lines below and the program titles from programs.yml.
+# Everything else in this file is on the About page (/about/).
+
+home_heading: What we do
+home_text: >-
+  We bring in people who use operations research and analytics to talk about their work, teach practical
+  skills, and give students from every program a reason to meet.
+home_link: About the chapter, programs and awards
+
+# The About page.
+# page_description: what Google and link previews show for the About page.
 # text: leave an empty line between paragraphs.
+page_description: >-
+  The INFORMS Student Chapter at Northeastern: what we do, our programs, and seven INFORMS chapter awards.
 
 heading: About the chapter
 
 text: |
-  INFORMS is the main professional society for operations research and analytics. We're its student chapter at Northeastern, started in the summer of 2015.
+  INFORMS is the main professional society for operations research and analytics. We're its student chapter at Northeastern, started in 2015.
 
-  Operations research is the math behind a lot of everyday decisions: hospital staffing, delivery routes, power grid planning, airline schedules, even how AI models get trained. You don't need to study it to join. Most of what we do is invite people who use it to come and talk about their work, teach practical skills, and give students across programs a reason to meet.
+  Operations research is the math behind decisions like hospital staffing, delivery routes and airline schedules. You don't need to study it to join. We invite people who use it to talk about their work, teach practical skills, and give students across programs a reason to meet.
 
   Joining is free, and you don't need to be an INFORMS member.
 

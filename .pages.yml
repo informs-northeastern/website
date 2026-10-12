@@ -15,6 +15,7 @@ content:
     format: yaml
     fields:
       - { name: heading, label: Section heading, type: string }
+      - { name: home_limit, label: How many upcoming events the home page shows, type: number }
       - { name: luma_title, label: Luma box title, type: string }
       - { name: luma_text, label: Luma box text, type: string }
       - name: upcoming
@@ -54,7 +55,7 @@ content:
           - { name: square_day, label: Date square, top line override, type: string, description: "e.g. Late, or 1–4" }
           - { name: square_month, label: Date square, month override, type: string, description: e.g. Oct }
       - name: past
-        label: From past years (dark panel)
+        label: Award photo (About page, Awards section)
         type: object
         fields:
           - { name: label, label: Small label, type: string }
@@ -84,8 +85,8 @@ content:
           - { name: program, label: Program, type: string, description: "e.g. PhD, Industrial Engineering" }
           - { name: photo, label: Photo, type: image, description: "Square, named firstname_lastname.jpg, in photos/board. Empty shows initials." }
           - { name: link, label: LinkedIn or website, type: string, description: Empty means the card isn't clickable. }
-      - { name: open_positions_heading, label: Open positions heading, type: string }
-      - { name: open_positions_text, label: Open positions text, type: string }
+      - { name: open_positions_heading, label: Open roles heading, type: string }
+      - { name: open_positions_text, label: Open roles text, type: text }
       - { name: open_positions, label: Open positions (remove all to hide the box), type: string, list: true }
 
   - name: awards
@@ -117,7 +118,8 @@ content:
     path: content/bylaws_and_faq.yml
     format: yaml
     fields:
-      - { name: heading, label: Section heading, type: string }
+      - { name: heading, label: Page title, type: string }
+      - { name: page_description, label: Google description of the FAQ page, type: text }
       - { name: bylaws_heading, label: Bylaws heading, type: string }
       - { name: bylaws_intro, label: Bylaws intro, type: text }
       - name: bylaws
@@ -151,12 +153,16 @@ content:
       - { name: group_photo_description, label: Group photo description (for screen readers), type: text }
 
   - name: about
-    label: About
+    label: About (home page summary and About page)
     type: file
     path: content/about.yml
     format: yaml
     fields:
-      - { name: heading, label: Section heading, type: string }
+      - { name: home_heading, label: Home page, heading, type: string }
+      - { name: home_text, label: Home page, one or two sentences, type: text }
+      - { name: home_link, label: Home page, link to the About page, type: string }
+      - { name: page_description, label: Google description of the About page, type: text }
+      - { name: heading, label: About page title, type: string }
       - { name: text, label: Text, type: text, description: Leave an empty line between paragraphs. }
       - { name: timeline_heading, label: Timeline heading, type: string }
       - name: timeline
@@ -179,6 +185,7 @@ content:
         type: object
         fields:
           - { name: title, label: Title, type: string }
+          - { name: short, label: One line for the home page, type: string }
           - { name: text, label: Text, type: text }
           - name: facts
             label: Facts
@@ -193,7 +200,7 @@ content:
         list: true
         fields:
           - { name: title, label: Title, type: string }
-          - { name: text, label: Text, type: text }
+          - { name: text, label: Text (one line; also shown on the home page), type: string }
       - { name: note, label: Line under the cards, type: string }
 
   - name: join
@@ -204,6 +211,7 @@ content:
     fields:
       - { name: heading, label: Heading, type: string }
       - { name: text, label: Text, type: text }
+      - { name: page_end, label: Line at the bottom of the About and FAQ pages, type: string }
 
   - name: links_page
     label: Instagram links page

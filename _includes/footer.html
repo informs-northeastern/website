@@ -1,0 +1,35 @@
+{%- comment %} The footer and scripts on every page. Links come from content/chapter.yml. {% endcomment -%}
+{%- assign c = site.data.chapter -%}
+{%- assign root = site.baseurl | append: "/" -%}
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="{{ root }}" aria-label="{{ c.name }}, home">
+          {% include logo.html color="#F3F1EA" %}
+          <span><b>INFORMS</b><span>at Northeastern</span></span>
+        </a>
+        <p class="addr"><a href="{{ c.department_link }}" target="_blank" rel="noopener">{{ c.department }}</a><br>{{ c.address }}</p>
+      </div>
+      <div>
+        <p class="fh">The chapter</p>
+        <ul><li><a href="{{ root }}#events">Events</a></li><li><a href="{{ root }}#people">People</a></li><li><a href="{{ root }}about/">About</a></li><li><a href="{{ root }}about/#programs">Programs</a></li><li><a href="{{ root }}about/#awards">Awards</a></li><li><a href="{{ root }}faq/">Bylaws and FAQ</a></li></ul>
+      </div>
+      <div>
+        <p class="fh">Connect</p>
+        <ul><li><a href="{{ c.membership_form }}" target="_blank" rel="noopener">Membership form</a></li><li><a href="mailto:{{ c.email }}">{{ c.email }}</a></li><li><a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="{{ c.instagram }}" target="_blank" rel="noopener">Instagram</a></li><li><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Events on Luma</a></li></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>{{ c.full_name }}, a Northeastern University Student Group.</span>
+      <span>Not an official Northeastern University website.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hides finished events, next-event line, balanced board rows, the opening animation. -->
+<script src="{{ root }}assets/site.js"></script>
+{%- if site.goatcounter and site.goatcounter != "" %}
+<!-- Visitor statistics (GoatCounter, no cookies). Turned on in _config.yml. -->
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}

@@ -1,0 +1,54 @@
+---
+# The Bylaws and FAQ page. The words are in content/bylaws_and_faq.yml.
+---
+{%- assign g = site.data.bylaws_and_faq -%}
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html title=g.heading description=g.page_description path="faq/" %}
+</head>
+<body>
+{% include header.html current="faq" %}
+
+<main id="main">
+<div class="page-head">
+  <div class="wrap">
+    <h1>{{ g.heading }}</h1>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="gov">
+      <div id="faq">
+        <h2 class="h3">{{ g.questions_heading }}</h2>
+        <div class="faq">
+          {%- for q in g.questions %}
+          <details><summary>{{ q.question }}</summary>{% include text.html text=q.answer block=true %}</details>
+          {%- endfor %}
+        </div>
+      </div>
+      <div id="bylaws">
+        <h2 class="h3">{{ g.bylaws_heading }}</h2>
+        <p>{% include text.html text=g.bylaws_intro %}</p>
+        <dl class="bylaws">
+          {%- for x in g.bylaws %}
+          <div><dt>{{ x.topic }}</dt><dd>{% include text.html text=x.text %}</dd></div>
+          {%- endfor %}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-end">
+  <div class="wrap">
+    <p>{% include text.html text=site.data.join.page_end %}</p>
+    <a class="btn dark" href="{{ site.data.chapter.membership_form }}" target="_blank" rel="noopener">Join the chapter <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+</main>
+
+{% include footer.html %}
+</body>
+</html>
