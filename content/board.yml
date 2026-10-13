@@ -63,6 +63,12 @@ people:
     photo: photos/board/kira_woodhouse.jpg
     link:
 
+  - name: Connor Durand
+    role: Industry and Alumni Relations
+    program: MS, Data Analytics Engineering
+    photo:
+    link:
+
   - name: Dr. Alp Akcay
     role: Faculty Advisor
     program: Associate Professor, Mechanical and Industrial Engineering
@@ -78,4 +84,3 @@ open_positions_text: >-
 open_positions:
   - Communications
   - Events
-  - Industry and Alumni Relations
