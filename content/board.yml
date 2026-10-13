@@ -18,7 +18,7 @@ people:
   - name: Shokuh Puladi
     role: President
     program: PhD, Industrial Engineering
-    photo:
+    photo: photos/board/shokuh_puladi.jpg
     link:
 
   - name: Thavishka Gamage
@@ -36,7 +36,7 @@ people:
   - name: Sena Sivrikaya
     role: Secretary
     program: MS, Industrial Engineering
-    photo:
+    photo: photos/board/sena_sivrikaya.jpg
     link:
 
   - name: Chirag Daas
