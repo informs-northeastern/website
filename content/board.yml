@@ -69,6 +69,12 @@ people:
     photo: photos/board/connor_durand.jpg
     link: https://www.linkedin.com/in/connor-durand/
 
+  - name: Marcus Tisdale
+    role: Communications
+    program: BS, Industrial Engineering and Business Administration
+    photo: photos/board/marcus_tisdale.jpg
+    link: https://www.linkedin.com/in/marcus-tisdale
+
   - name: Dr. Alp Akcay
     role: Faculty Advisor
     program: Associate Professor, Mechanical and Industrial Engineering
@@ -82,5 +88,4 @@ open_positions_text: >-
   We're still looking for students to fill these roles on the 2026–27 board. Interested? Email
   [informsnu@gmail.com](mailto:informsnu@gmail.com).
 open_positions:
-  - Communications
   - Events
