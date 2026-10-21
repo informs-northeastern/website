@@ -20,7 +20,7 @@ goatcounter: ""
 
 # Google Search Console (optional). Add the site at https://search.google.com/search-console as a
 # "URL prefix" property, choose the "HTML tag" method, and paste only the content="..." value here.
-google_site_verification: ""
+google_site_verification: "QSLLKhrTJlNVKeB-Z5LnaIHYo_e_6uFLN_AvJACCyIw"
 
 # Keep apostrophes and quotes exactly as typed (no curly-quote conversion).
 kramdown:
