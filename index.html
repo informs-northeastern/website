@@ -32,14 +32,20 @@
   {%- assign start = day | append: " " | append: start_t | date: "%Y-%m-%dT%H:%M:00%:z" -%}
   {%- assign end = day | append: " " | append: end_t | date: "%Y-%m-%dT%H:%M:00%:z" -%}
 {%- endif %}
+{%- assign img = e.image | default: site.data.opening.group_photo | prepend: '^' | remove: '^/' | remove: '^' | prepend: home -%}
+{%- comment %} Speakers become "performer"; with none listed, the chapter itself is the performer. {% endcomment -%}
+{%- assign speakers = e.speakers | split: ";" %}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Event", "name": {% if e.title contains "INFORMS" %}{{ e.title | jsonify }}{% else %}{{ e.title | prepend: "INFORMS " | jsonify }}{% endif %},
- "startDate": "{{ start }}", "endDate": "{{ end }}",
+ "startDate": "{{ start }}", "endDate": "{{ end }}",{% if e.description and e.description != "" %}
+ "description": {{ e.description | markdownify | strip_html | strip_newlines | strip | replace: "&amp;", "&" | replace: "&quot;", '"' | replace: "&#39;", "'" | jsonify }},{% endif %}
+ "image": ["{{ img }}"],
  "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
  "location": {"@type": "Place", "name": "Northeastern University", "address": "360 Huntington Ave, Boston, MA 02115"},
  "organizer": {"@type": "Organization", "name": {{ c.full_name | jsonify }}, "url": "{{ home }}"},
+ "performer": [{% if speakers.size > 0 %}{% for sp in speakers %}{"@type": "Person", "name": {{ sp | strip | jsonify }}}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{"@type": "Organization", "name": {{ c.full_name | jsonify }}, "url": "{{ home }}"}{% endif %}],
  "isAccessibleForFree": {% if e.price == "Free" %}true{% else %}false{% endif %}, "url": "{{ e.register_link }}"{% if e.price == "Free" %},
- "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ e.register_link }}", "availability": "https://schema.org/InStock"}{% endif %}}
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ e.register_link }}", "availability": "https://schema.org/InStock", "validFrom": "{{ e.registration_opens | default: site.time | date: "%Y-%m-%dT00:00:00%:z" }}"}{% endif %}}
 </script>
 {%- endif %}{% endfor %}
 </head>

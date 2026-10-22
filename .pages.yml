@@ -31,7 +31,7 @@ content:
             label: Tag
             type: select
             options:
-              values: [Meeting, Seminar, Workshop, Kickoff, Social, Conference]
+              values: [Meeting, Seminar, Workshop, Panel, Kickoff, Social, Conference]
           - name: date
             label: Date
             type: date
@@ -49,6 +49,9 @@ content:
           - { name: register_link, label: Luma event link, type: string, description: Gives the event a Register button. }
           - { name: luma_event_id, label: Luma event ID, type: string, description: "Starts with evt- (Luma: Manage > More). Opens the sign-up pop-up on our page." }
           - { name: price, label: Price, type: string, description: e.g. Free }
+          - { name: speakers, label: Speakers (for search engines), type: string, description: "Names separated by ; e.g. Eric Flakne; Brendan Wang" }
+          - { name: registration_opens, label: Sign-up opened on (for search engines), type: date, default: "", options: { format: yyyy-MM-dd } }
+          - { name: image, label: Event photo (for search engines), type: image, description: Optional. Empty uses the group photo. }
           - { name: partner, label: Co-host label, type: string, description: e.g. With MIE }
           - { name: not_ours, label: Run by someone else (grey date square), type: boolean }
           - { name: when_text, label: Date line override, type: string, description: "Only if the date isn't exact, e.g. Late Oct 2026" }

@@ -16,6 +16,9 @@
 #   register_link  the Luma event link. Gives the event a Register button.
 #   luma_event_id  from Luma (Manage > More, starts with evt-). Makes Register open Luma's sign-up pop-up on our page.
 #   price          e.g. Free
+#   speakers       for search engines only: speakers' names, separated by ; e.g. Eric Flakne; Brendan Wang
+#   registration_opens  for search engines only: the day sign-up opened, e.g. 2026-10-14 (empty: the day the site was last updated)
+#   image          for search engines only: a photo for the event, e.g. photos/kickoff.jpg (empty: the group photo)
 #   partner        a co-host, shown as a small label next to the title, e.g. With MIE
 #   not_ours       yes for events run by someone else (e.g. the INFORMS conference): the date square turns grey
 #   when_text      replaces the automatic date line, e.g. Late Oct 2026 or 1 to 4 Nov 2026
@@ -41,6 +44,7 @@ upcoming:
     register_link: https://luma.com/su443lml
     luma_event_id: evt-jiVPEMcNeLOGoXN
     price: Free
+    speakers: Eric Flakne; Brendan Wang; Ava Rikkers
     description: >-
       Eric Flakne, Vice President of Quality Assurance at Procter & Gamble, with Brendan Wang (President,
       IISE Northeastern) and Ava Rikkers (President, NU Supply Chain Management Club) on careers in
