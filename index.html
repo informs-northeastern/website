@@ -145,8 +145,8 @@
       <div class="roles">
         <h3>{{ b.open_positions_heading }}</h3>
         <p>{% include text.html text=b.open_positions_text %}</p>
-        <ul>{% for r in b.open_positions %}<li>{{ r }}</li>{% endfor %}</ul>
-        <a class="btn dark" href="mailto:{{ c.email }}?subject=Board%20role">Ask about a role</a>
+        {%- comment %} Each open role emails the chapter about that role; the last pill is for general questions or a role idea. {% endcomment %}
+        <ul>{% for r in b.open_positions %}{% assign subj = "Board role: " | append: r %}<li><a class="role-pill" href="mailto:{{ c.email }}?subject={{ subj | uri_escape }}">{{ r }}</a></li>{% endfor %}<li><a class="role-pill ask" href="mailto:{{ c.email }}?subject={{ 'Question or idea for a board role' | uri_escape }}">Ask about a role</a></li></ul>
       </div>
       {%- endif %}
     </div>

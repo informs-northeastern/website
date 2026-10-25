@@ -85,7 +85,7 @@ people:
 # Delete every line (leave "open_positions:" empty) to hide the box.
 open_positions_heading: Board roles still open
 open_positions_text: >-
-  We're still looking for students to fill these roles on the 2026–27 board. Interested? Email
-  [informsnu@gmail.com](mailto:informsnu@gmail.com).
+  We're still looking for students to fill these roles on the 2026–27 board. Tap a role to email us
+  about it, or ask about a role that isn't listed yet.
 open_positions:
   - Events

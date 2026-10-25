@@ -219,14 +219,16 @@ h2.h3 { font-size: 26px; }
 a.person:hover .portrait img, a.person:focus-visible .portrait img { transform: scale(1.04); }
 a.person:hover b, a.person:focus-visible b { text-decoration: underline; text-underline-offset: 4px; }
 a.person:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
-/* Open roles: text and the open roles on the left, one real button on the right. Roles are plain text, not pills, so they don't look clickable. */
-.roles { margin-top: 8px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px 32px; padding: 24px 28px; border-radius: var(--r-card); background: var(--vellum); }
-.roles h3 { grid-column: 1; font-size: 20px; }
-.roles p { grid-column: 1; min-width: 0; color: var(--ink-soft); font-size: 16px; }
-.roles ul { grid-column: 1; list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
-.roles li { display: inline-flex; align-items: center; gap: 8px; font: 600 16px/1.4 var(--sans); color: var(--ink); }
-.roles li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
-.roles .btn { grid-column: 2; grid-row: 1 / span 3; }
+/* Open roles: each role is a pill that emails the chapter about that role; the navy pill, same size, is for general questions or a new role idea. */
+.roles { margin-top: 8px; display: flex; flex-direction: column; gap: 10px; padding: 24px 28px; border-radius: var(--r-card); background: var(--vellum); }
+.roles h3 { font-size: 20px; }
+.roles p { min-width: 0; color: var(--ink-soft); font-size: 16px; }
+.roles ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.role-pill { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; border: 1.5px solid var(--ink); background: var(--white); color: var(--ink); font: 600 15px/1 var(--sans); text-decoration: none; transition: background .2s, color .2s; }
+.role-pill:hover { background: var(--ink); color: var(--on-navy); }
+.role-pill.ask { background: var(--navy); border-color: var(--navy); color: var(--on-navy); }
+.role-pill.ask:hover { background: #1E3460; border-color: #1E3460; }
+.role-pill:active { transform: scale(.98); }
 
 /* Honors: a dark band with a year line */
 .sec.dark { background: var(--navy); color: var(--on-navy); }
@@ -341,8 +343,7 @@ footer .legal { padding-top: 22px; display: flex; flex-wrap: wrap; justify-conte
   .page-head .wrap { padding-block: 44px 40px; }
   .years { grid-template-columns: repeat(2, 1fr); }
   .bylaws div { grid-template-columns: 1fr; gap: 2px; }
-  .roles { grid-template-columns: 1fr; padding: 20px; }
-  .roles .btn { grid-column: 1; grid-row: auto; width: 100%; margin-top: 6px; }
+  .roles { padding: 20px; }
   .luma-bar a { width: 100%; justify-content: center; }
   .hero .actions .btn, .join .cta .btn { width: 100%; }
   .next { padding: 14px; }
