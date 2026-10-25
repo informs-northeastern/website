@@ -194,12 +194,14 @@ h2.h3 { font-size: 26px; }
 .signup { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; background: var(--navy); color: var(--on-navy); cursor: pointer; }
 .signup:hover { background: #1E3460; }
 .signup:active { transform: scale(.98); }
-.luma-bar { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 20px 24px; border-radius: var(--r-card); border: 1px dashed var(--rule-strong); }
-.luma-bar > div { min-width: 0; }
+/* Luma: a calendar tile, the line, and a filled button, so it reads as a real action rather than a placeholder. */
+.luma-bar { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; padding: 20px 24px; border-radius: var(--r-card); background: var(--white); border: 1px solid var(--rule); }
+.luma-bar::before { content: ""; flex: none; width: 48px; height: 48px; border-radius: var(--r-tile); background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F3F1EA' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15.5' rx='2.5'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3Ccircle cx='16' cy='15.5' r='1.6' fill='%23C9A35A' stroke='none'/%3E%3C/svg%3E") center / 26px no-repeat; }
+.luma-bar > div { flex: 1 1 18em; min-width: 0; }
 .luma-bar b { font: 600 19px/1.3 var(--sans); }
 .luma-bar span { display: block; margin-top: 2px; font-size: 15px; color: var(--ink-soft); }
-.luma-bar a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; border: 1.5px solid var(--ink); color: var(--ink); font: 600 15px/1 var(--sans); text-decoration: none; }
-.luma-bar a:hover { background: var(--white); }
+.luma-bar a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: var(--navy); color: var(--on-navy); font: 600 15px/1 var(--sans); text-decoration: none; }
+.luma-bar a:hover { background: #1E3460; }
 .stat { display: inline-block; margin-top: 14px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--navy-line); font: 500 14px/1.4 var(--sans); font-variant-numeric: tabular-nums; color: var(--on-navy); }
 
 /* People */
@@ -217,11 +219,14 @@ h2.h3 { font-size: 26px; }
 a.person:hover .portrait img, a.person:focus-visible .portrait img { transform: scale(1.04); }
 a.person:hover b, a.person:focus-visible b { text-decoration: underline; text-underline-offset: 4px; }
 a.person:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
-.roles { margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 22px 26px; border-radius: var(--r-card); background: var(--vellum); }
-.roles h3 { font-size: 20px; }
-.roles p { flex: 1 1 24em; min-width: 0; color: var(--ink-soft); font-size: 16px; }
-.roles ul { flex-basis: 100%; list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.roles li { padding: 6px 14px; border-radius: 999px; font: 600 14px/1.4 var(--sans); background: var(--white); border: 1px solid var(--rule); }
+/* Open roles: text and the open roles on the left, one real button on the right. Roles are plain text, not pills, so they don't look clickable. */
+.roles { margin-top: 8px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px 32px; padding: 24px 28px; border-radius: var(--r-card); background: var(--vellum); }
+.roles h3 { grid-column: 1; font-size: 20px; }
+.roles p { grid-column: 1; min-width: 0; color: var(--ink-soft); font-size: 16px; }
+.roles ul { grid-column: 1; list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.roles li { display: inline-flex; align-items: center; gap: 8px; font: 600 16px/1.4 var(--sans); color: var(--ink); }
+.roles li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+.roles .btn { grid-column: 2; grid-row: 1 / span 3; }
 
 /* Honors: a dark band with a year line */
 .sec.dark { background: var(--navy); color: var(--on-navy); }
@@ -336,7 +341,9 @@ footer .legal { padding-top: 22px; display: flex; flex-wrap: wrap; justify-conte
   .page-head .wrap { padding-block: 44px 40px; }
   .years { grid-template-columns: repeat(2, 1fr); }
   .bylaws div { grid-template-columns: 1fr; gap: 2px; }
-  .roles { padding: 20px; }
+  .roles { grid-template-columns: 1fr; padding: 20px; }
+  .roles .btn { grid-column: 1; grid-row: auto; width: 100%; margin-top: 6px; }
+  .luma-bar a { width: 100%; justify-content: center; }
   .hero .actions .btn, .join .cta .btn { width: 100%; }
   .next { padding: 14px; }
   .next a { width: 100%; justify-content: center; }

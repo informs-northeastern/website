@@ -146,6 +146,7 @@
         <h3>{{ b.open_positions_heading }}</h3>
         <p>{% include text.html text=b.open_positions_text %}</p>
         <ul>{% for r in b.open_positions %}<li>{{ r }}</li>{% endfor %}</ul>
+        <a class="btn dark" href="mailto:{{ c.email }}?subject=Board%20role">Ask about a role</a>
       </div>
       {%- endif %}
     </div>
