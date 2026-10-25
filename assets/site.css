@@ -350,6 +350,13 @@ footer .legal { padding-top: 22px; display: flex; flex-wrap: wrap; justify-conte
   .next a { width: 100%; justify-content: center; }
   .facts li { grid-template-columns: 96px 1fr; }
 }
+/* The smallest phones (320 to 400px): tighter menu so Join stays fully on screen. */
+@media (max-width: 400px) {
+  nav.main a { padding: 0 7px; font-size: 14.5px; }
+  nav.main .join-link { padding: 0 14px; }
+}
+/* Touch screens at tablet and desktop widths: footer links get a full 44px tap height. */
+@media (pointer: coarse) { footer li a { min-height: 44px; } }
 /* Phones held sideways: the menu scrolls away instead of covering half the short screen. */
 @media (max-height: 520px) {
   header.site { position: static; }
