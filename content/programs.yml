@@ -2,7 +2,7 @@
 # The home page lists each program's title with one short line: "short" for the main program,
 # and "text" for the others, so keep those to one line.
 
-heading: What we run
+heading: What we're starting this year
 
 # The big card on the left.
 main:
@@ -10,7 +10,7 @@ main:
   text: >-
     Once a month, a faculty member, an alum or someone working in Boston talks about how they use
     optimization, simulation or analytics on real problems. Questions and discussion afterwards.
-  short: A monthly talk by faculty, alumni or people working in Boston.
+  short: A monthly talk by faculty, alumni or people working in Boston, starting this year.
   facts:
     - label: Format
       value: Lecture and discussion
