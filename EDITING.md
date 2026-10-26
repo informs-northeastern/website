@@ -73,7 +73,7 @@ If a line starts with a special character (`:` `#` `-` `*` `@` `"`), put the who
 - Follow the chapter brand: navy and gold; plain, specific writing; dates as "Tue 13 Oct 2026"; always give the building and room.
 - Every line should tell the visitor something concrete (who, what, when, where) or go. No captions that explain the obvious.
 - Keep it from looking like a template: gold words only in the opening headline, plain section headings ("Events", not a slogan), no rows of icon cards or big-number strips. Write the way you'd explain it to a friend: short sentences, "we", no lists of three slogans.
-- No personal phone numbers or emails other than informsnu@gmail.com.
+- No personal phone numbers or emails. The public contact is informs@northeastern.edu.
 - Don't use Northeastern's logo, seal, wordmark or red. The site must not look like an official university page.
 
 ## The logo

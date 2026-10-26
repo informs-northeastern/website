@@ -47,4 +47,4 @@ Made a mistake? Nothing breaks: the website keeps showing the last good version.
 
 ## Who to ask
 
-Email **informsnu@gmail.com**. The chapter's Gmail account also signs in to everything the site uses: GitHub, Luma and Google Forms.
+Email **informs@northeastern.edu** (the chapter mailbox; access through the faculty and staff owners). The chapter Gmail, informsnu@gmail.com, still signs in to everything the site uses: GitHub, Luma and Google Forms.
