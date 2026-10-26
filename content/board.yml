@@ -41,13 +41,13 @@ people:
 
   - name: Chirag Daas
     role: Undergraduate Director
-    program: Industrial Engineering and Business
+    program: BS, Industrial Engineering and Business
     photo: photos/board/chirag_daas.jpg
     link: https://www.linkedin.com/in/chirag-daas/
 
   - name: Lokesh Addagiri
     role: Webmaster
-    program: Data Science and Business
+    program: BS, Data Science and Business
     photo: photos/board/lokesh_addagiri.jpg
     link: https://www.linkedin.com/in/lokeshaddagiri/
 
@@ -88,4 +88,6 @@ open_positions_text: >-
   We're still looking for students to fill these roles on the 2026–27 board. Tap a role to email us
   about it, or ask about a role that isn't listed yet.
 open_positions:
-  - Events
+  - Events Lead
+  - Historian
+  - Graduate Outreach (Spring 2027)
