@@ -57,6 +57,20 @@ content:
           - { name: when_text, label: Date line override, type: string, description: "Only if the date isn't exact, e.g. Late Oct 2026" }
           - { name: square_day, label: Date square, top line override, type: string, description: "e.g. Late, or 1–4" }
           - { name: square_month, label: Date square, month override, type: string, description: e.g. Oct }
+      - { name: recent_heading, label: Recently heading, type: string }
+      - name: recent
+        label: Recently (past events with a photo, newest first; the home page shows two)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd } }
+          - { name: text, label: One or two sentences, type: text }
+          - { name: photo, label: Photo (landscape, with the people's OK), type: image }
+          - { name: photo_description, label: Photo description (for screen readers), type: text }
       - name: past
         label: Award photo (About page, Awards section)
         type: object

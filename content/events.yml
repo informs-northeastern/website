@@ -76,6 +76,22 @@ upcoming:
       The big INFORMS conference of the year, where the student chapter awards are given out. Our chapter
       receives an Honorable Mention there for its 2025–26 activity. Going? Let us know.
 
+# RECENTLY: past events with a photo, newest first. Shown under the upcoming events.
+# Copy a block (from "- title:") to add one. The home page shows the first two.
+#   photo   a landscape photo in photos/events/, about 1600 pixels wide, with the people's OK
+recent_heading: Recently
+recent:
+  - title: Undergrad Career Panel
+    date: 2026-10-27
+    text: >-
+      Eric Flakne (Procter & Gamble), Brendan Wang (IISE Northeastern) and Ava Rikkers (Supply Chain
+      Management Club) on co-ops, first jobs and how to build a network from zero. Run by Chirag Daas and
+      Lokesh Addagiri.
+    photo: photos/events/2026-10-27_career-panel.jpg
+    photo_description: >-
+      Three panelists and a moderator seated at the front of a classroom, with a board member standing
+      beside them and an INFORMS slide introducing Brendan Wang on the screen.
+
 # The award photo on the About page, in the Awards section. Only photo, photo_description and caption are shown.
 past:
   label: From past years

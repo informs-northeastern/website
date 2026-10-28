@@ -88,6 +88,14 @@
         {%- endfor %}
       </ol>
       <div class="luma-bar"><div><b>{{ ev.luma_title }}</b><span>{{ ev.luma_text }}</span></div><a href="{{ c.luma_calendar }}" target="_blank" rel="noopener">Subscribe on Luma</a></div>
+      {%- if ev.recent and ev.recent.size > 0 %}
+      <h3 class="recent-h">{{ ev.recent_heading | default: "Recently" }}</h3>
+      <ul class="recent">
+        {%- for r in ev.recent limit: 2 %}
+        <li>{% if r.photo and r.photo != "" %}<img src="{{ r.photo | prepend: '^' | remove: '^/' | remove: '^' }}" width="1600" height="1200" alt="{{ r.photo_description | escape }}" loading="lazy">{% endif %}<div><span class="when">{{ r.date | date: "%a %-d %b %Y" }}</span><h4>{{ r.title }}</h4>{% if r.text and r.text != "" %}<p>{% include text.html text=r.text %}</p>{% endif %}</div></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
     </div>
   </div>
 </section>
