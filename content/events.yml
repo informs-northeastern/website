@@ -36,21 +36,6 @@ luma_title: Get invites by email
 luma_text: Follow our Luma calendar and new events land in your inbox.
 
 upcoming:
-  - title: Undergrad Career Panel
-    type: Panel
-    date: 2026-10-27
-    time: 3:30–4:30 PM
-    place: Boston campus (room shared when you register)
-    register_link: https://luma.com/su443lml
-    luma_event_id: evt-jiVPEMcNeLOGoXN
-    price: Free
-    speakers: Eric Flakne; Brendan Wang; Ava Rikkers
-    description: >-
-      Eric Flakne, Vice President of Quality Assurance at Procter & Gamble, with Brendan Wang (President,
-      IISE Northeastern) and Ava Rikkers (President, NU Supply Chain Management Club) on careers in
-      operations, analytics and supply chain. Open Q&A, then stay to network. For undergraduates; all
-      majors welcome.
-
   - title: Kickoff and Welcome
     type: Kickoff
     partner: With MIE
